@@ -72,7 +72,7 @@ public class Login {
                             cli1.setNombre(UsuarioField.getText());
                             cli1.setContrasena(ContraField.getText());
                             for(Document documento:documentos){
-                                if(documento.getString("nombre").equals(cli1.getNombre()) && documento.getString("Contrasena").equals(cli1.getContrasena())){
+                                if(documento.getString("nombre").equals(cli1.getNombre()) && documento.getString("contrasena").equals(cli1.getContrasena())){
                                     JFrame paginaClientes=new JFrame();
                                     paginaClientes.setTitle("Bienvenido "+cli1.getNombre());
                                     paginaClientes.setContentPane(new PaginaClientes().PanelPaginaCli);
