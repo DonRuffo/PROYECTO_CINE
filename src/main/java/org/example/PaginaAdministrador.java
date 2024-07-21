@@ -6,4 +6,5 @@ public class PaginaAdministrador {
     private JButton gestionarPelículasButton;
     private JButton estadísticasButton;
     private JButton gestionarClientesButton;
+    public JPanel PanelPaginaAdmin;
 }
