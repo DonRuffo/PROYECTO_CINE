@@ -16,10 +16,12 @@ public class AgregarPelicula {
     private JComboBox HorarioBox;
     private JComboBox SalaBox;
     private JComboBox EdadBox;
+    private JComboBox DiaBox;
 
     DefaultComboBoxModel horarioModel=new DefaultComboBoxModel();
     DefaultComboBoxModel salaModel=new DefaultComboBoxModel();
     DefaultComboBoxModel edadModel=new DefaultComboBoxModel();
+    DefaultComboBoxModel diaModel=new DefaultComboBoxModel();
 
 
     public AgregarPelicula() {
@@ -43,6 +45,14 @@ public class AgregarPelicula {
         edadModel.addElement("Familiar");
         edadModel.addElement("+15");
         edadModel.addElement("+18");
+        DiaBox.setModel(diaModel);
+        diaModel.addElement("Lunes");
+        diaModel.addElement("Martes");
+        diaModel.addElement("Miércoles");
+        diaModel.addElement("Jueves");
+        diaModel.addElement("Viernes");
+        diaModel.addElement("Sábado");
+        diaModel.addElement("Domingo");
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,23 +68,25 @@ public class AgregarPelicula {
                     int numeroSala=Integer.parseInt(salaModel.getSelectedItem().toString());
                     peli1.setSala(numeroSala);
                     peli1.setHorario(horarioModel.getSelectedItem().toString());
+                    peli1.setDia(diaModel.getSelectedItem().toString());
                     try(MongoClient cliente= MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                         MongoDatabase peliculas=cliente.getDatabase("Peliculas");
                         MongoCollection<Document> datos=peliculas.getCollection("Datos_Peliculas");
                         System.out.println("CONEXION EXITOSA");
                         FindIterable<Document> documentos= datos.find();
                         for(Document documento:documentos) {
-                            if (numeroSala == documento.getInteger("sala") && peli1.getHorario().equals(documento.getString("horario"))) {
+                            if (numeroSala == documento.getInteger("sala") && peli1.getHorario().equals(documento.getString("horario")) && peli1.getDia().equals(documento.getString("dia"))) {
                                 ident = 1;
                             }
                         }
                         if (ident==1){
                             JOptionPane.showMessageDialog(null,"El horario "+peli1.getHorario()+" en la sala "+peli1.getSala()+" está ocupado."
-                                    +" Seleccione otro horario o sala");
+                                    +" Seleccione otro horario, sala o día");
                         }else{
                             Document insercion=new Document("titulo",peli1.getTitulo()).append("categoria",peli1.getCategoria())
                                     .append("horario",peli1.getHorario()).append("sala", peli1.getSala())
-                                    .append("precio_asiento", peli1.getPrecio()).append("restriccion_edad",peli1.getRestriccion());
+                                    .append("precio_asiento", peli1.getPrecio()).append("restriccion_edad",peli1.getRestriccion())
+                                    .append("dia",peli1.getDia());
                             datos.insertOne(insercion);
                             JOptionPane.showMessageDialog(null,"Registro Exitoso");
                             TituloField.setText("");

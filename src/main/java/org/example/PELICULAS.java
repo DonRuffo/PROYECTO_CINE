@@ -1,18 +1,19 @@
 package org.example;
 
 public class PELICULAS {
-    String titulo, categoria, horario, restriccion;
+    String titulo, categoria, horario, restriccion, dia;
     int sala;
     double precio;
 
     public PELICULAS() {}
-    public PELICULAS(String titulo, String categoria, String horario, String restriccion,int sala, double precio){
+    public PELICULAS(String titulo, String categoria, String horario, String restriccion,String dia,int sala, double precio){
         this.titulo = titulo;
         this.categoria = categoria;
         this.horario = horario;
         this.restriccion = restriccion;
         this.sala = sala;
         this.precio = precio;
+        this.dia = dia;
     }
 
     public void setTitulo(String titulo) {
@@ -39,6 +40,10 @@ public class PELICULAS {
         this.precio = precio;
     }
 
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -61,5 +66,9 @@ public class PELICULAS {
 
     public double getPrecio() {
         return precio;
+    }
+
+    public String getDia() {
+        return dia;
     }
 }
