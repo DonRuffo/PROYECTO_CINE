@@ -10,7 +10,6 @@ public class AgregarPelicula {
     private JTextField TituloField;
     private JTextField CateegoriaField;
     private JTextField PrecioField;
-    private JTextField EdadField;
     private JButton agregarButton;
     public JPanel MainPanel;
     private JComboBox HorarioBox;

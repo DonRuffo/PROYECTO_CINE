@@ -24,7 +24,7 @@ public class GestionarPeliculas {
                 agregarPeli.setTitle("Agregar Película");
                 agregarPeli.setContentPane(new AgregarPelicula().MainPanel);
                 agregarPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                agregarPeli.setSize(500,300);
+                agregarPeli.setSize(500,350);
                 agregarPeli.setLocationRelativeTo(null);
                 agregarPeli.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(agregarPelículaButton)).dispose();
