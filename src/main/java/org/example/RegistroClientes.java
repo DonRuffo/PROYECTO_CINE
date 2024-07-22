@@ -28,7 +28,7 @@ public class RegistroClientes {
                 CLIENTES cli2 = new CLIENTES();
                 String contra=ContrasenaRegis.getText();
                 String confirmar = ConfContraRegis.getText();
-                if(contra.equals("") || confirmar.equals("") || NombreRegis.getText().equals("") || EdadRegis.getText().equals("") || TelefonoRegis.getText().equals("") || CedulaRegis.equals("") || DireccionRegis.getText().equals("")) {
+                if(contra.isEmpty() || confirmar.isEmpty() || NombreRegis.getText().isEmpty() || EdadRegis.getText().isEmpty() || TelefonoRegis.getText().isEmpty() || CedulaRegis.getText().isEmpty() || DireccionRegis.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, rellenar todos los campos");
                 }else{
                     if(contra.equals(confirmar)){
