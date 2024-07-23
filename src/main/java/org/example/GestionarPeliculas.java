@@ -30,5 +30,18 @@ public class GestionarPeliculas {
                 ((JFrame) SwingUtilities.getWindowAncestor(agregarPelículaButton)).dispose();
             }
         });
+        eliminarPelículaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame eliminarPeli= new JFrame();
+                eliminarPeli.setTitle("Eliminar Película");
+                eliminarPeli.setContentPane(new Eliminar_Pelicula().MainPanel);
+                eliminarPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                eliminarPeli.setSize(500,300);
+                eliminarPeli.setLocationRelativeTo(null);
+                eliminarPeli.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(eliminarPelículaButton)).dispose();
+            }
+        });
     }
 }
