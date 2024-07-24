@@ -33,13 +33,12 @@ public class GestionarPeliculas {
         eliminarPelículaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame eliminarPeli= new JFrame();
-                eliminarPeli.setTitle("Eliminar Película");
-                eliminarPeli.setContentPane(new Eliminar_Pelicula().MainPanel);
-                eliminarPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                eliminarPeli.setSize(500,300);
-                eliminarPeli.setLocationRelativeTo(null);
-                eliminarPeli.setVisible(true);
+                JFrame cartelera= new JFrame("Cartelera");
+                cartelera.setContentPane(new EliminarDeCartelera().MainPanel);
+                cartelera.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                cartelera.setSize(500,300);
+                cartelera.setLocationRelativeTo(null);
+                cartelera.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(eliminarPelículaButton)).dispose();
             }
         });
