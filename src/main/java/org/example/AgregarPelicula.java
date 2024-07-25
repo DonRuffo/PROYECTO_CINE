@@ -16,6 +16,7 @@ public class AgregarPelicula {
     private JComboBox SalaBox;
     private JComboBox EdadBox;
     private JComboBox DiaBox;
+    private JButton regresarButton;
 
     DefaultComboBoxModel horarioModel=new DefaultComboBoxModel();
     DefaultComboBoxModel salaModel=new DefaultComboBoxModel();
@@ -30,16 +31,11 @@ public class AgregarPelicula {
         horarioModel.addElement("18:00");
         horarioModel.addElement("21:00");
         SalaBox.setModel(salaModel);
-        salaModel.addElement("1");
-        salaModel.addElement("2");
-        salaModel.addElement("3");
-        salaModel.addElement("4");
-        salaModel.addElement("5");
-        salaModel.addElement("6");
-        salaModel.addElement("7");
-        salaModel.addElement("8");
-        salaModel.addElement("9");
-        salaModel.addElement("10");
+
+        for(int i=0; i<=10; i++){
+            salaModel.addElement(i);
+        }
+
         EdadBox.setModel(edadModel);
         edadModel.addElement("Familiar");
         edadModel.addElement("+15");
@@ -64,8 +60,7 @@ public class AgregarPelicula {
                     peli1.setCategoria(CateegoriaField.getText());
                     peli1.setPrecio(Float.parseFloat(PrecioField.getText()));
                     peli1.setRestriccion(edadModel.getSelectedItem().toString());
-                    int numeroSala=Integer.parseInt(salaModel.getSelectedItem().toString());
-                    peli1.setSala(numeroSala);
+                    peli1.setSala(salaModel.getSelectedItem().hashCode());
                     peli1.setHorario(horarioModel.getSelectedItem().toString());
                     peli1.setDia(diaModel.getSelectedItem().toString());
                     try(MongoClient cliente= MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
@@ -74,7 +69,7 @@ public class AgregarPelicula {
                         System.out.println("CONEXION EXITOSA");
                         FindIterable<Document> documentos= datos.find();
                         for(Document documento:documentos) {
-                            if (numeroSala == documento.getInteger("sala") && peli1.getHorario().equals(documento.getString("horario")) && peli1.getDia().equals(documento.getString("dia"))) {
+                            if (peli1.getSala() == documento.getInteger("sala") && peli1.getHorario().equals(documento.getString("horario")) && peli1.getDia().equals(documento.getString("dia"))) {
                                 ident = 1;
                             }
                         }
@@ -93,9 +88,21 @@ public class AgregarPelicula {
                             PrecioField.setText("");
                             ident=0;
                         }
-                        cliente.close();
                     }
                 }
+            }
+        });
+        regresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame gestionPeliculas = new JFrame();
+                gestionPeliculas.setTitle("Gestionar Peliculas");
+                gestionPeliculas.setContentPane(new GestionarPeliculas().MainPanel);
+                gestionPeliculas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                gestionPeliculas.setSize(500, 300);
+                gestionPeliculas.setLocationRelativeTo(null);
+                gestionPeliculas.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
     }

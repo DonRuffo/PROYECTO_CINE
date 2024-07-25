@@ -10,6 +10,8 @@ import java.util.LinkedHashSet;
 import javax.swing.*;
 import java.util.Set;
 
+import static java.lang.Integer.parseInt;
+
 public class EliminarDeCartelera {
     private JComboBox SeleccionBox;
     private JButton eliminarButton;
@@ -22,7 +24,11 @@ public class EliminarDeCartelera {
     private JCheckBox eliminarPorHorarioYCheckBox;
     private JComboBox DiaBox;
     private JLabel DiaLabel;
+    private JComboBox Seleccion2box;
+    private JLabel SeleccionLabel;
+    private JLabel Seleccion2Label;
     DefaultComboBoxModel seleccionModel = new DefaultComboBoxModel();
+    DefaultComboBoxModel seleccion2model= new DefaultComboBoxModel<>();
     DefaultComboBoxModel horarioModel = new DefaultComboBoxModel();
     DefaultComboBoxModel salaModel = new DefaultComboBoxModel();
     DefaultComboBoxModel diaModel= new DefaultComboBoxModel<>();
@@ -32,11 +38,12 @@ public class EliminarDeCartelera {
         HorarioBox.setModel(horarioModel);
         DiaBox.setModel(diaModel);
 
-        salaModel.addElement("Sala");
-        horarioModel.addElement("Horario");
-        diaModel.addElement("Día");
+        diaModel.addElement("dia");
+        horarioModel.addElement("horario");
+        salaModel.addElement("sala");
 
         SeleccionBox.setModel(seleccionModel);
+        Seleccion2box.setModel(seleccion2model);
 
         PELICULAS peliEliminar= new PELICULAS();
 
@@ -53,11 +60,11 @@ public class EliminarDeCartelera {
             for(Document documento2 : documento){
                 pelis.add(documento2.getString("titulo"));
             }
-            cliente.close();
         }
         List<String> pelisnuevas = removerduplicados(pelis);
         for(int i=0;i<=pelisnuevas.size()-1;i++){
             seleccionModel.addElement(pelisnuevas.get(i));
+            seleccion2model.addElement(pelisnuevas.get(i));
         }
         eliminarButton.addActionListener(new ActionListener() {
             @Override
@@ -65,28 +72,36 @@ public class EliminarDeCartelera {
                 try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                     MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
                     MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
-                    peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
-                    peliEliminar.setHorario(horarioModel.getSelectedItem().toString());
-                    peliEliminar.setSala(Integer.parseInt(salaModel.getSelectedItem().toString()));
-                    peliEliminar.setDia(diaModel.getSelectedItem().toString());
-                    if(SalaBox.isVisible() && HorarioBox.isVisible()){
-                        Document filtro = new Document("titulo",peliEliminar.getTitulo())
-                                .append("sala",peliEliminar.getSala())
-                                .append("horario",peliEliminar.getHorario())
-                                .append("dia", peliEliminar.getDia());
-                        DeleteResult resultado=coleccion.deleteOne(filtro);
-                        JOptionPane.showMessageDialog(null, "Pelicula " +peliEliminar.getTitulo()+" elimnada con éxito");
-                        SeleccionBox.removeItem(peliEliminar.getTitulo());
-                        cliente.close();
+
+                    if(SalaBox.isVisible() && HorarioBox.isVisible() && DiaBox.isVisible()){
+                        peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
+                        peliEliminar.setHorario(horarioModel.getSelectedItem().toString());
+                        peliEliminar.setSala(Integer.parseInt(salaModel.getSelectedItem().toString()));
+                        peliEliminar.setDia(diaModel.getSelectedItem().toString());
+                            Document filtro = new Document("titulo", peliEliminar.getTitulo())
+                                    .append("sala", peliEliminar.getSala())
+                                    .append("horario", peliEliminar.getHorario())
+                                    .append("dia", peliEliminar.getDia());
+                            DeleteResult resultado = coleccion.deleteOne(filtro);
+                            JOptionPane.showMessageDialog(null, "Pelicula " + peliEliminar.getTitulo() + " elimnada con éxito");
+                            DiaBox.removeAllItems();
+                            SalaBox.removeAllItems();
+                            HorarioBox.removeAllItems();
+                            diaModel.addElement("dia");
+                            horarioModel.addElement("horario");
+                            salaModel.addElement("sala");
+
                     }else{
+                        peliEliminar.setTitulo(seleccion2model.getSelectedItem().toString());
                         Document filtro = new Document("titulo",peliEliminar.getTitulo());
                         DeleteResult resultado=coleccion.deleteMany(filtro);
                         JOptionPane.showMessageDialog(null, "Pelicula " +peliEliminar.getTitulo()+" elimnada con éxito");
+                        Seleccion2box.removeItem(peliEliminar.getTitulo());
                         SeleccionBox.removeItem(peliEliminar.getTitulo());
-                        cliente.close();
                     }
                 }
             }
+
         });
         regresarButton.addActionListener(new ActionListener() {
             @Override
@@ -111,6 +126,11 @@ public class EliminarDeCartelera {
                     HorarioBox.setVisible(false);
                     DiaLabel.setVisible(false);
                     DiaBox.setVisible(false);
+                    SeleccionBox.setVisible(false);
+                    SeleccionLabel.setVisible(false);
+                    Seleccion2box.setVisible(true);
+                    Seleccion2Label.setVisible(true);
+
 
                 }else{
                     SalaLabel.setVisible(true);
@@ -119,12 +139,23 @@ public class EliminarDeCartelera {
                     HorarioBox.setVisible(true);
                     DiaLabel.setVisible(true);
                     DiaBox.setVisible(true);
+                    SeleccionBox.setVisible(true);
+                    SeleccionLabel.setVisible(true);
+                    Seleccion2Label.setVisible(false);
+                    Seleccion2box.setVisible(false);
                 }
             }
         });
         SeleccionBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent c) {
+
+                if(DiaBox.getItemCount()>1){
+                    for(int i=0; i<=dias.size()-1;i++){
+                        DiaBox.removeItem(dias.get(i));
+                    }dias.clear();
+                }
+
                 peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
                 try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                     MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
@@ -136,24 +167,30 @@ public class EliminarDeCartelera {
                             dias.add(documento3.getString("dia"));
                         }
                     }
-                    cliente.close();
                 }
                 List<String> diasLimpios = removerduplicados(dias);
                 for(int i=0; i<= diasLimpios.size()-1;i++){
                     diaModel.addElement(diasLimpios.get(i));
                 }
                 diasLimpios.clear();
-                dias.clear();
+
             }
         });
 
         DiaBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent d) {
+
+                if(SalaBox.getItemCount()>1){
+                    for(int i=0; i<=salas.size()-1;i++){
+                        SalaBox.removeItem(salas.get(i));
+                    }salas.clear();
+                }
+
                 peliEliminar.setDia(diaModel.getSelectedItem().toString());
                 peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
-                try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
-                    MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
+                try(MongoClient cliente1 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                    MongoDatabase baseDeDatos = cliente1.getDatabase("Peliculas");
                     MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
 
                     FindIterable<Document> documento=coleccion.find();
@@ -163,24 +200,29 @@ public class EliminarDeCartelera {
                             /*horarios.add(documento3.getString("horario"));*/
                         }
                     }
-                    List<Integer> SalasLimpias = removerduplicados(salas);
-                    for(int i = 0; i<= SalasLimpias.size()-1; i++){
-                        salaModel.addElement(SalasLimpias.get(i));
-                    }
-                    salas.clear();
-                    SalasLimpias.clear();
-                    cliente.close();
                 }
+                List<Integer> SalasLimpias = removerduplicados(salas);
+                for(int i = 0; i<= SalasLimpias.size()-1; i++){
+                    salaModel.addElement(SalasLimpias.get(i));
+                }
+                SalasLimpias.clear();
             }
         });
         SalaBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                if(HorarioBox.getItemCount()>1){
+                    for(int i=0; i<= horarios.size()-1;i++){
+                        HorarioBox.removeItem(horarios.get(i));
+                    }horarios.clear();
+                }
+
                 peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
                 peliEliminar.setDia(diaModel.getSelectedItem().toString());
-                peliEliminar.setSala(Integer.parseInt(salaModel.getSelectedItem().toString()));
-                try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
-                    MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
+                peliEliminar.setSala(parseInt(salaModel.getSelectedItem().toString()));
+                try(MongoClient cliente2 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                    MongoDatabase baseDeDatos = cliente2.getDatabase("Peliculas");
                     MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
 
                     FindIterable<Document> documento=coleccion.find();
@@ -190,14 +232,12 @@ public class EliminarDeCartelera {
                             horarios.add(documento3.getString("horario"));
                         }
                     }
-                    List<String> horariosLimpios=removerduplicados(horarios);
-                    for (int j=0;j<=horariosLimpios.size()-1;j++){
-                        horarioModel.addElement(horariosLimpios.get(j));
-                    }
-                    horariosLimpios.clear();
-                    horarios.clear();
-                    cliente.close();
                 }
+                List<String> horariosLimpios=removerduplicados(horarios);
+                for (int j=0;j<=horariosLimpios.size()-1;j++){
+                    horarioModel.addElement(horariosLimpios.get(j));
+                }
+                horariosLimpios.clear();
             }
         });
     }

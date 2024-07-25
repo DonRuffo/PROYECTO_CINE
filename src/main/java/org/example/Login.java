@@ -31,53 +31,56 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
                 String usuario=perfil.getSelectedItem().toString();
                 System.out.println("CONECTADO");
+                if(UsuarioField.getText().isEmpty() || ContraField.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Ingrese sus datos por favor");
+                }else {
 
-
-                    if (usuario.equals("Administrador")){
-                        try(MongoClient clienteMongo=MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")) {
+                    if (usuario.equals("Administrador")) {
+                        try (MongoClient clienteMongo = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")) {
                             MongoDatabase Administradores = clienteMongo.getDatabase("Administradores");
                             MongoCollection<Document> datos = Administradores.getCollection("Datos_administrador");
                             FindIterable<Document> documentos = datos.find();
                             ADMINISTRADORES adm1 = new ADMINISTRADORES();
                             adm1.setNombre(UsuarioField.getText());
                             adm1.setContrasena(ContraField.getText());
-                            int identificador=0;
+                            int identificador = 0;
                             for (Document documento : documentos) {
                                 if (documento.getString("nombre").equals(adm1.getNombre()) && documento.getString("contrasena").equals(adm1.getContrasena())) {
-                                    identificador=1;
+                                    identificador = 1;
                                     JFrame paginaAdministrador = new JFrame();
                                     paginaAdministrador.setTitle("Administrador");
                                     paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
                                     paginaAdministrador.setSize(500, 300);
                                     paginaAdministrador.setLocationRelativeTo(null);
-                                    paginaAdministrador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                    paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                                     paginaAdministrador.setVisible(true);
 
                                     ((JFrame) SwingUtilities.getWindowAncestor(iniciarSesiónButton)).dispose();
                                 }
-                            }if(identificador==0) {
+                            }
+                            if (identificador == 0) {
                                 JOptionPane.showMessageDialog(null, "Error de credenciales, intente de nuevo");
                                 UsuarioField.setText("");
                                 ContraField.setText("");
                             }
-                            identificador=0;
+                            identificador = 0;
                         }
-                    }else if(usuario.equals("Cliente")){
-                        try(MongoClient mongoCliente=MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")) {
-                            MongoDatabase clientes= mongoCliente.getDatabase("Clientes");
-                            MongoCollection<Document> datos=clientes.getCollection("Datos_clientes");
+                    } else if (usuario.equals("Cliente")) {
+                        try (MongoClient mongoCliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")) {
+                            MongoDatabase clientes = mongoCliente.getDatabase("Clientes");
+                            MongoCollection<Document> datos = clientes.getCollection("Datos_clientes");
 
-                            FindIterable<Document> documentos=datos.find();
+                            FindIterable<Document> documentos = datos.find();
                             CLIENTES cli1 = new CLIENTES();
                             cli1.setNombre(UsuarioField.getText());
                             cli1.setContrasena(ContraField.getText());
-                            for(Document documento:documentos){
-                                if(documento.getString("nombre").equals(cli1.getNombre()) && documento.getString("contrasena").equals(cli1.getContrasena())){
-                                    JFrame paginaClientes=new JFrame();
-                                    paginaClientes.setTitle("Bienvenido "+cli1.getNombre());
+                            for (Document documento : documentos) {
+                                if (documento.getString("nombre").equals(cli1.getNombre()) && documento.getString("contrasena").equals(cli1.getContrasena())) {
+                                    JFrame paginaClientes = new JFrame();
+                                    paginaClientes.setTitle("Bienvenido " + cli1.getNombre());
                                     paginaClientes.setContentPane(new PaginaClientes().PanelPaginaCli);
                                     paginaClientes.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                                    paginaClientes.setSize(500,300);
+                                    paginaClientes.setSize(500, 300);
                                     paginaClientes.setLocationRelativeTo(null);
                                     paginaClientes.setVisible(true);
 
@@ -88,7 +91,7 @@ public class Login {
                     }
 
 
-
+                }
             }
         });
         registrarseButton.addActionListener(new ActionListener() {

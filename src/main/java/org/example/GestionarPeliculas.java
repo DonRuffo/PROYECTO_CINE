@@ -11,6 +11,7 @@ public class GestionarPeliculas {
     private JButton eliminarPelículaButton;
     public JPanel MainPanel;
     private JPanel PanelImagen1;
+    private JButton regresarButton;
 
     public GestionarPeliculas() {
         PanelImagen1.setLayout(new BorderLayout());
@@ -40,6 +41,20 @@ public class GestionarPeliculas {
                 cartelera.setLocationRelativeTo(null);
                 cartelera.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(eliminarPelículaButton)).dispose();
+            }
+        });
+        regresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame paginaAdministrador = new JFrame();
+                paginaAdministrador.setTitle("Administrador");
+                paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
+                paginaAdministrador.setSize(500, 300);
+                paginaAdministrador.setLocationRelativeTo(null);
+                paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                paginaAdministrador.setVisible(true);
+
+                ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
     }

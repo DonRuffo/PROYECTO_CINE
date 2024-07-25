@@ -11,6 +11,7 @@ public class PaginaAdministrador {
     private JButton gestionarClientesButton;
     public JPanel PanelPaginaAdmin;
     private JPanel PanelImagen1;
+    private JButton cerrarSesiónButton;
 
     public PaginaAdministrador() {
         PanelImagen1.setLayout(new BorderLayout());
@@ -29,6 +30,19 @@ public class PaginaAdministrador {
                 gestionPeliculas.setLocationRelativeTo(null);
                 gestionPeliculas.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(gestionarPelículasButton)).dispose();
+            }
+        });
+        cerrarSesiónButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame confirmar = new JFrame();
+                confirmar.setTitle("Confirmar");
+                confirmar.setContentPane(new ConfirmarCerrarSesion().MainPanel);
+                confirmar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                confirmar.setSize(300, 150);
+                confirmar.setLocationRelativeTo(null);
+                confirmar.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(cerrarSesiónButton)).dispose();
             }
         });
     }
