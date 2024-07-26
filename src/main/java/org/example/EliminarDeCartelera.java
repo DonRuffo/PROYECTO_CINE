@@ -38,19 +38,18 @@ public class EliminarDeCartelera {
         HorarioBox.setModel(horarioModel);
         DiaBox.setModel(diaModel);
 
-        diaModel.addElement("dia");
+        diaModel.addElement("fecha");
         horarioModel.addElement("horario");
         salaModel.addElement("sala");
 
         SeleccionBox.setModel(seleccionModel);
         Seleccion2box.setModel(seleccion2model);
-
         PELICULAS peliEliminar= new PELICULAS();
 
         List<String> horarios= new ArrayList<>();
         List<String> pelis = new ArrayList<>();
-        List<String> dias= new ArrayList<>();
-        List<Integer> salas=new ArrayList<>();
+        List<String> FechasPelis = new ArrayList<>();
+        List<String> salas=new ArrayList<>();
 
         try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
             MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
@@ -66,9 +65,11 @@ public class EliminarDeCartelera {
             seleccionModel.addElement(pelisnuevas.get(i));
             seleccion2model.addElement(pelisnuevas.get(i));
         }
+        pelis.clear();
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int iterador=0;
                 try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                     MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
                     MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
@@ -76,20 +77,30 @@ public class EliminarDeCartelera {
                     if(SalaBox.isVisible() && HorarioBox.isVisible() && DiaBox.isVisible()){
                         peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
                         peliEliminar.setHorario(horarioModel.getSelectedItem().toString());
-                        peliEliminar.setSala(Integer.parseInt(salaModel.getSelectedItem().toString()));
+                        peliEliminar.setSala(salaModel.getSelectedItem().toString());
                         peliEliminar.setDia(diaModel.getSelectedItem().toString());
                             Document filtro = new Document("titulo", peliEliminar.getTitulo())
                                     .append("sala", peliEliminar.getSala())
-                                    .append("horario", peliEliminar.getHorario())
-                                    .append("dia", peliEliminar.getDia());
+                                    .append("hora", peliEliminar.getHorario())
+                                    .append("fecha", peliEliminar.getDia());
                             DeleteResult resultado = coleccion.deleteOne(filtro);
                             JOptionPane.showMessageDialog(null, "Pelicula " + peliEliminar.getTitulo() + " elimnada con éxito");
-                            DiaBox.removeAllItems();
-                            SalaBox.removeAllItems();
-                            HorarioBox.removeAllItems();
-                            diaModel.addElement("dia");
-                            horarioModel.addElement("horario");
-                            salaModel.addElement("sala");
+                        if(DiaBox.getItemCount()>1){
+                            for(int i = 0; i<= FechasPelis.size()-1; i++){
+                                DiaBox.removeItem(FechasPelis.get(i));
+                            }
+                            FechasPelis.clear();
+                        }
+                        if(SalaBox.getItemCount()>1){
+                            for(int i=0; i<=salas.size()-1;i++){
+                                SalaBox.removeItem(salas.get(i));
+                            }salas.clear();
+                        }
+                        if(HorarioBox.getItemCount()>1){
+                            for(int i=0; i<= horarios.size()-1;i++){
+                                HorarioBox.removeItem(horarios.get(i));
+                            }horarios.clear();
+                        }
 
                     }else{
                         peliEliminar.setTitulo(seleccion2model.getSelectedItem().toString());
@@ -151,9 +162,10 @@ public class EliminarDeCartelera {
             public void actionPerformed(ActionEvent c) {
 
                 if(DiaBox.getItemCount()>1){
-                    for(int i=0; i<=dias.size()-1;i++){
-                        DiaBox.removeItem(dias.get(i));
-                    }dias.clear();
+                    for(int i = 0; i<= FechasPelis.size()-1; i++){
+                        DiaBox.removeItem(FechasPelis.get(i));
+                    }
+                    FechasPelis.clear();
                 }
 
                 peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
@@ -164,11 +176,11 @@ public class EliminarDeCartelera {
                     FindIterable<Document> documento=coleccion.find();
                     for(Document documento3 : documento){
                         if((documento3.getString("titulo")).equals(peliEliminar.getTitulo())){
-                            dias.add(documento3.getString("dia"));
+                            FechasPelis.add(documento3.getString("fecha"));
                         }
                     }
                 }
-                List<String> diasLimpios = removerduplicados(dias);
+                List<String> diasLimpios = removerduplicados(FechasPelis);
                 for(int i=0; i<= diasLimpios.size()-1;i++){
                     diaModel.addElement(diasLimpios.get(i));
                 }
@@ -195,13 +207,12 @@ public class EliminarDeCartelera {
 
                     FindIterable<Document> documento=coleccion.find();
                     for(Document documento3 : documento){
-                        if((documento3.getString("dia")).equals(peliEliminar.getDia()) && (documento3.getString("titulo")).equals(peliEliminar.getTitulo())){
-                            salas.add(documento3.getInteger("sala"));
-                            /*horarios.add(documento3.getString("horario"));*/
+                        if((documento3.getString("fecha")).equals(peliEliminar.getDia()) && (documento3.getString("titulo")).equals(peliEliminar.getTitulo())){
+                            salas.add(documento3.getString("sala"));
                         }
                     }
                 }
-                List<Integer> SalasLimpias = removerduplicados(salas);
+                List<String> SalasLimpias = removerduplicados(salas);
                 for(int i = 0; i<= SalasLimpias.size()-1; i++){
                     salaModel.addElement(SalasLimpias.get(i));
                 }
@@ -220,16 +231,16 @@ public class EliminarDeCartelera {
 
                 peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
                 peliEliminar.setDia(diaModel.getSelectedItem().toString());
-                peliEliminar.setSala(parseInt(salaModel.getSelectedItem().toString()));
+                peliEliminar.setSala(salaModel.getSelectedItem().toString());
                 try(MongoClient cliente2 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                     MongoDatabase baseDeDatos = cliente2.getDatabase("Peliculas");
                     MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
 
                     FindIterable<Document> documento=coleccion.find();
                     for(Document documento3 : documento){
-                        if((documento3.getString("titulo")).equals(peliEliminar.getTitulo()) && (documento3.getString("dia")).equals(peliEliminar.getDia())
-                        && (documento3.getInteger("sala")).equals(peliEliminar.getSala())){
-                            horarios.add(documento3.getString("horario"));
+                        if((documento3.getString("titulo")).equals(peliEliminar.getTitulo()) && (documento3.getString("fecha")).equals(peliEliminar.getDia())
+                        && (documento3.getString("sala")).equals(peliEliminar.getSala())){
+                            horarios.add(documento3.getString("hora"));
                         }
                     }
                 }

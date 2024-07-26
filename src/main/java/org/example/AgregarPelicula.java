@@ -5,6 +5,7 @@ import org.bson.Document;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class AgregarPelicula {
     private JTextField TituloField;
@@ -15,12 +16,16 @@ public class AgregarPelicula {
     private JComboBox HorarioBox;
     private JComboBox SalaBox;
     private JComboBox EdadBox;
-    private JComboBox DiaBox;
     private JButton regresarButton;
+    private JComboBox AnioBox;
+    private JComboBox MesBox;
+    private JComboBox DiaBox;
 
     DefaultComboBoxModel horarioModel=new DefaultComboBoxModel();
     DefaultComboBoxModel salaModel=new DefaultComboBoxModel();
     DefaultComboBoxModel edadModel=new DefaultComboBoxModel();
+    DefaultComboBoxModel anioModel=new DefaultComboBoxModel();
+    DefaultComboBoxModel mesModel=new DefaultComboBoxModel();
     DefaultComboBoxModel diaModel=new DefaultComboBoxModel();
 
 
@@ -32,7 +37,7 @@ public class AgregarPelicula {
         horarioModel.addElement("21:00");
         SalaBox.setModel(salaModel);
 
-        for(int i=0; i<=10; i++){
+        for(int i=1; i<=10; i++){
             salaModel.addElement(i);
         }
 
@@ -40,14 +45,73 @@ public class AgregarPelicula {
         edadModel.addElement("Familiar");
         edadModel.addElement("+15");
         edadModel.addElement("+18");
+
+        AnioBox.setModel(anioModel);
+        anioModel.addElement("2024");
+        anioModel.addElement("2025");
+
+        MesBox.setModel(mesModel);
+        for(int i=1; i<=9; i++){
+            mesModel.addElement("0"+i);
+        }
+        mesModel.addElement("10");
+        mesModel.addElement("11");
+        mesModel.addElement("12");
+
         DiaBox.setModel(diaModel);
-        diaModel.addElement("Lunes");
-        diaModel.addElement("Martes");
-        diaModel.addElement("Miércoles");
-        diaModel.addElement("Jueves");
-        diaModel.addElement("Viernes");
-        diaModel.addElement("Sábado");
-        diaModel.addElement("Domingo");
+        for(int j=1; j<=9; j++){
+            diaModel.addElement("0"+j);
+        }
+        for(int i=10; i<=31; i++){
+            diaModel.addElement(i);
+        }
+
+
+        MesBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PELICULAS peli=new PELICULAS();
+                peli.setMes(mesModel.getSelectedItem().toString());
+                peli.setAnio(anioModel.getSelectedItem().toString());
+                if(peli.getMes().equals("01") || peli.getMes().equals("03") || peli.getMes().equals("05")
+                        || peli.getMes().equals("07") || peli.getMes().equals("08") || peli.getMes().equals("10")
+                        || peli.getMes().equals("12")){
+                    DiaBox.removeAllItems();
+                    for(int j=1; j<=9; j++){
+                        diaModel.addElement("0"+j);
+                    }
+                    for(int i=10; i<=31; i++){
+                        diaModel.addElement(i);
+                    }
+                }else if(peli.getMes().equals("04") || peli.getMes().equals("06") || peli.getMes().equals("09")
+                        || peli.getMes().equals("11")){
+                    DiaBox.removeAllItems();
+                    for(int j=1; j<=9; j++){
+                        diaModel.addElement("0"+j);
+                    }
+                    for(int i=10; i<=30; i++){
+                        diaModel.addElement(i);
+                    }
+                }else if(peli.getMes().equals("02") && peli.getAnio().equals("2024")){
+                    DiaBox.removeAllItems();
+                    for(int j=1; j<=9; j++){
+                        diaModel.addElement("0"+j);
+                    }
+                    for(int i=10; i<=29; i++){
+                        diaModel.addElement(i);
+                    }
+                }else if(peli.getAnio().equals("2025") && peli.getMes().equals("02")){
+                    DiaBox.removeAllItems();
+                    for(int j=1; j<=9; j++){
+                        diaModel.addElement("0"+j);
+                    }
+                    for(int i=10; i<=28; i++){
+                        diaModel.addElement(i);
+                    }
+                }
+            }
+        });
+
         agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,27 +124,31 @@ public class AgregarPelicula {
                     peli1.setCategoria(CateegoriaField.getText());
                     peli1.setPrecio(Float.parseFloat(PrecioField.getText()));
                     peli1.setRestriccion(edadModel.getSelectedItem().toString());
-                    peli1.setSala(salaModel.getSelectedItem().hashCode());
+                    peli1.setSala(salaModel.getSelectedItem().toString());
                     peli1.setHorario(horarioModel.getSelectedItem().toString());
+                    peli1.setAnio(anioModel.getSelectedItem().toString());
+                    peli1.setMes(mesModel.getSelectedItem().toString());
                     peli1.setDia(diaModel.getSelectedItem().toString());
                     try(MongoClient cliente= MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                         MongoDatabase peliculas=cliente.getDatabase("Peliculas");
                         MongoCollection<Document> datos=peliculas.getCollection("Datos_Peliculas");
                         System.out.println("CONEXION EXITOSA");
+                        String fechas=peli1.getDia()+"/"+peli1.getMes()+"/"+peli1.getAnio();
                         FindIterable<Document> documentos= datos.find();
                         for(Document documento:documentos) {
-                            if (peli1.getSala() == documento.getInteger("sala") && peli1.getHorario().equals(documento.getString("horario")) && peli1.getDia().equals(documento.getString("dia"))) {
+                            if (Objects.equals(peli1.getSala(), documento.getString("sala")) && peli1.getHorario().equals(documento.getString("hora")) &&
+                                    fechas.equals(documento.getString("fecha"))){
                                 ident = 1;
                             }
                         }
                         if (ident==1){
-                            JOptionPane.showMessageDialog(null,"El horario "+peli1.getHorario()+" en la sala "+peli1.getSala()+" está ocupado."
-                                    +" Seleccione otro horario, sala o día");
+                            JOptionPane.showMessageDialog(null,"La hora "+peli1.getHorario()+" en la sala "+peli1.getSala()+" con fecha:"
+                                    +fechas+" está ocupado."+" Seleccione otro horario, sala o fecha");
                         }else{
                             Document insercion=new Document("titulo",peli1.getTitulo()).append("categoria",peli1.getCategoria())
-                                    .append("horario",peli1.getHorario()).append("sala", peli1.getSala())
+                                    .append("hora",peli1.getHorario()).append("sala", peli1.getSala())
                                     .append("precio_asiento", peli1.getPrecio()).append("restriccion_edad",peli1.getRestriccion())
-                                    .append("dia",peli1.getDia());
+                                    .append("fecha",fechas);
                             datos.insertOne(insercion);
                             JOptionPane.showMessageDialog(null,"Registro Exitoso");
                             TituloField.setText("");

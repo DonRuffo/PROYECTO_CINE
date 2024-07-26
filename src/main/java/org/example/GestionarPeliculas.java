@@ -57,5 +57,19 @@ public class GestionarPeliculas {
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
+        cambiarHorariosYSalasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame nuevoshorarios = new JFrame();
+                nuevoshorarios.setTitle("Cambios de horarios");
+                nuevoshorarios.setContentPane(new Cambiar_horarios_salas().MainPanel);
+                nuevoshorarios.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                nuevoshorarios.setSize(500, 300);
+                nuevoshorarios.setLocationRelativeTo(null);
+                nuevoshorarios.setVisible(true);
+
+                ((JFrame) SwingUtilities.getWindowAncestor(cambiarHorariosYSalasButton)).dispose();
+            }
+        });
     }
 }
