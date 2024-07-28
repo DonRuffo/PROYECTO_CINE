@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.management.remote.JMXConnectorFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,12 +19,12 @@ public class PaginaAdministrador {
         String imagen="IMAGENES/CINEMA.png";
         ImageIcon iconImage = new ImageIcon(imagen);
         JLabel labelImage = new JLabel(iconImage);
-        PanelImagen1.add(labelImage, BorderLayout.BEFORE_FIRST_LINE);
+        PanelImagen1.add(labelImage, BorderLayout.CENTER);
         gestionarPelículasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame gestionPeliculas = new JFrame();
-                gestionPeliculas.setTitle("Gestionar Peliculas");
+                gestionPeliculas.setTitle("PoliCine");
                 gestionPeliculas.setContentPane(new GestionarPeliculas().MainPanel);
                 gestionPeliculas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 gestionPeliculas.setSize(500, 300);
@@ -36,13 +37,26 @@ public class PaginaAdministrador {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame confirmar = new JFrame();
-                confirmar.setTitle("Confirmar");
+                confirmar.setTitle("PoliCine");
                 confirmar.setContentPane(new ConfirmarCerrarSesion().MainPanel);
                 confirmar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 confirmar.setSize(300, 150);
                 confirmar.setLocationRelativeTo(null);
                 confirmar.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(cerrarSesiónButton)).dispose();
+            }
+        });
+        gestionarClientesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame gestionarClientes = new JFrame();
+                gestionarClientes.setTitle("PoliCine");
+                gestionarClientes.setContentPane(new GestionarClientes().MainPanel);
+                gestionarClientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                gestionarClientes.setSize(500, 300);
+                gestionarClientes.setLocationRelativeTo(null);
+                gestionarClientes.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(gestionarClientesButton)).dispose();
             }
         });
     }

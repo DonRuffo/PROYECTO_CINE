@@ -3,6 +3,8 @@ package org.example;
 import com.mongodb.client.*;
 import org.bson.Document;
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
@@ -30,6 +32,10 @@ public class AgregarPelicula {
 
 
     public AgregarPelicula() {
+        Border borde = BorderFactory.createLineBorder(Color.black,2);
+        TituloField.setBorder(borde);
+        PrecioField.setBorder(borde);
+        CateegoriaField.setBorder(borde);
         HorarioBox.setModel(horarioModel);
         horarioModel.addElement("12:00");
         horarioModel.addElement("15:00");
@@ -164,7 +170,7 @@ public class AgregarPelicula {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame gestionPeliculas = new JFrame();
-                gestionPeliculas.setTitle("Gestionar Peliculas");
+                gestionPeliculas.setTitle("PoliCine");
                 gestionPeliculas.setContentPane(new GestionarPeliculas().MainPanel);
                 gestionPeliculas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 gestionPeliculas.setSize(500, 300);

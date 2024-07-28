@@ -1,9 +1,10 @@
 package org.example;
-import org.bson.Document;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -11,48 +12,49 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RegistroClientes {
-    private JTextField CedulaRegis;
-    private JTextField NombreRegis;
-    private JTextField TelefonoRegis;
-    private JTextField DireccionRegis;
-    private JButton registrarButton;
-    private JPasswordField ContrasenaRegis;
+public class AgregarCliente {
     public JPanel MainPanel;
-    private JPasswordField ConfContraRegis;
-    private JButton regresarButton;
+    private JTextField CedulaField;
+    private JTextField NombreField;
     private JComboBox EdadBox;
-
+    private JTextField TelefonoField;
+    private JTextField DirecField;
+    private JPasswordField ContraField;
+    private JPasswordField ConfContraField;
+    private JButton registrarButton;
+    private JButton regresarButton;
+    
     DefaultComboBoxModel edadModel = new DefaultComboBoxModel();
-    public RegistroClientes() {
-
+    
+    public AgregarCliente() {
         EdadBox.setModel(edadModel);
         for (int i=18; i<=100; i++){
             edadModel.addElement(i);
         }
         Border borde = BorderFactory.createLineBorder(Color.black,2);
-        CedulaRegis.setBorder(borde);
-        NombreRegis.setBorder(borde);
-        TelefonoRegis.setBorder(borde);
-        DireccionRegis.setBorder(borde);
-        ContrasenaRegis.setBorder(borde);
-        ConfContraRegis.setBorder(borde);
+        CedulaField.setBorder(borde);
+        NombreField.setBorder(borde);
+        TelefonoField.setBorder(borde);
+        DirecField.setBorder(borde);
+        ContraField.setBorder(borde);
+        ConfContraField.setBorder(borde);
         registrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CLIENTES cli2 = new CLIENTES();
-                String contra=ContrasenaRegis.getText();
-                String confirmar = ConfContraRegis.getText();
-                if(contra.isEmpty() || confirmar.isEmpty() || NombreRegis.getText().isEmpty() || TelefonoRegis.getText().isEmpty() || CedulaRegis.getText().isEmpty() || DireccionRegis.getText().isEmpty()) {
+                String contra=ContraField.getText();
+                String confirmar = ConfContraField.getText();
+                if(contra.isEmpty() || confirmar.isEmpty() || NombreField.getText().isEmpty() || TelefonoField.getText().isEmpty()
+                        || CedulaField.getText().isEmpty() || DirecField.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, rellenar todos los campos");
                 }else{
                     if(contra.equals(confirmar)){
-                        cli2.setNombre(NombreRegis.getText());
-                        cli2.setCedula(CedulaRegis.getText());
-                        cli2.setContrasena(ContrasenaRegis.getText());
-                        cli2.setDireccion(DireccionRegis.getText());
+                        cli2.setNombre(NombreField.getText());
+                        cli2.setCedula(CedulaField.getText());
+                        cli2.setContrasena(ContraField.getText());
+                        cli2.setDireccion(DirecField.getText());
                         cli2.setEdad(edadModel.getSelectedItem().toString());
-                        cli2.setTelefono(TelefonoRegis.getText());
+                        cli2.setTelefono(TelefonoField.getText());
                         try(MongoClient mongoClient = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                             MongoDatabase Clientes = mongoClient.getDatabase("Clientes");
                             MongoCollection<Document> RegistroClientes = Clientes.getCollection("Datos_clientes");
@@ -61,17 +63,17 @@ public class RegistroClientes {
                                     .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
                             RegistroClientes.insertOne(documento);
                             System.out.println("Registro exitoso");
-                            CedulaRegis.setText("");
-                            NombreRegis.setText("");
-                            TelefonoRegis.setText("");
-                            DireccionRegis.setText("");
-                            ContrasenaRegis.setText("");
-                            ConfContraRegis.setText("");
+                            CedulaField.setText("");
+                            NombreField.setText("");
+                            TelefonoField.setText("");
+                            DirecField.setText("");
+                            ContraField.setText("");
+                            ConfContraField.setText("");
                         }
                     }else{
                         JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intente de nuevo");
-                        ContrasenaRegis.setText("");
-                        ConfContraRegis.setText("");
+                        ContraField.setText("");
+                        ConfContraField.setText("");
                     }
                 }
             }
@@ -79,13 +81,13 @@ public class RegistroClientes {
         regresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame login = new JFrame();
-                login.setContentPane(new Login().PanelLoign);
-                login.setTitle("PoliCine");
-                login.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                login.setSize(500,300);
-                login.setLocationRelativeTo(null);
-                login.setVisible(true);
+                JFrame gestionarClientes = new JFrame();
+                gestionarClientes.setTitle("PoliCine");
+                gestionarClientes.setContentPane(new GestionarClientes().MainPanel);
+                gestionarClientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                gestionarClientes.setSize(500, 300);
+                gestionarClientes.setLocationRelativeTo(null);
+                gestionarClientes.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });

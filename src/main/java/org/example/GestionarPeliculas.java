@@ -22,7 +22,7 @@ public class GestionarPeliculas {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame agregarPeli= new JFrame();
-                agregarPeli.setTitle("Agregar Película");
+                agregarPeli.setTitle("PoliCine");
                 agregarPeli.setContentPane(new AgregarPelicula().MainPanel);
                 agregarPeli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 agregarPeli.setSize(500,350);
@@ -34,7 +34,7 @@ public class GestionarPeliculas {
         eliminarPelículaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame cartelera= new JFrame("Cartelera");
+                JFrame cartelera= new JFrame("PoliCine");
                 cartelera.setContentPane(new EliminarDeCartelera().MainPanel);
                 cartelera.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 cartelera.setSize(500,300);
@@ -47,7 +47,7 @@ public class GestionarPeliculas {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame paginaAdministrador = new JFrame();
-                paginaAdministrador.setTitle("Administrador");
+                paginaAdministrador.setTitle("PoliCine");
                 paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
                 paginaAdministrador.setSize(500, 300);
                 paginaAdministrador.setLocationRelativeTo(null);
@@ -61,7 +61,7 @@ public class GestionarPeliculas {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame nuevoshorarios = new JFrame();
-                nuevoshorarios.setTitle("Cambios de horarios");
+                nuevoshorarios.setTitle("PoliCine");
                 nuevoshorarios.setContentPane(new Cambiar_horarios_salas().MainPanel);
                 nuevoshorarios.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 nuevoshorarios.setSize(500, 300);

@@ -1,6 +1,8 @@
 package org.example;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.mongodb.client.MongoClients;
@@ -9,8 +11,6 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import com.mongodb.client.FindIterable;
-import com.mongodb.client.result.UpdateResult;
-import com.mongodb.client.result.DeleteResult;
 
 
 public class Login {
@@ -25,6 +25,9 @@ public class Login {
 
     public Login() {
         PerfilBox.setModel(perfil);
+        Border borde = BorderFactory.createLineBorder(Color.black);
+        UsuarioField.setBorder(borde);
+        ContraField.setBorder(borde);
         perfil.addElement("Administrador");
         perfil.addElement("Cliente");
         iniciarSesiónButton.addActionListener(new ActionListener() {
@@ -49,7 +52,7 @@ public class Login {
                                 if (documento.getString("nombre").equals(adm1.getNombre()) && documento.getString("contrasena").equals(adm1.getContrasena())) {
                                     identificador = 1;
                                     JFrame paginaAdministrador = new JFrame();
-                                    paginaAdministrador.setTitle("Administrador");
+                                    paginaAdministrador.setTitle("PoliCine");
                                     paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
                                     paginaAdministrador.setSize(500, 300);
                                     paginaAdministrador.setLocationRelativeTo(null);
@@ -99,10 +102,10 @@ public class Login {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame registroClientes = new JFrame();
-                registroClientes.setTitle("Registro del cliente");
-                registroClientes.setContentPane(new RegistroClientes().PanelRegistroCli);
+                registroClientes.setTitle("PoliCine");
+                registroClientes.setContentPane(new RegistroClientes().MainPanel);
                 registroClientes.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                registroClientes.setSize(500,300);
+                registroClientes.setSize(500,350);
                 registroClientes.setLocationRelativeTo(null);
                 registroClientes.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(registrarseButton)).dispose();

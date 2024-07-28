@@ -1,6 +1,7 @@
 package org.example;
 
 import com.mongodb.client.*;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 
 import javax.swing.*;
@@ -80,7 +81,8 @@ public class Cambiar_horarios_salas {
         nuevaHoraModel.addElement("18:00");
         nuevaHoraModel.addElement("21:00");
 
-        List<String> horarios= new ArrayList<>();
+        PELICULAS peliCambiar=new PELICULAS();
+
         List<String> pelis = new ArrayList<>();
         List<String> FechasPelis = new ArrayList<>();
         List<String> salas=new ArrayList<>();
@@ -144,6 +146,140 @@ public class Cambiar_horarios_salas {
             }
         });
 
+        TituloBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(FechaBox.getItemCount()>1){
+                    for(int i = 0; i<= FechasPelis.size()-1; i++){
+                        FechaBox.removeItem(FechasPelis.get(i));
+                    }
+                    FechasPelis.clear();
+                }
+
+                peliCambiar.setTitulo(tituloModel.getSelectedItem().toString());
+                try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                    MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
+                    MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
+
+                    FindIterable<Document> documento=coleccion.find();
+                    for(Document documento2 : documento){
+                        if((documento2.getString("titulo")).equals(peliCambiar.getTitulo())){
+                            FechasPelis.add(documento2.getString("fecha"));
+                        }
+                    }
+                }
+                List<String> fechasNuevas= removerduplicados(FechasPelis);
+                for(int i=0;i<=fechasNuevas.size()-1;i++){
+                    fechaModel.addElement(fechasNuevas.get(i));
+                }
+            }
+        });
+
+
+        FechaBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(SalaBox.getItemCount()>1){
+                    for(int i=0; i<=salas.size()-1; i++){
+                        SalaBox.removeItem(salas.get(i));
+                    }
+                    salas.clear();
+                }
+                peliCambiar.setFecha(fechaModel.getSelectedItem().toString());
+                try(MongoClient cliente1 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                    MongoDatabase baseDeDatos = cliente1.getDatabase("Peliculas");
+                    MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
+
+                    FindIterable<Document> documento=coleccion.find();
+                    for(Document documento3 : documento){
+                        if((documento3.getString("fecha")).equals(peliCambiar.getFecha()) && (documento3.getString("titulo")).equals(peliCambiar.getTitulo())){
+                            salas.add(documento3.getString("sala"));
+                        }
+                    }
+                }
+                List<String> salasLimpiadas = removerduplicados(salas);
+                for(int i=0;i<=salasLimpiadas.size()-1;i++){
+                    salaModel.addElement(salasLimpiadas.get(i));
+                }
+            }
+        });
+        SalaBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(HoraBox.getItemCount()>1){
+                    HoraBox.removeAllItems();
+                    horaModel.addElement("Hora");
+                }
+                peliCambiar.setSala(salaModel.getSelectedItem().toString());
+                try(MongoClient cliente2 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                    MongoDatabase baseDeDatos = cliente2.getDatabase("Peliculas");
+                    MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
+
+                    FindIterable<Document> documento=coleccion.find();
+                    for(Document documento3 : documento){
+                        if((documento3.getString("titulo")).equals(peliCambiar.getTitulo()) && (documento3.getString("fecha")).equals(peliCambiar.getFecha())
+                                && (documento3.getString("sala")).equals(peliCambiar.getSala())){
+                            horaModel.addElement(documento3.getString("hora"));
+                        }
+                    }
+                }
+            }
+        });
+        regresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame gestionPeliculas = new JFrame();
+                gestionPeliculas.setTitle("PoliCine");
+                gestionPeliculas.setContentPane(new GestionarPeliculas().MainPanel);
+                gestionPeliculas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                gestionPeliculas.setSize(500, 300);
+                gestionPeliculas.setLocationRelativeTo(null);
+                gestionPeliculas.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
+            }
+        });
+        cambiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(fechaModel.getSelectedItem().toString().equals("Fecha") ||
+                    salaModel.getSelectedItem().toString().equals("Sala") ||
+                    horaModel.getSelectedItem().toString().equals("Hora") ||
+                    anioModel.getSelectedItem().toString().equals("Año") ||
+                    mesModel.getSelectedItem().toString().equals("Mes") ||
+                    diaModel.getSelectedItem().toString().equals("Dia") ||
+                    nuevaHoraModel.getSelectedItem().toString().equals("Hora") ||
+                    nuevaSalaModel.getSelectedItem().toString().equals("Sala")){
+                    JOptionPane.showMessageDialog(null,"Seleccione correctamente");
+
+                }
+                else{
+                    PELICULAS peliActual = new PELICULAS();
+                    String fechaActual = diaModel.getSelectedItem().toString()+"/"+mesModel.getSelectedItem().toString()
+                            +"/"+anioModel.getSelectedItem().toString();
+                    peliActual.setTitulo(peliCambiar.getTitulo());
+                    peliActual.setHorario(nuevaHoraModel.getSelectedItem().toString());
+                    peliActual.setSala(nuevaSalaModel.getSelectedItem().toString());
+                    peliActual.setFecha(fechaActual);
+                    peliCambiar.setHorario(horaModel.getSelectedItem().toString());
+                    try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                        MongoDatabase base = cliente.getDatabase("Peliculas");
+                        MongoCollection<Document> coleccion = base.getCollection("Datos_Peliculas");
+                        Document buscar = new Document("titulo", peliCambiar.getTitulo()).append("fecha", peliCambiar.getFecha())
+                                .append("sala", peliCambiar.getSala()).append("hora", peliCambiar.getHorario());
+                        Document actualizar = new Document("$set",new Document("fecha",peliActual.getFecha()).append("sala", peliActual.getSala())
+                                .append("hora", peliActual.getHorario()));
+                        UpdateResult actualizacion = coleccion.updateOne(buscar, actualizar);
+                        JOptionPane.showMessageDialog(null,"Horario modificado correctamente");
+                    }
+                    FechaBox.removeAllItems();
+                    fechaModel.addElement("Fecha");
+                    HoraBox.removeAllItems();
+                    horaModel.addElement("Hora");
+                    SalaBox.removeAllItems();
+                    salaModel.addElement("Sala");
+                }
+            }
+        });
     }
     public static <T> List<T> removerduplicados(List<T> lista){
         Set<T> set= new LinkedHashSet<>(lista);

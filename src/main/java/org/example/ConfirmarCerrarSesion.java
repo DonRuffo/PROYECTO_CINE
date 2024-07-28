@@ -17,7 +17,7 @@ public class ConfirmarCerrarSesion {
                 ((JFrame) SwingUtilities.getWindowAncestor(siButton)).dispose();
                 JFrame login = new JFrame();
                 login.setContentPane(new Login().PanelLoign);
-                login.setTitle("Inicio de sesión");
+                login.setTitle("PoliCine");
                 login.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 login.setSize(500,300);
                 login.setMinimumSize(new Dimension(500,300));
@@ -30,7 +30,7 @@ public class ConfirmarCerrarSesion {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame paginaAdministrador = new JFrame();
-                paginaAdministrador.setTitle("Administrador");
+                paginaAdministrador.setTitle("PoliCine");
                 paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
                 paginaAdministrador.setSize(500, 300);
                 paginaAdministrador.setLocationRelativeTo(null);

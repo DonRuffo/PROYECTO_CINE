@@ -1,11 +1,11 @@
 package org.example;
 
 public class CLIENTES {
-    String nombre, cedula, direccion, telefono, contrasena;
-    int edad;
+    String nombre, cedula, direccion, telefono, contrasena, edad;
+
 
     public CLIENTES(){}
-    public CLIENTES(String nombre, String cedula, String direccion, String telefono, String contrasena, int edad){
+    public CLIENTES(String nombre, String cedula, String direccion, String telefono, String contrasena, String edad){
         this.nombre = nombre;
         this.cedula = cedula;
         this.direccion = direccion;
@@ -34,7 +34,7 @@ public class CLIENTES {
         this.contrasena = contrasena;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -58,7 +58,7 @@ public class CLIENTES {
         return contrasena;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 }

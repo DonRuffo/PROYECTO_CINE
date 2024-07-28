@@ -1,22 +1,24 @@
 package org.example;
 
 public class PELICULAS {
-    String titulo, categoria, horario, restriccion, anio, mes,dia, sala;
+    String titulo, categoria, horario, restriccion, anio, mes,dia, sala, fecha;
     double precio;
 
     public PELICULAS() {}
-    public PELICULAS(String titulo, String categoria, String horario, String restriccion, String anio, String mes,String dia, String sala, double precio){
+    public PELICULAS(String titulo, String categoria, String horario, String restriccion,
+                     String anio, String mes,String dia, String sala, String fecha, double precio){
         this.titulo = titulo;
         this.categoria = categoria;
         this.horario = horario;
         this.restriccion = restriccion;
         this.sala = sala;
+        this.fecha = fecha;
         this.precio = precio;
         this.dia = dia;
         this.mes=mes;
         this.anio=anio;
     }
-
+    //setters
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -53,6 +55,11 @@ public class PELICULAS {
         this.mes = mes;
     }
 
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    //getters
     public String getTitulo() {
         return titulo;
     }
@@ -87,5 +94,9 @@ public class PELICULAS {
 
     public String getMes() {
         return mes;
+    }
+
+    public String getFecha() {
+        return fecha;
     }
 }
