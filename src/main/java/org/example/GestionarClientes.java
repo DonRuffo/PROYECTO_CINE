@@ -58,5 +58,18 @@ public class GestionarClientes {
                 ((JFrame) SwingUtilities.getWindowAncestor(eliminarClienteButton)).dispose();
             }
         });
+        verClientesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame verCliente = new JFrame();
+                verCliente.setTitle("PoliCine");
+                verCliente.setContentPane(new VerClientes().MainPanel);
+                verCliente.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                verCliente.setSize(550,350);
+                verCliente.setLocationRelativeTo(null);
+                verCliente.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(verClientesButton)).dispose();
+            }
+        });
     }
 }

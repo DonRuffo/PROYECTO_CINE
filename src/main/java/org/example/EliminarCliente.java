@@ -61,31 +61,48 @@ public class EliminarCliente {
         verButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int iterador=0;
-                CLIENTES clienteVer = new CLIENTES();
-                clienteVer.setCedula(CedulaField.getText());
-                try(MongoClient conec = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
-                    MongoDatabase peliculas=conec.getDatabase("Clientes");
-                    MongoCollection<Document> datos=peliculas.getCollection("Datos_clientes");
+                Boolean comprobarCedula=numero(CedulaField.getText());
+                if (CedulaField.getText().length()!=10){
+                    JOptionPane.showMessageDialog(null, "La cedula debe tener 10 dígitos");
+                }else{
+                    if(comprobarCedula == false){
+                        JOptionPane.showMessageDialog(null, "Ingrese dígitos numéricos");
+                    }else{
+                        int iterador=0;
+                        CLIENTES clienteVer = new CLIENTES();
+                        clienteVer.setCedula(CedulaField.getText());
+                        try(MongoClient conec = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                            MongoDatabase peliculas=conec.getDatabase("Clientes");
+                            MongoCollection<Document> datos=peliculas.getCollection("Datos_clientes");
 
-                    FindIterable<Document> cliente= datos.find();
-                    for (Document documento: cliente){
-                        if (documento.getString("cedula").equals(clienteVer.getCedula())){
-                            NombreLabel.setText(documento.getString("nombre"));
-                            EdadLabel.setText(documento.getString("edad"));
-                            TelefonoLabel.setText(documento.getString("telefono"));
-                            DirecLabel.setText(documento.getString("direccion"));
-                            iterador=1;
+                            FindIterable<Document> cliente= datos.find();
+                            for (Document documento: cliente){
+                                if (documento.getString("cedula").equals(clienteVer.getCedula())){
+                                    NombreLabel.setText(documento.getString("nombre"));
+                                    EdadLabel.setText(documento.getString("edad"));
+                                    TelefonoLabel.setText(documento.getString("telefono"));
+                                    DirecLabel.setText(documento.getString("direccion"));
+                                    iterador=1;
+                                }
+                            }
+                        }
+                        if(iterador==0){
+                            JOptionPane.showMessageDialog(null, "El cliente no existe");
+                        }else {
+                            eliminarButton.setVisible(true);
+                            PaneliInfo.setVisible(true);
                         }
                     }
                 }
-                if(iterador==0){
-                    JOptionPane.showMessageDialog(null, "El cliente no existe");
-                }else {
-                    eliminarButton.setVisible(true);
-                    PaneliInfo.setVisible(true);
-                }
             }
         });
+    }
+    public boolean numero(String cadena){
+        try{
+            Long.parseLong(cadena);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
     }
 }
