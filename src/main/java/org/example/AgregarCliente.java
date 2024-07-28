@@ -1,9 +1,6 @@
 package org.example;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.bson.Document;
 
 import javax.swing.*;
@@ -41,39 +38,72 @@ public class AgregarCliente {
         registrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int verificacion=0;
                 CLIENTES cli2 = new CLIENTES();
                 String contra=ContraField.getText();
                 String confirmar = ConfContraField.getText();
-                if(contra.isEmpty() || confirmar.isEmpty() || NombreField.getText().isEmpty() || TelefonoField.getText().isEmpty()
-                        || CedulaField.getText().isEmpty() || DirecField.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Por favor, rellenar todos los campos");
+                if(CedulaField.getText().length()!=10 || TelefonoField.getText().length()!=10){
+                    JOptionPane.showMessageDialog(null,"La cedula y el telefono deben tener 10 dígitos");
                 }else{
-                    if(contra.equals(confirmar)){
-                        cli2.setNombre(NombreField.getText());
-                        cli2.setCedula(CedulaField.getText());
-                        cli2.setContrasena(ContraField.getText());
-                        cli2.setDireccion(DirecField.getText());
-                        cli2.setEdad(edadModel.getSelectedItem().toString());
-                        cli2.setTelefono(TelefonoField.getText());
-                        try(MongoClient mongoClient = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
-                            MongoDatabase Clientes = mongoClient.getDatabase("Clientes");
-                            MongoCollection<Document> RegistroClientes = Clientes.getCollection("Datos_clientes");
-                            Document documento= new Document("cedula",cli2.getCedula()).append("nombre",cli2.getNombre())
-                                    .append("edad",cli2.getEdad()).append("telefono",cli2.getTelefono())
-                                    .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
-                            RegistroClientes.insertOne(documento);
-                            System.out.println("Registro exitoso");
-                            CedulaField.setText("");
-                            NombreField.setText("");
-                            TelefonoField.setText("");
-                            DirecField.setText("");
-                            ContraField.setText("");
-                            ConfContraField.setText("");
+                    Boolean comprobarCedula=numero(CedulaField.getText());
+                    Boolean comprobarTelefono=numero(TelefonoField.getText());
+                    Boolean comprobarNombre=letrassinnumeros(NombreField.getText());
+                    if (comprobarTelefono==false || comprobarCedula==false ){
+                        JOptionPane.showMessageDialog(null,"Ingrese dígitos numéricos en cedula y telefono");
+                    }
+                    else{
+                        if(comprobarNombre==false){
+                        JOptionPane.showMessageDialog(null,"Solo se permiten letras en el nombre");
+                        }else{
+                            if(contra.isEmpty() || confirmar.isEmpty() || NombreField.getText().isEmpty() || TelefonoField.getText().isEmpty()
+                                    || CedulaField.getText().isEmpty() || DirecField.getText().isEmpty()){
+                                JOptionPane.showMessageDialog(null, "Por favor, rellenar todos los campos");
+                            }else{
+                                if(contra.equals(confirmar)){
+                                    cli2.setNombre(NombreField.getText());
+                                    cli2.setCedula(CedulaField.getText());
+                                    cli2.setContrasena(ContraField.getText());
+                                    cli2.setDireccion(DirecField.getText());
+                                    cli2.setEdad(edadModel.getSelectedItem().toString());
+                                    cli2.setTelefono(TelefonoField.getText());
+                                    try(MongoClient mongoClient = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                                        MongoDatabase Clientes = mongoClient.getDatabase("Clientes");
+                                        MongoCollection<Document> RegistroClientes = Clientes.getCollection("Datos_clientes");
+
+                                        FindIterable<Document> verificar=RegistroClientes.find();
+                                        for (Document documento : verificar){
+                                            if(documento.getString("cedula").equals(cli2.getCedula())){
+                                                JOptionPane.showMessageDialog(null,"El cliente con N°cédula "+cli2.getCedula()+" ya existe");
+                                                verificacion=1;
+                                                CedulaField.setText("");
+                                                NombreField.setText("");
+                                                TelefonoField.setText("");
+                                                DirecField.setText("");
+                                                ContraField.setText("");
+                                                ConfContraField.setText("");
+                                            }
+                                        }
+                                        if (verificacion==0){
+                                            Document documento= new Document("cedula",cli2.getCedula()).append("nombre",cli2.getNombre())
+                                                    .append("edad",cli2.getEdad()).append("telefono",cli2.getTelefono())
+                                                    .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
+                                            RegistroClientes.insertOne(documento);
+                                            JOptionPane.showMessageDialog(null,"Registro exitoso");
+                                            CedulaField.setText("");
+                                            NombreField.setText("");
+                                            TelefonoField.setText("");
+                                            DirecField.setText("");
+                                            ContraField.setText("");
+                                            ConfContraField.setText("");
+                                        }
+                                    }
+                                }else{
+                                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intente de nuevo");
+                                    ContraField.setText("");
+                                    ConfContraField.setText("");
+                                }
+                            }
                         }
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intente de nuevo");
-                        ContraField.setText("");
-                        ConfContraField.setText("");
                     }
                 }
             }
@@ -91,5 +121,22 @@ public class AgregarCliente {
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
+
+    }
+    public boolean numero(String cadena){
+        try{
+            Long.parseLong(cadena);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+    public boolean letrassinnumeros(String cadena){
+        for(int i=0; i<cadena.length();i++){
+            if(Character.isDigit(cadena.charAt(i))){
+                return false;
+            }
+        }
+        return true;
     }
 }

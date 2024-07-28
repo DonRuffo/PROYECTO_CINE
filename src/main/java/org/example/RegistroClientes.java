@@ -46,32 +46,47 @@ public class RegistroClientes {
                 if(contra.isEmpty() || confirmar.isEmpty() || NombreRegis.getText().isEmpty() || TelefonoRegis.getText().isEmpty() || CedulaRegis.getText().isEmpty() || DireccionRegis.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, rellenar todos los campos");
                 }else{
-                    if(contra.equals(confirmar)){
-                        cli2.setNombre(NombreRegis.getText());
-                        cli2.setCedula(CedulaRegis.getText());
-                        cli2.setContrasena(ContrasenaRegis.getText());
-                        cli2.setDireccion(DireccionRegis.getText());
-                        cli2.setEdad(edadModel.getSelectedItem().toString());
-                        cli2.setTelefono(TelefonoRegis.getText());
-                        try(MongoClient mongoClient = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
-                            MongoDatabase Clientes = mongoClient.getDatabase("Clientes");
-                            MongoCollection<Document> RegistroClientes = Clientes.getCollection("Datos_clientes");
-                            Document documento= new Document("cedula",cli2.getCedula()).append("nombre",cli2.getNombre())
-                                    .append("edad",cli2.getEdad()).append("telefono",cli2.getTelefono())
-                                    .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
-                            RegistroClientes.insertOne(documento);
-                            System.out.println("Registro exitoso");
-                            CedulaRegis.setText("");
-                            NombreRegis.setText("");
-                            TelefonoRegis.setText("");
-                            DireccionRegis.setText("");
-                            ContrasenaRegis.setText("");
-                            ConfContraRegis.setText("");
-                        }
+                    if(CedulaRegis.getText().length() != 10 || TelefonoRegis.getText().length() != 10){
+                        JOptionPane.showMessageDialog(null, "La cedula y el telefono deben tener 10 dígitos");
                     }else{
-                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intente de nuevo");
-                        ContrasenaRegis.setText("");
-                        ConfContraRegis.setText("");
+                        Boolean comprobarCedula=numero(CedulaRegis.getText());
+                        Boolean comprobarTelefono=numero(TelefonoRegis.getText());
+                        Boolean comprobarNombre=letrassinnumeros(NombreRegis.getText());
+                        if(comprobarCedula==false || comprobarTelefono==false){
+                            JOptionPane.showMessageDialog(null, "Ingrese dígitos numéricos en cedula y telefono");
+                        }else{
+                            if(comprobarNombre==false){
+                                JOptionPane.showMessageDialog(null, "Solo se permiten letras en el nombre");
+                            }else{
+                                if(contra.equals(confirmar)){
+                                    cli2.setNombre(NombreRegis.getText());
+                                    cli2.setCedula(CedulaRegis.getText());
+                                    cli2.setContrasena(ContrasenaRegis.getText());
+                                    cli2.setDireccion(DireccionRegis.getText());
+                                    cli2.setEdad(edadModel.getSelectedItem().toString());
+                                    cli2.setTelefono(TelefonoRegis.getText());
+                                    try(MongoClient mongoClient = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                                        MongoDatabase Clientes = mongoClient.getDatabase("Clientes");
+                                        MongoCollection<Document> RegistroClientes = Clientes.getCollection("Datos_clientes");
+                                        Document documento= new Document("cedula",cli2.getCedula()).append("nombre",cli2.getNombre())
+                                                .append("edad",cli2.getEdad()).append("telefono",cli2.getTelefono())
+                                                .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
+                                        RegistroClientes.insertOne(documento);
+                                        System.out.println("Registro exitoso");
+                                        CedulaRegis.setText("");
+                                        NombreRegis.setText("");
+                                        TelefonoRegis.setText("");
+                                        DireccionRegis.setText("");
+                                        ContrasenaRegis.setText("");
+                                        ConfContraRegis.setText("");
+                                    }
+                                }else{
+                                    JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intente de nuevo");
+                                    ContrasenaRegis.setText("");
+                                    ConfContraRegis.setText("");
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -89,5 +104,21 @@ public class RegistroClientes {
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
+    }
+    public boolean numero(String cadena){
+        try{
+            Long.parseLong(cadena);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+    public boolean letrassinnumeros(String cadena){
+        for(int i=0; i<cadena.length();i++){
+            if(Character.isDigit(cadena.charAt(i))){
+                return false;
+            }
+        }
+        return true;
     }
 }
