@@ -15,6 +15,5 @@ public class Main {
         login.setMinimumSize(new Dimension(500,300));
         login.setLocationRelativeTo(null);
         login.setVisible(true);
-
     }
 }

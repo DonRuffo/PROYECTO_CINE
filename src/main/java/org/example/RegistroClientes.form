@@ -49,6 +49,7 @@
               <background color="-15790321"/>
               <caretColor color="-1"/>
               <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
             </properties>
           </component>
           <hspacer id="c07d8">
@@ -116,6 +117,7 @@
               <background color="-15790321"/>
               <caretColor color="-1"/>
               <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
             </properties>
           </component>
           <component id="20467" class="javax.swing.JTextField" binding="TelefonoRegis">
@@ -128,6 +130,7 @@
               <background color="-15790321"/>
               <caretColor color="-1"/>
               <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
             </properties>
           </component>
           <component id="fb2ff" class="javax.swing.JTextField" binding="DireccionRegis">
@@ -140,6 +143,7 @@
               <background color="-15790321"/>
               <caretColor color="-1"/>
               <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
             </properties>
           </component>
           <component id="d8983" class="javax.swing.JPasswordField" binding="ContrasenaRegis">
@@ -152,6 +156,7 @@
               <background color="-15790321"/>
               <caretColor color="-1"/>
               <font/>
+              <foreground color="-1"/>
             </properties>
           </component>
           <component id="1fc99" class="javax.swing.JLabel">
@@ -173,6 +178,7 @@
               <background color="-15790321"/>
               <caretColor color="-1"/>
               <font/>
+              <foreground color="-1"/>
             </properties>
           </component>
           <component id="bb09a" class="javax.swing.JButton" binding="regresarButton" default-binding="true">

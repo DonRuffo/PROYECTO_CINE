@@ -125,42 +125,52 @@ public class AgregarPelicula {
                 if (TituloField.getText().isEmpty() || CateegoriaField.getText().isEmpty() || PrecioField.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Debe ingresar todos los campos");
                 }else{
-                    PELICULAS peli1 = new PELICULAS();
-                    peli1.setTitulo(TituloField.getText());
-                    peli1.setCategoria(CateegoriaField.getText());
-                    peli1.setPrecio(Float.parseFloat(PrecioField.getText()));
-                    peli1.setRestriccion(edadModel.getSelectedItem().toString());
-                    peli1.setSala(salaModel.getSelectedItem().toString());
-                    peli1.setHorario(horarioModel.getSelectedItem().toString());
-                    peli1.setAnio(anioModel.getSelectedItem().toString());
-                    peli1.setMes(mesModel.getSelectedItem().toString());
-                    peli1.setDia(diaModel.getSelectedItem().toString());
-                    try(MongoClient cliente= MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
-                        MongoDatabase peliculas=cliente.getDatabase("Peliculas");
-                        MongoCollection<Document> datos=peliculas.getCollection("Datos_Peliculas");
-                        System.out.println("CONEXION EXITOSA");
-                        String fechas=peli1.getDia()+"/"+peli1.getMes()+"/"+peli1.getAnio();
-                        FindIterable<Document> documentos= datos.find();
-                        for(Document documento:documentos) {
-                            if (Objects.equals(peli1.getSala(), documento.getString("sala")) && peli1.getHorario().equals(documento.getString("hora")) &&
-                                    fechas.equals(documento.getString("fecha"))){
-                                ident = 1;
-                            }
-                        }
-                        if (ident==1){
-                            JOptionPane.showMessageDialog(null,"La hora "+peli1.getHorario()+" en la sala "+peli1.getSala()+" con fecha:"
-                                    +fechas+" está ocupado."+" Seleccione otro horario, sala o fecha");
+                    Boolean comprobarCat= letrassinnumeros(CateegoriaField.getText());
+                    Boolean comprobarPrecio= numero(PrecioField.getText());
+                    if(comprobarCat==false){
+                        JOptionPane.showMessageDialog(null, "No ingrese numeros en la Categoría");
+                    }else{
+                        if(comprobarPrecio==false){
+                            JOptionPane.showMessageDialog(null,"No ingrese letras en el precio");
                         }else{
-                            Document insercion=new Document("titulo",peli1.getTitulo()).append("categoria",peli1.getCategoria())
-                                    .append("hora",peli1.getHorario()).append("sala", peli1.getSala())
-                                    .append("precio_asiento", peli1.getPrecio()).append("restriccion_edad",peli1.getRestriccion())
-                                    .append("fecha",fechas);
-                            datos.insertOne(insercion);
-                            JOptionPane.showMessageDialog(null,"Registro Exitoso");
-                            TituloField.setText("");
-                            CateegoriaField.setText("");
-                            PrecioField.setText("");
-                            ident=0;
+                            PELICULAS peli1 = new PELICULAS();
+                            peli1.setTitulo(TituloField.getText());
+                            peli1.setCategoria(CateegoriaField.getText());
+                            peli1.setPrecio(Float.parseFloat(PrecioField.getText()));
+                            peli1.setRestriccion(edadModel.getSelectedItem().toString());
+                            peli1.setSala(salaModel.getSelectedItem().toString());
+                            peli1.setHorario(horarioModel.getSelectedItem().toString());
+                            peli1.setAnio(anioModel.getSelectedItem().toString());
+                            peli1.setMes(mesModel.getSelectedItem().toString());
+                            peli1.setDia(diaModel.getSelectedItem().toString());
+                            try(MongoClient cliente= MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                                MongoDatabase peliculas=cliente.getDatabase("Peliculas");
+                                MongoCollection<Document> datos=peliculas.getCollection("Datos_Peliculas");
+                                System.out.println("CONEXION EXITOSA");
+                                String fechas=peli1.getDia()+"/"+peli1.getMes()+"/"+peli1.getAnio();
+                                FindIterable<Document> documentos= datos.find();
+                                for(Document documento:documentos) {
+                                    if (Objects.equals(peli1.getSala(), documento.getString("sala")) && peli1.getHorario().equals(documento.getString("hora")) &&
+                                            fechas.equals(documento.getString("fecha"))){
+                                        ident = 1;
+                                    }
+                                }
+                                if (ident==1){
+                                    JOptionPane.showMessageDialog(null,"La hora "+peli1.getHorario()+" en la sala "+peli1.getSala()+" con fecha:"
+                                            +fechas+" está ocupado."+" Seleccione otro horario, sala o fecha");
+                                }else{
+                                    Document insercion=new Document("titulo",peli1.getTitulo()).append("categoria",peli1.getCategoria())
+                                            .append("hora",peli1.getHorario()).append("sala", peli1.getSala())
+                                            .append("precio_asiento", peli1.getPrecio()).append("restriccion_edad",peli1.getRestriccion())
+                                            .append("fecha",fechas);
+                                    datos.insertOne(insercion);
+                                    JOptionPane.showMessageDialog(null,"Registro Exitoso");
+                                    TituloField.setText("");
+                                    CateegoriaField.setText("");
+                                    PrecioField.setText("");
+                                    ident=0;
+                                }
+                            }
                         }
                     }
                 }
@@ -180,4 +190,21 @@ public class AgregarPelicula {
             }
         });
     }
+    public boolean numero(String cadena){
+        try{
+            Double.parseDouble(cadena);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+    public boolean letrassinnumeros(String cadena){
+        for(int i=0; i<cadena.length();i++){
+            if(Character.isDigit(cadena.charAt(i))){
+                return false;
+            }
+        }
+        return true;
+    }
 }
+

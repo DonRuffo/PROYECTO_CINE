@@ -72,7 +72,7 @@ public class RegistroClientes {
                                                 .append("edad",cli2.getEdad()).append("telefono",cli2.getTelefono())
                                                 .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
                                         RegistroClientes.insertOne(documento);
-                                        System.out.println("Registro exitoso");
+                                        JOptionPane.showMessageDialog(null,"Registro Exitoso");
                                         CedulaRegis.setText("");
                                         NombreRegis.setText("");
                                         TelefonoRegis.setText("");
