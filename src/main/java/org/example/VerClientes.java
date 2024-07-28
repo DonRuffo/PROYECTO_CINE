@@ -14,8 +14,8 @@ public class VerClientes {
     private JScrollPane Scroll;
     private JButton regresarButton;
     public VerClientes() {
-        int iterador=0;
-        int contador=0;
+        int iterador=0; //navegar en el objeto
+        int contador=0; //contar  los datos en la base
         String [] cabecera = {"Cedula","Nombre","Telefono","Edad","Direccion"};
         try(MongoClient conexion = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
             MongoDatabase datab = conexion.getDatabase("Clientes");
