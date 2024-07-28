@@ -35,6 +35,8 @@ public class EliminarCliente {
                 gestionarClientes.setSize(500, 300);
                 gestionarClientes.setLocationRelativeTo(null);
                 gestionarClientes.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                gestionarClientes.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });

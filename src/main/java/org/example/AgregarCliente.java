@@ -73,7 +73,7 @@ public class AgregarCliente {
                                         FindIterable<Document> verificar=RegistroClientes.find();
                                         for (Document documento : verificar){
                                             if(documento.getString("cedula").equals(cli2.getCedula())){
-                                                JOptionPane.showMessageDialog(null,"El cliente con N°cédula "+cli2.getCedula()+" ya existe");
+                                                JOptionPane.showMessageDialog(null,"El cliente con N°cédula: "+cli2.getCedula()+" ya existe");
                                                 verificacion=1;
                                                 CedulaField.setText("");
                                                 NombreField.setText("");
@@ -118,6 +118,8 @@ public class AgregarCliente {
                 gestionarClientes.setSize(500, 300);
                 gestionarClientes.setLocationRelativeTo(null);
                 gestionarClientes.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                gestionarClientes.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });

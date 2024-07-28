@@ -1,10 +1,8 @@
 package org.example;
+import com.mongodb.client.*;
 import org.bson.Document;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 
+import javax.print.Doc;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -68,17 +66,33 @@ public class RegistroClientes {
                                     try(MongoClient mongoClient = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                                         MongoDatabase Clientes = mongoClient.getDatabase("Clientes");
                                         MongoCollection<Document> RegistroClientes = Clientes.getCollection("Datos_clientes");
-                                        Document documento= new Document("cedula",cli2.getCedula()).append("nombre",cli2.getNombre())
-                                                .append("edad",cli2.getEdad()).append("telefono",cli2.getTelefono())
-                                                .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
-                                        RegistroClientes.insertOne(documento);
-                                        JOptionPane.showMessageDialog(null,"Registro Exitoso");
-                                        CedulaRegis.setText("");
-                                        NombreRegis.setText("");
-                                        TelefonoRegis.setText("");
-                                        DireccionRegis.setText("");
-                                        ContrasenaRegis.setText("");
-                                        ConfContraRegis.setText("");
+                                        FindIterable<Document> RegistroCliente = RegistroClientes.find();
+                                        int verificar=0;
+                                        for(Document buscar : RegistroCliente){
+                                            if(buscar.getString("cedula").equals(cli2.getCedula())){
+                                                JOptionPane.showMessageDialog(null, "El cliente con N°cédula: "+cli2.getCedula()+" ya existe");
+                                                verificar=1;
+                                                CedulaRegis.setText("");
+                                                NombreRegis.setText("");
+                                                TelefonoRegis.setText("");
+                                                DireccionRegis.setText("");
+                                                ContrasenaRegis.setText("");
+                                                ConfContraRegis.setText("");
+                                            }
+                                        }
+                                        if(verificar==0) {
+                                            Document documento = new Document("cedula", cli2.getCedula()).append("nombre", cli2.getNombre())
+                                                    .append("edad", cli2.getEdad()).append("telefono", cli2.getTelefono())
+                                                    .append("direccion", cli2.getDireccion()).append("contrasena", cli2.getContrasena());
+                                            RegistroClientes.insertOne(documento);
+                                            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                                            CedulaRegis.setText("");
+                                            NombreRegis.setText("");
+                                            TelefonoRegis.setText("");
+                                            DireccionRegis.setText("");
+                                            ContrasenaRegis.setText("");
+                                            ConfContraRegis.setText("");
+                                        }
                                     }
                                 }else{
                                     JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden, intente de nuevo");
@@ -101,6 +115,8 @@ public class RegistroClientes {
                 login.setSize(500,300);
                 login.setLocationRelativeTo(null);
                 login.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                login.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });

@@ -108,6 +108,8 @@ public class Login {
                 registroClientes.setSize(500,350);
                 registroClientes.setLocationRelativeTo(null);
                 registroClientes.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                registroClientes.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(registrarseButton)).dispose();
             }
         });

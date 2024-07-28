@@ -28,7 +28,8 @@ public class GestionarClientes {
                 paginaAdministrador.setLocationRelativeTo(null);
                 paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 paginaAdministrador.setVisible(true);
-
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                paginaAdministrador.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
@@ -42,6 +43,8 @@ public class GestionarClientes {
                 registroClientes.setSize(500,350);
                 registroClientes.setLocationRelativeTo(null);
                 registroClientes.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                registroClientes.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(agregarClienteButton)).dispose();
             }
         });
@@ -55,6 +58,8 @@ public class GestionarClientes {
                 eliminarCliente.setSize(500,350);
                 eliminarCliente.setLocationRelativeTo(null);
                 eliminarCliente.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                eliminarCliente.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(eliminarClienteButton)).dispose();
             }
         });
@@ -68,6 +73,8 @@ public class GestionarClientes {
                 verCliente.setSize(550,350);
                 verCliente.setLocationRelativeTo(null);
                 verCliente.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                verCliente.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(verClientesButton)).dispose();
             }
         });

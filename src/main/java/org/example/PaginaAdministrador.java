@@ -30,6 +30,8 @@ public class PaginaAdministrador {
                 gestionPeliculas.setSize(500, 300);
                 gestionPeliculas.setLocationRelativeTo(null);
                 gestionPeliculas.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                gestionPeliculas.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(gestionarPelículasButton)).dispose();
             }
         });
@@ -43,6 +45,8 @@ public class PaginaAdministrador {
                 confirmar.setSize(300, 150);
                 confirmar.setLocationRelativeTo(null);
                 confirmar.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                confirmar.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(cerrarSesiónButton)).dispose();
             }
         });
@@ -56,6 +60,8 @@ public class PaginaAdministrador {
                 gestionarClientes.setSize(500, 300);
                 gestionarClientes.setLocationRelativeTo(null);
                 gestionarClientes.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                gestionarClientes.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(gestionarClientesButton)).dispose();
             }
         });

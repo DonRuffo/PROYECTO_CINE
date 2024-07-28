@@ -28,6 +28,8 @@ public class GestionarPeliculas {
                 agregarPeli.setSize(500,350);
                 agregarPeli.setLocationRelativeTo(null);
                 agregarPeli.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                agregarPeli.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(agregarPelículaButton)).dispose();
             }
         });
@@ -40,6 +42,8 @@ public class GestionarPeliculas {
                 cartelera.setSize(500,300);
                 cartelera.setLocationRelativeTo(null);
                 cartelera.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                cartelera.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(eliminarPelículaButton)).dispose();
             }
         });
@@ -53,7 +57,8 @@ public class GestionarPeliculas {
                 paginaAdministrador.setLocationRelativeTo(null);
                 paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 paginaAdministrador.setVisible(true);
-
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                paginaAdministrador.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
@@ -67,7 +72,8 @@ public class GestionarPeliculas {
                 nuevoshorarios.setSize(500, 300);
                 nuevoshorarios.setLocationRelativeTo(null);
                 nuevoshorarios.setVisible(true);
-
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                nuevoshorarios.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(cambiarHorariosYSalasButton)).dispose();
             }
         });

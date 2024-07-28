@@ -15,5 +15,7 @@ public class Main {
         login.setMinimumSize(new Dimension(500,300));
         login.setLocationRelativeTo(null);
         login.setVisible(true);
+        ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+        login.setIconImage(imagen.getImage());
     }
 }

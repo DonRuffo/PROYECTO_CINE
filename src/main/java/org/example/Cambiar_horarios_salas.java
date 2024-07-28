@@ -235,6 +235,8 @@ public class Cambiar_horarios_salas {
                 gestionPeliculas.setSize(500, 300);
                 gestionPeliculas.setLocationRelativeTo(null);
                 gestionPeliculas.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                gestionPeliculas.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });

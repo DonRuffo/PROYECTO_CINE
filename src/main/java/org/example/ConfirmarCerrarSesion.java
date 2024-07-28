@@ -23,6 +23,8 @@ public class ConfirmarCerrarSesion {
                 login.setMinimumSize(new Dimension(500,300));
                 login.setLocationRelativeTo(null);
                 login.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                login.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(siButton)).dispose();
             }
         });
@@ -36,6 +38,8 @@ public class ConfirmarCerrarSesion {
                 paginaAdministrador.setLocationRelativeTo(null);
                 paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 paginaAdministrador.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                paginaAdministrador.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(noButton)).dispose();
             }
         });
