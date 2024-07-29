@@ -81,13 +81,14 @@ public class Login {
                             for (Document documento : documentos) {
                                 if (documento.getString("nombre").equals(cli1.getNombre()) && documento.getString("contrasena").equals(cli1.getContrasena())) {
                                     JFrame paginaClientes = new JFrame();
-                                    paginaClientes.setTitle("Bienvenido " + cli1.getNombre());
-                                    paginaClientes.setContentPane(new PaginaClientes().PanelPaginaCli);
+                                    paginaClientes.setTitle("PoliCine");
+                                    paginaClientes.setContentPane(new PaginaClientes().MainPanel);
                                     paginaClientes.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
                                     paginaClientes.setSize(500, 300);
                                     paginaClientes.setLocationRelativeTo(null);
                                     paginaClientes.setVisible(true);
-
+                                    ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                                    paginaClientes.setIconImage(imagen.getImage());
                                     ((JFrame) SwingUtilities.getWindowAncestor(iniciarSesiónButton)).dispose();
                                 }
                             }
