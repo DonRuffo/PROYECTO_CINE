@@ -112,7 +112,7 @@ public class RegistroClientes {
                 login.setContentPane(new Login().PanelLoign);
                 login.setTitle("PoliCine");
                 login.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                login.setSize(500,300);
+                login.setSize(500,350);
                 login.setLocationRelativeTo(null);
                 login.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");

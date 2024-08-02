@@ -266,7 +266,7 @@ public class AgregarPelicula {
                 gestionPeliculas.setTitle("PoliCine");
                 gestionPeliculas.setContentPane(new GestionarPeliculas().MainPanel);
                 gestionPeliculas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                gestionPeliculas.setSize(500, 300);
+                gestionPeliculas.setSize(500, 350);
                 gestionPeliculas.setLocationRelativeTo(null);
                 gestionPeliculas.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");

@@ -32,5 +32,20 @@ public class PaginaClientes {
                 ((JFrame) SwingUtilities.getWindowAncestor(cerrarSesiónButton)).dispose();
             }
         });
+        reservarPelículaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame reservar = new JFrame();
+                reservar.setTitle("PoliCine");
+                reservar.setContentPane(new ReservaPelicula().MainPanel);
+                reservar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                reservar.setSize(500, 350);
+                reservar.setLocationRelativeTo(null);
+                reservar.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                reservar.setIconImage(imagen.getImage());
+                ((JFrame) SwingUtilities.getWindowAncestor(reservarPelículaButton)).dispose();
+            }
+        });
     }
 }

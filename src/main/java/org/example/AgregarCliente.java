@@ -115,7 +115,7 @@ public class AgregarCliente {
                 gestionarClientes.setTitle("PoliCine");
                 gestionarClientes.setContentPane(new GestionarClientes().MainPanel);
                 gestionarClientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                gestionarClientes.setSize(500, 300);
+                gestionarClientes.setSize(500, 350);
                 gestionarClientes.setLocationRelativeTo(null);
                 gestionarClientes.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");

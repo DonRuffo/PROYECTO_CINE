@@ -39,7 +39,7 @@ public class GestionarPeliculas {
                 JFrame cartelera= new JFrame("PoliCine");
                 cartelera.setContentPane(new EliminarDeCartelera().MainPanel);
                 cartelera.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                cartelera.setSize(500,300);
+                cartelera.setSize(500,350);
                 cartelera.setLocationRelativeTo(null);
                 cartelera.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
@@ -53,7 +53,7 @@ public class GestionarPeliculas {
                 JFrame paginaAdministrador = new JFrame();
                 paginaAdministrador.setTitle("PoliCine");
                 paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
-                paginaAdministrador.setSize(500, 300);
+                paginaAdministrador.setSize(500, 350);
                 paginaAdministrador.setLocationRelativeTo(null);
                 paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 paginaAdministrador.setVisible(true);
@@ -69,7 +69,7 @@ public class GestionarPeliculas {
                 nuevoshorarios.setTitle("PoliCine");
                 nuevoshorarios.setContentPane(new Cambiar_horarios_salas().MainPanel);
                 nuevoshorarios.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                nuevoshorarios.setSize(500, 300);
+                nuevoshorarios.setSize(500, 350);
                 nuevoshorarios.setLocationRelativeTo(null);
                 nuevoshorarios.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");

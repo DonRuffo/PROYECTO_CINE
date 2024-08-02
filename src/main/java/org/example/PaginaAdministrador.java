@@ -27,7 +27,7 @@ public class PaginaAdministrador {
                 gestionPeliculas.setTitle("PoliCine");
                 gestionPeliculas.setContentPane(new GestionarPeliculas().MainPanel);
                 gestionPeliculas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                gestionPeliculas.setSize(500, 300);
+                gestionPeliculas.setSize(500, 350);
                 gestionPeliculas.setLocationRelativeTo(null);
                 gestionPeliculas.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
@@ -57,7 +57,7 @@ public class PaginaAdministrador {
                 gestionarClientes.setTitle("PoliCine");
                 gestionarClientes.setContentPane(new GestionarClientes().MainPanel);
                 gestionarClientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                gestionarClientes.setSize(500, 300);
+                gestionarClientes.setSize(500, 350);
                 gestionarClientes.setLocationRelativeTo(null);
                 gestionarClientes.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");

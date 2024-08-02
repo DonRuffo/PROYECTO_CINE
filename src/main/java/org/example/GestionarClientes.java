@@ -24,7 +24,7 @@ public class GestionarClientes {
                 JFrame paginaAdministrador = new JFrame();
                 paginaAdministrador.setTitle("PoliCine");
                 paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
-                paginaAdministrador.setSize(500, 300);
+                paginaAdministrador.setSize(500, 350);
                 paginaAdministrador.setLocationRelativeTo(null);
                 paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 paginaAdministrador.setVisible(true);

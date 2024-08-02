@@ -37,13 +37,16 @@ public class EliminarDeCartelera {
         SalaBox.setModel(salaModel);
         HorarioBox.setModel(horarioModel);
         FechaBox.setModel(fechaModel);
+        SeleccionBox.setModel(seleccionModel);
+        Seleccion2box.setModel(seleccion2model);
 
+        seleccion2model.addElement("Título");
+        seleccionModel.addElement("Título");
         fechaModel.addElement("Fecha");
         horarioModel.addElement("Hora");
         salaModel.addElement("Sala");
 
-        SeleccionBox.setModel(seleccionModel);
-        Seleccion2box.setModel(seleccion2model);
+
         PELICULAS peliEliminar= new PELICULAS();
 
 
@@ -75,7 +78,6 @@ public class EliminarDeCartelera {
                     JOptionPane.showMessageDialog(null, "Seleccione un horario");
                 }
                 else{
-                    int iterador=0;
                     try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                         MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
                         MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
@@ -126,7 +128,7 @@ public class EliminarDeCartelera {
                 gestionPeliculas.setTitle("PoliCine");
                 gestionPeliculas.setContentPane(new GestionarPeliculas().MainPanel);
                 gestionPeliculas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                gestionPeliculas.setSize(500, 300);
+                gestionPeliculas.setSize(500, 350);
                 gestionPeliculas.setLocationRelativeTo(null);
                 gestionPeliculas.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
@@ -207,7 +209,6 @@ public class EliminarDeCartelera {
                 }
 
                 peliEliminar.setFecha(fechaModel.getSelectedItem().toString());
-                peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
                 try(MongoClient cliente1 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                     MongoDatabase baseDeDatos = cliente1.getDatabase("Peliculas");
                     MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
@@ -235,8 +236,6 @@ public class EliminarDeCartelera {
                     horarioModel.addElement("Hora");
                 }
 
-                peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
-                peliEliminar.setFecha(fechaModel.getSelectedItem().toString());
                 peliEliminar.setSala(salaModel.getSelectedItem().toString());
                 try(MongoClient cliente2 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                     MongoDatabase baseDeDatos = cliente2.getDatabase("Peliculas");

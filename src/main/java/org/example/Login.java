@@ -24,6 +24,7 @@ public class Login {
     DefaultComboBoxModel perfil= new DefaultComboBoxModel();
 
     public Login() {
+        System.out.println("IMPRIME PTM");
         PerfilBox.setModel(perfil);
         Border borde = BorderFactory.createLineBorder(Color.black);
         UsuarioField.setBorder(borde);
@@ -54,7 +55,7 @@ public class Login {
                                     JFrame paginaAdministrador = new JFrame();
                                     paginaAdministrador.setTitle("PoliCine");
                                     paginaAdministrador.setContentPane(new PaginaAdministrador().PanelPaginaAdmin);
-                                    paginaAdministrador.setSize(500, 300);
+                                    paginaAdministrador.setSize(500, 350);
                                     paginaAdministrador.setLocationRelativeTo(null);
                                     paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                                     paginaAdministrador.setVisible(true);
@@ -84,7 +85,7 @@ public class Login {
                                     paginaClientes.setTitle("PoliCine");
                                     paginaClientes.setContentPane(new PaginaClientes().MainPanel);
                                     paginaClientes.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                                    paginaClientes.setSize(500, 300);
+                                    paginaClientes.setSize(500, 350);
                                     paginaClientes.setLocationRelativeTo(null);
                                     paginaClientes.setVisible(true);
                                     ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
