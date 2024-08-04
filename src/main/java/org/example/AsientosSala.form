@@ -3,10 +3,10 @@
   <grid id="27dc6" binding="MaiinPanel" layout-manager="GridLayoutManager" row-count="21" column-count="20" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1582" height="728"/>
+      <xy x="20" y="20" width="1592" height="728"/>
     </constraints>
     <properties>
-      <background color="-14079660"/>
+      <background color="-9174785"/>
       <font name="Berlin Sans FB Demi" size="14"/>
     </properties>
     <border type="none"/>
@@ -18,8 +18,9 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="1"/>
         </properties>
       </component>
@@ -28,8 +29,9 @@
           <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="2"/>
         </properties>
       </component>
@@ -38,8 +40,9 @@
           <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="3"/>
         </properties>
       </component>
@@ -48,8 +51,9 @@
           <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="4"/>
         </properties>
       </component>
@@ -58,8 +62,9 @@
           <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="5"/>
         </properties>
       </component>
@@ -68,8 +73,9 @@
           <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="6"/>
         </properties>
       </component>
@@ -78,8 +84,9 @@
           <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="7"/>
         </properties>
       </component>
@@ -88,8 +95,9 @@
           <grid row="4" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="8"/>
         </properties>
       </component>
@@ -98,8 +106,9 @@
           <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="9"/>
         </properties>
       </component>
@@ -108,8 +117,9 @@
           <grid row="4" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="10"/>
         </properties>
       </component>
@@ -118,8 +128,9 @@
           <grid row="4" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="11"/>
         </properties>
       </component>
@@ -128,8 +139,9 @@
           <grid row="4" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="12"/>
         </properties>
       </component>
@@ -138,8 +150,9 @@
           <grid row="4" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="13"/>
         </properties>
       </component>
@@ -148,8 +161,9 @@
           <grid row="4" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="14"/>
         </properties>
       </component>
@@ -158,8 +172,9 @@
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="15"/>
         </properties>
       </component>
@@ -168,8 +183,9 @@
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="29"/>
         </properties>
       </component>
@@ -178,8 +194,9 @@
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="43"/>
         </properties>
       </component>
@@ -188,8 +205,9 @@
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="57"/>
         </properties>
       </component>
@@ -198,8 +216,9 @@
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="71"/>
         </properties>
       </component>
@@ -208,8 +227,9 @@
           <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="85"/>
         </properties>
       </component>
@@ -218,8 +238,9 @@
           <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="99"/>
         </properties>
       </component>
@@ -228,8 +249,9 @@
           <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="113"/>
         </properties>
       </component>
@@ -238,8 +260,9 @@
           <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="127"/>
         </properties>
       </component>
@@ -248,8 +271,9 @@
           <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="141"/>
         </properties>
       </component>
@@ -258,8 +282,9 @@
           <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="155"/>
         </properties>
       </component>
@@ -268,8 +293,9 @@
           <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="16"/>
         </properties>
       </component>
@@ -278,8 +304,9 @@
           <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="17"/>
         </properties>
       </component>
@@ -288,8 +315,9 @@
           <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="18"/>
         </properties>
       </component>
@@ -298,8 +326,9 @@
           <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="19"/>
         </properties>
       </component>
@@ -308,8 +337,9 @@
           <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="20"/>
         </properties>
       </component>
@@ -318,8 +348,9 @@
           <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="21"/>
         </properties>
       </component>
@@ -328,8 +359,9 @@
           <grid row="5" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="22"/>
         </properties>
       </component>
@@ -338,8 +370,9 @@
           <grid row="5" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="23"/>
         </properties>
       </component>
@@ -348,8 +381,9 @@
           <grid row="5" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="24"/>
         </properties>
       </component>
@@ -358,8 +392,9 @@
           <grid row="5" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="25"/>
         </properties>
       </component>
@@ -368,8 +403,9 @@
           <grid row="5" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="26"/>
         </properties>
       </component>
@@ -378,8 +414,9 @@
           <grid row="5" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="27"/>
         </properties>
       </component>
@@ -388,8 +425,9 @@
           <grid row="5" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="28"/>
         </properties>
       </component>
@@ -398,8 +436,9 @@
           <grid row="6" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="42"/>
         </properties>
       </component>
@@ -408,8 +447,9 @@
           <grid row="7" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="56"/>
         </properties>
       </component>
@@ -418,8 +458,9 @@
           <grid row="7" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="55"/>
         </properties>
       </component>
@@ -428,8 +469,9 @@
           <grid row="6" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="41"/>
         </properties>
       </component>
@@ -438,8 +480,9 @@
           <grid row="6" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="40"/>
         </properties>
       </component>
@@ -448,8 +491,9 @@
           <grid row="6" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="39"/>
         </properties>
       </component>
@@ -458,8 +502,9 @@
           <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="38"/>
         </properties>
       </component>
@@ -468,8 +513,9 @@
           <grid row="6" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="37"/>
         </properties>
       </component>
@@ -478,8 +524,9 @@
           <grid row="6" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="36"/>
         </properties>
       </component>
@@ -488,8 +535,9 @@
           <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="35"/>
         </properties>
       </component>
@@ -498,8 +546,9 @@
           <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="34"/>
         </properties>
       </component>
@@ -508,8 +557,10 @@
           <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
+          <enabled value="true"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="33"/>
         </properties>
       </component>
@@ -518,8 +569,9 @@
           <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="32"/>
         </properties>
       </component>
@@ -528,8 +580,9 @@
           <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="31"/>
         </properties>
       </component>
@@ -538,8 +591,9 @@
           <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="30"/>
         </properties>
       </component>
@@ -548,8 +602,9 @@
           <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="44"/>
         </properties>
       </component>
@@ -558,8 +613,9 @@
           <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="58"/>
         </properties>
       </component>
@@ -568,8 +624,9 @@
           <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="72"/>
         </properties>
       </component>
@@ -578,8 +635,9 @@
           <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="86"/>
         </properties>
       </component>
@@ -588,8 +646,9 @@
           <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="100"/>
         </properties>
       </component>
@@ -598,8 +657,9 @@
           <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="114"/>
         </properties>
       </component>
@@ -608,8 +668,9 @@
           <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="128"/>
         </properties>
       </component>
@@ -618,8 +679,9 @@
           <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="142"/>
         </properties>
       </component>
@@ -628,8 +690,9 @@
           <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="156"/>
         </properties>
       </component>
@@ -638,8 +701,9 @@
           <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="157"/>
         </properties>
       </component>
@@ -648,8 +712,9 @@
           <grid row="15" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="158"/>
         </properties>
       </component>
@@ -658,8 +723,9 @@
           <grid row="15" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="159"/>
         </properties>
       </component>
@@ -668,8 +734,9 @@
           <grid row="15" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="160"/>
         </properties>
       </component>
@@ -678,8 +745,9 @@
           <grid row="15" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="161"/>
         </properties>
       </component>
@@ -688,8 +756,9 @@
           <grid row="15" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="162"/>
         </properties>
       </component>
@@ -698,8 +767,9 @@
           <grid row="15" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="163"/>
         </properties>
       </component>
@@ -708,8 +778,9 @@
           <grid row="15" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="164"/>
         </properties>
       </component>
@@ -718,8 +789,9 @@
           <grid row="15" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="165"/>
         </properties>
       </component>
@@ -728,8 +800,9 @@
           <grid row="15" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="166"/>
         </properties>
       </component>
@@ -738,8 +811,9 @@
           <grid row="15" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="167"/>
         </properties>
       </component>
@@ -748,8 +822,9 @@
           <grid row="15" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="168"/>
         </properties>
       </component>
@@ -758,8 +833,9 @@
           <grid row="14" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="154"/>
         </properties>
       </component>
@@ -768,8 +844,9 @@
           <grid row="13" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="140"/>
         </properties>
       </component>
@@ -778,8 +855,9 @@
           <grid row="12" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="126"/>
         </properties>
       </component>
@@ -788,8 +866,9 @@
           <grid row="11" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="112"/>
         </properties>
       </component>
@@ -798,8 +877,9 @@
           <grid row="10" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="98"/>
         </properties>
       </component>
@@ -808,8 +888,9 @@
           <grid row="9" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="84"/>
         </properties>
       </component>
@@ -818,8 +899,9 @@
           <grid row="8" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="70"/>
         </properties>
       </component>
@@ -828,8 +910,9 @@
           <grid row="8" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="69"/>
         </properties>
       </component>
@@ -838,8 +921,9 @@
           <grid row="9" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="83"/>
         </properties>
       </component>
@@ -848,8 +932,9 @@
           <grid row="10" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="97"/>
         </properties>
       </component>
@@ -858,8 +943,9 @@
           <grid row="11" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="111"/>
         </properties>
       </component>
@@ -868,8 +954,9 @@
           <grid row="12" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="125"/>
         </properties>
       </component>
@@ -878,8 +965,9 @@
           <grid row="13" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="139"/>
         </properties>
       </component>
@@ -888,8 +976,9 @@
           <grid row="14" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="153"/>
         </properties>
       </component>
@@ -898,19 +987,10 @@
           <grid row="14" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="152"/>
-        </properties>
-      </component>
-      <component id="caf32" class="javax.swing.JButton" binding="a138">
-        <constraints>
-          <grid row="13" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-1"/>
-          <font name="Berlin Sans FB Demi" size="14"/>
-          <text value="138"/>
         </properties>
       </component>
       <component id="347f8" class="javax.swing.JButton" binding="a124">
@@ -918,8 +998,9 @@
           <grid row="12" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="124"/>
         </properties>
       </component>
@@ -928,8 +1009,9 @@
           <grid row="11" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="110"/>
         </properties>
       </component>
@@ -938,8 +1020,9 @@
           <grid row="10" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="96"/>
         </properties>
       </component>
@@ -948,8 +1031,9 @@
           <grid row="9" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="82"/>
         </properties>
       </component>
@@ -958,8 +1042,9 @@
           <grid row="8" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="68"/>
         </properties>
       </component>
@@ -968,8 +1053,9 @@
           <grid row="7" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="54"/>
         </properties>
       </component>
@@ -978,8 +1064,9 @@
           <grid row="7" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="53"/>
         </properties>
       </component>
@@ -988,8 +1075,9 @@
           <grid row="7" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="52"/>
         </properties>
       </component>
@@ -998,8 +1086,9 @@
           <grid row="7" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="51"/>
         </properties>
       </component>
@@ -1008,8 +1097,9 @@
           <grid row="7" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="50"/>
         </properties>
       </component>
@@ -1018,8 +1108,9 @@
           <grid row="7" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="49"/>
         </properties>
       </component>
@@ -1028,8 +1119,9 @@
           <grid row="7" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="48"/>
         </properties>
       </component>
@@ -1038,8 +1130,9 @@
           <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="47"/>
         </properties>
       </component>
@@ -1048,8 +1141,9 @@
           <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="46"/>
         </properties>
       </component>
@@ -1058,8 +1152,9 @@
           <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="45"/>
         </properties>
       </component>
@@ -1068,8 +1163,9 @@
           <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="59"/>
         </properties>
       </component>
@@ -1078,8 +1174,9 @@
           <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="73"/>
         </properties>
       </component>
@@ -1088,8 +1185,9 @@
           <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="87"/>
         </properties>
       </component>
@@ -1098,8 +1196,9 @@
           <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="101"/>
         </properties>
       </component>
@@ -1108,8 +1207,9 @@
           <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="115"/>
         </properties>
       </component>
@@ -1118,8 +1218,9 @@
           <grid row="13" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="129"/>
         </properties>
       </component>
@@ -1128,8 +1229,9 @@
           <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="143"/>
         </properties>
       </component>
@@ -1138,8 +1240,9 @@
           <grid row="14" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="144"/>
         </properties>
       </component>
@@ -1148,8 +1251,9 @@
           <grid row="13" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="130"/>
         </properties>
       </component>
@@ -1158,8 +1262,9 @@
           <grid row="13" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="131"/>
         </properties>
       </component>
@@ -1168,8 +1273,9 @@
           <grid row="14" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="145"/>
         </properties>
       </component>
@@ -1178,8 +1284,9 @@
           <grid row="14" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="146"/>
         </properties>
       </component>
@@ -1188,8 +1295,9 @@
           <grid row="13" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="132"/>
         </properties>
       </component>
@@ -1198,8 +1306,9 @@
           <grid row="13" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="133"/>
         </properties>
       </component>
@@ -1208,8 +1317,9 @@
           <grid row="14" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="147"/>
         </properties>
       </component>
@@ -1218,8 +1328,9 @@
           <grid row="13" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="134"/>
         </properties>
       </component>
@@ -1228,8 +1339,9 @@
           <grid row="14" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="148"/>
         </properties>
       </component>
@@ -1238,8 +1350,9 @@
           <grid row="13" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="135"/>
         </properties>
       </component>
@@ -1248,8 +1361,9 @@
           <grid row="13" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="136"/>
         </properties>
       </component>
@@ -1258,8 +1372,9 @@
           <grid row="13" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="137"/>
         </properties>
       </component>
@@ -1268,8 +1383,9 @@
           <grid row="14" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="149"/>
         </properties>
       </component>
@@ -1278,8 +1394,9 @@
           <grid row="14" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="150"/>
         </properties>
       </component>
@@ -1288,8 +1405,9 @@
           <grid row="14" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="151"/>
         </properties>
       </component>
@@ -1298,8 +1416,9 @@
           <grid row="12" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="123"/>
         </properties>
       </component>
@@ -1308,8 +1427,9 @@
           <grid row="11" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="109"/>
         </properties>
       </component>
@@ -1318,8 +1438,9 @@
           <grid row="10" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="95"/>
         </properties>
       </component>
@@ -1328,8 +1449,9 @@
           <grid row="9" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="81"/>
         </properties>
       </component>
@@ -1338,8 +1460,9 @@
           <grid row="8" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="67"/>
         </properties>
       </component>
@@ -1348,8 +1471,9 @@
           <grid row="8" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="66"/>
         </properties>
       </component>
@@ -1358,8 +1482,9 @@
           <grid row="8" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="65"/>
         </properties>
       </component>
@@ -1368,8 +1493,9 @@
           <grid row="8" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="64"/>
         </properties>
       </component>
@@ -1378,8 +1504,9 @@
           <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="63"/>
         </properties>
       </component>
@@ -1388,8 +1515,9 @@
           <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="62"/>
         </properties>
       </component>
@@ -1398,8 +1526,9 @@
           <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="61"/>
         </properties>
       </component>
@@ -1408,8 +1537,9 @@
           <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="60"/>
         </properties>
       </component>
@@ -1418,8 +1548,9 @@
           <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="74"/>
         </properties>
       </component>
@@ -1428,8 +1559,9 @@
           <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="75"/>
         </properties>
       </component>
@@ -1438,8 +1570,9 @@
           <grid row="10" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="88"/>
         </properties>
       </component>
@@ -1448,8 +1581,9 @@
           <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="102"/>
         </properties>
       </component>
@@ -1458,8 +1592,9 @@
           <grid row="12" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="116"/>
         </properties>
       </component>
@@ -1468,8 +1603,9 @@
           <grid row="12" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="117"/>
         </properties>
       </component>
@@ -1478,8 +1614,9 @@
           <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="103"/>
         </properties>
       </component>
@@ -1488,8 +1625,9 @@
           <grid row="10" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="89"/>
         </properties>
       </component>
@@ -1498,8 +1636,9 @@
           <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="76"/>
         </properties>
       </component>
@@ -1508,8 +1647,9 @@
           <grid row="10" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="90"/>
         </properties>
       </component>
@@ -1518,8 +1658,9 @@
           <grid row="11" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="104"/>
         </properties>
       </component>
@@ -1528,8 +1669,9 @@
           <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="118"/>
         </properties>
       </component>
@@ -1538,8 +1680,9 @@
           <grid row="12" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="119"/>
         </properties>
       </component>
@@ -1548,8 +1691,9 @@
           <grid row="11" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="105"/>
         </properties>
       </component>
@@ -1558,8 +1702,9 @@
           <grid row="10" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="91"/>
         </properties>
       </component>
@@ -1568,8 +1713,9 @@
           <grid row="9" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="77"/>
         </properties>
       </component>
@@ -1578,8 +1724,9 @@
           <grid row="9" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="78"/>
         </properties>
       </component>
@@ -1588,8 +1735,9 @@
           <grid row="10" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="92"/>
         </properties>
       </component>
@@ -1598,8 +1746,9 @@
           <grid row="11" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="106"/>
         </properties>
       </component>
@@ -1608,8 +1757,9 @@
           <grid row="12" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="120"/>
         </properties>
       </component>
@@ -1618,8 +1768,9 @@
           <grid row="12" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="121"/>
         </properties>
       </component>
@@ -1628,8 +1779,9 @@
           <grid row="11" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="107"/>
         </properties>
       </component>
@@ -1638,8 +1790,9 @@
           <grid row="10" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="93"/>
         </properties>
       </component>
@@ -1648,8 +1801,9 @@
           <grid row="9" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="79"/>
         </properties>
       </component>
@@ -1658,8 +1812,9 @@
           <grid row="9" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="80"/>
         </properties>
       </component>
@@ -1668,8 +1823,9 @@
           <grid row="10" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="94"/>
         </properties>
       </component>
@@ -1678,8 +1834,9 @@
           <grid row="11" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="108"/>
         </properties>
       </component>
@@ -1688,8 +1845,9 @@
           <grid row="12" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="122"/>
         </properties>
       </component>
@@ -1698,8 +1856,9 @@
           <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="170"/>
         </properties>
       </component>
@@ -1708,8 +1867,9 @@
           <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="171"/>
         </properties>
       </component>
@@ -1718,8 +1878,9 @@
           <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="172"/>
         </properties>
       </component>
@@ -1728,8 +1889,9 @@
           <grid row="16" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="173"/>
         </properties>
       </component>
@@ -1738,8 +1900,9 @@
           <grid row="16" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="174"/>
         </properties>
       </component>
@@ -1748,8 +1911,9 @@
           <grid row="16" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="175"/>
         </properties>
       </component>
@@ -1758,8 +1922,9 @@
           <grid row="16" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="176"/>
         </properties>
       </component>
@@ -1768,8 +1933,9 @@
           <grid row="16" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="178"/>
         </properties>
       </component>
@@ -1778,8 +1944,9 @@
           <grid row="16" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="179"/>
         </properties>
       </component>
@@ -1788,8 +1955,9 @@
           <grid row="16" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="180"/>
         </properties>
       </component>
@@ -1798,8 +1966,9 @@
           <grid row="16" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="181"/>
         </properties>
       </component>
@@ -1808,8 +1977,9 @@
           <grid row="16" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="182"/>
         </properties>
       </component>
@@ -1818,8 +1988,9 @@
           <grid row="16" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="183"/>
         </properties>
       </component>
@@ -1828,8 +1999,9 @@
           <grid row="16" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="184"/>
         </properties>
       </component>
@@ -1838,8 +2010,9 @@
           <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="169"/>
         </properties>
       </component>
@@ -1853,8 +2026,9 @@
           <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="185"/>
         </properties>
       </component>
@@ -1863,8 +2037,9 @@
           <grid row="17" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="186"/>
         </properties>
       </component>
@@ -1873,8 +2048,9 @@
           <grid row="17" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="187"/>
         </properties>
       </component>
@@ -1883,8 +2059,9 @@
           <grid row="17" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="188"/>
         </properties>
       </component>
@@ -1893,8 +2070,9 @@
           <grid row="17" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="189"/>
         </properties>
       </component>
@@ -1903,8 +2081,9 @@
           <grid row="17" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="190"/>
         </properties>
       </component>
@@ -1913,8 +2092,9 @@
           <grid row="17" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="191"/>
         </properties>
       </component>
@@ -1923,8 +2103,9 @@
           <grid row="17" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="192"/>
         </properties>
       </component>
@@ -1933,8 +2114,9 @@
           <grid row="17" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="193"/>
         </properties>
       </component>
@@ -1943,8 +2125,9 @@
           <grid row="17" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="194"/>
         </properties>
       </component>
@@ -1953,8 +2136,9 @@
           <grid row="17" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="195"/>
         </properties>
       </component>
@@ -1963,8 +2147,9 @@
           <grid row="17" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="196"/>
         </properties>
       </component>
@@ -1973,8 +2158,9 @@
           <grid row="17" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="197"/>
         </properties>
       </component>
@@ -1983,8 +2169,9 @@
           <grid row="17" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="198"/>
         </properties>
       </component>
@@ -1993,8 +2180,9 @@
           <grid row="17" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="199"/>
         </properties>
       </component>
@@ -2003,8 +2191,9 @@
           <grid row="17" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="200"/>
         </properties>
       </component>
@@ -2024,7 +2213,7 @@
           <grid row="2" column="1" row-span="1" col-span="16" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
         </properties>
         <border type="none"/>
         <children>
@@ -2034,6 +2223,7 @@
             </constraints>
             <properties>
               <font name="Berlin Sans FB Demi" size="22"/>
+              <foreground color="-1"/>
               <text value="Pantalla"/>
             </properties>
           </component>
@@ -2051,7 +2241,7 @@
       </vspacer>
       <component id="d5b85" class="javax.swing.JLabel">
         <constraints>
-          <grid row="6" column="18" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="17" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-1"/>
@@ -2062,15 +2252,17 @@
       </component>
       <component id="c1e51" class="javax.swing.JLabel" binding="AsientosLabel">
         <constraints>
-          <grid row="7" column="18" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="17" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-1"/>
           <text value=""/>
         </properties>
       </component>
       <component id="65011" class="javax.swing.JLabel">
         <constraints>
-          <grid row="9" column="18" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="17" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-15790321"/>
@@ -2079,39 +2271,11 @@
           <text value="Total a pagar:"/>
         </properties>
       </component>
-      <component id="1a459" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="10" column="18" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="0"/>
-        </properties>
-      </component>
       <vspacer id="5bb57">
         <constraints>
           <grid row="18" column="8" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <hspacer id="74502">
-        <constraints>
-          <grid row="7" column="19" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <hspacer id="bdacc">
-        <constraints>
-          <grid row="7" column="17" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <component id="be0e6" class="javax.swing.JButton" binding="regresarButton" default-binding="true">
-        <constraints>
-          <grid row="19" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-1"/>
-          <font name="Berlin Sans FB Demi" size="14"/>
-          <text value="Regresar"/>
-        </properties>
-      </component>
       <vspacer id="3b9f6">
         <constraints>
           <grid row="20" column="13" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -2122,19 +2286,10 @@
           <grid row="16" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-1"/>
+          <background color="-15790321"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
           <text value="177"/>
-        </properties>
-      </component>
-      <component id="f4271" class="javax.swing.JButton" binding="reelegirAsientosButton" default-binding="true">
-        <constraints>
-          <grid row="19" column="9" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-1"/>
-          <font name="Berlin Sans FB Demi" size="14"/>
-          <text value="Reelegir asientos"/>
         </properties>
       </component>
       <component id="ef3d3" class="javax.swing.JButton" binding="reservarButton" default-binding="true">
@@ -2144,9 +2299,68 @@
         <properties>
           <background color="-1"/>
           <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-15790321"/>
           <text value="Reservar"/>
         </properties>
       </component>
+      <component id="2706a" class="javax.swing.JButton" binding="reelegirButton" default-binding="true">
+        <constraints>
+          <grid row="19" column="8" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-15790321"/>
+          <text value="Reelegir"/>
+        </properties>
+      </component>
+      <component id="be0e6" class="javax.swing.JButton" binding="regresarButton" default-binding="true">
+        <constraints>
+          <grid row="19" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-15790321"/>
+          <text value="Regresar"/>
+        </properties>
+      </component>
+      <component id="caf32" class="javax.swing.JButton" binding="a138">
+        <constraints>
+          <grid row="13" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-15790321"/>
+          <font name="Berlin Sans FB Demi" size="14"/>
+          <foreground color="-328444"/>
+          <text value="138"/>
+        </properties>
+      </component>
+      <component id="de4f7" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="10" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Berlin Sans FB Demi" size="20"/>
+          <foreground color="-16730617"/>
+          <text value="$"/>
+        </properties>
+      </component>
+      <component id="1a459" class="javax.swing.JLabel" binding="PrecioLabel">
+        <constraints>
+          <grid row="10" column="17" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Berlin Sans FB Demi" size="20"/>
+          <foreground color="-16730617"/>
+          <text value="0"/>
+        </properties>
+      </component>
+      <hspacer id="e052f">
+        <constraints>
+          <grid row="10" column="19" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
     </children>
   </grid>
 </form>

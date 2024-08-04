@@ -27,12 +27,15 @@ public class ReservaPelicula {
     DefaultComboBoxModel FechaModel = new DefaultComboBoxModel();
     DefaultComboBoxModel SalaModel = new DefaultComboBoxModel();
     DefaultComboBoxModel HoraModel = new DefaultComboBoxModel();
-    PELICULAS peliReserva= new PELICULAS("Dennis","diaz","huh","nkn","nknk","ya","ttt","ggg","jj",9.0);
+
+    PELICULAS peliReserva= new PELICULAS();
+
     public ReservaPelicula(){
         PeliBox.setModel(PeliModel);
         FechaBox.setModel(FechaModel);
         SalaBox.setModel(SalaModel);
         HoraBox.setModel(HoraModel);
+
 
         PeliModel.addElement("Pelicula");
         FechaModel.addElement("Fecha");
@@ -160,11 +163,19 @@ public class ReservaPelicula {
                 peliReserva.setFecha(FechaModel.getSelectedItem().toString());
                 peliReserva.setSala(SalaModel.getSelectedItem().toString());
                 peliReserva.setHorario(HoraModel.getSelectedItem().toString());
+                try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                    MongoDatabase basedeDatos = cliente.getDatabase("Caché");
+                    MongoCollection<Document> coleccion = basedeDatos.getCollection("CacheBase");
+
+                    Document insercionCache = new Document("titulo", peliReserva.getTitulo()).append("fecha",peliReserva.getFecha())
+                            .append("sala", peliReserva.getSala()). append("hora", peliReserva.getHorario());
+                    coleccion.insertOne(insercionCache);
+                }
                 JFrame reservas = new JFrame();
                 reservas.setTitle("Reservas");
                 reservas.setContentPane(new AsientosSala().MaiinPanel);
                 reservas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                reservas.setSize(1300, 600);
+                reservas.setSize(1350, 700);
                 reservas.setLocationRelativeTo(null);
                 reservas.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(pasarAEscogerUnButton)).dispose();
@@ -172,12 +183,7 @@ public class ReservaPelicula {
         });
 
     }
-    public void guardar(String titulo, String fecha, String sala, String hora ){
-        titulo=peliReserva.getTitulo();
-        fecha=peliReserva.getFecha();
-        sala=peliReserva.getSala();
-        hora=peliReserva.getHorario();
-    }
+
     public static <T> List<T> removerduplicados(List<T> lista){
         Set<T> set= new LinkedHashSet<>(lista);
         return new ArrayList<>(set);
