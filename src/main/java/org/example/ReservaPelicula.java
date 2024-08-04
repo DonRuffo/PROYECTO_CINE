@@ -172,12 +172,14 @@ public class ReservaPelicula {
                     coleccion.insertOne(insercionCache);
                 }
                 JFrame reservas = new JFrame();
-                reservas.setTitle("Reservas");
+                reservas.setTitle("PoliCine");
                 reservas.setContentPane(new AsientosSala().MaiinPanel);
                 reservas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 reservas.setSize(1350, 700);
                 reservas.setLocationRelativeTo(null);
                 reservas.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                reservas.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(pasarAEscogerUnButton)).dispose();
             }
         });
