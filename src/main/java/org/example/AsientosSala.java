@@ -1,14 +1,14 @@
 package org.example;
 
 import com.mongodb.client.*;
-import com.mongodb.internal.operation.FindAndDeleteOperation;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
+
 
 public class AsientosSala {
     private JButton a1;
@@ -909,33 +909,20 @@ public class AsientosSala {
                 }
             }
         }
-
-        regresarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame reservar = new JFrame();
-                reservar.setTitle("PoliCine");
-                reservar.setContentPane(new ReservaPelicula().MainPanel);
-                reservar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                reservar.setSize(500, 350);
-                reservar.setLocationRelativeTo(null);
-                reservar.setVisible(true);
-                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
-                reservar.setIconImage(imagen.getImage());
-                ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
-            }
-        });
         a1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Color color = a1.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a1.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a1.setBackground(Color.green);
                     a1.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,1";
+                    recoger=AsientosLabel.getText()+",1";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -949,11 +936,13 @@ public class AsientosSala {
                 Color color = a2.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a2.getText()+" ya está seleccionado");
+                }else if (color.equals(Color.RED)) {
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a2.setBackground(Color.green);
                     a2.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,2";
+                    recoger=AsientosLabel.getText()+",2";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -967,11 +956,14 @@ public class AsientosSala {
                 Color color = a3.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a3.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a3.setBackground(Color.green);
                     a3.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,3";
+                    recoger=AsientosLabel.getText()+",3";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -985,11 +977,14 @@ public class AsientosSala {
                 Color color = a4.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a4.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a4.setBackground(Color.green);
                     a4.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,4";
+                    recoger=AsientosLabel.getText()+",4";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1003,11 +998,14 @@ public class AsientosSala {
                 Color color = a5.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a5.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a5.setBackground(Color.green);
                     a5.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,5";
+                    recoger=AsientosLabel.getText()+",5";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1021,11 +1019,14 @@ public class AsientosSala {
                 Color color = a6.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a6.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a6.setBackground(Color.green);
                     a6.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,6";
+                    recoger=AsientosLabel.getText()+",6";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1039,11 +1040,14 @@ public class AsientosSala {
                 Color color = a7.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a7.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a7.setBackground(Color.green);
                     a7.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,7";
+                    recoger=AsientosLabel.getText()+",7";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1057,11 +1061,14 @@ public class AsientosSala {
                 Color color = a8.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a8.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a8.setBackground(Color.green);
                     a8.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,8";
+                    recoger=AsientosLabel.getText()+",8";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1075,11 +1082,14 @@ public class AsientosSala {
                 Color color = a9.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a9.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a9.setBackground(Color.green);
                     a9.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,9";
+                    recoger=AsientosLabel.getText()+",9";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1093,11 +1103,14 @@ public class AsientosSala {
                 Color color = a10.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a10.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a10.setBackground(Color.green);
                     a10.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,10";
+                    recoger=AsientosLabel.getText()+",10";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1111,11 +1124,14 @@ public class AsientosSala {
                 Color color = a11.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a11.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a11.setBackground(Color.green);
                     a11.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,11";
+                    recoger=AsientosLabel.getText()+",11";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1129,11 +1145,14 @@ public class AsientosSala {
                 Color color = a12.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a12.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a12.setBackground(Color.green);
                     a12.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,12";
+                    recoger=AsientosLabel.getText()+",12";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1147,11 +1166,14 @@ public class AsientosSala {
                 Color color = a13.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a1.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a13.setBackground(Color.green);
                     a13.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,13";
+                    recoger=AsientosLabel.getText()+",13";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1165,11 +1187,14 @@ public class AsientosSala {
                 Color color = a14.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a14.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a14.setBackground(Color.green);
                     a14.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,14";
+                    recoger=AsientosLabel.getText()+",14";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1183,11 +1208,14 @@ public class AsientosSala {
                 Color color = a15.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a15.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a15.setBackground(Color.green);
                     a15.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,15";
+                    recoger=AsientosLabel.getText()+",15";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1201,11 +1229,14 @@ public class AsientosSala {
                 Color color = a16.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a16.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a16.setBackground(Color.green);
                     a16.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,16";
+                    recoger=AsientosLabel.getText()+",16";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1219,11 +1250,14 @@ public class AsientosSala {
                 Color color = a17.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a17.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a17.setBackground(Color.green);
                     a17.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,17";
+                    recoger=AsientosLabel.getText()+",17";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1237,11 +1271,14 @@ public class AsientosSala {
                 Color color = a18.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a18.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a18.setBackground(Color.green);
                     a18.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,18";
+                    recoger=AsientosLabel.getText()+",18";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1255,11 +1292,14 @@ public class AsientosSala {
                 Color color = a19.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a19.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a19.setBackground(Color.green);
                     a19.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,19";
+                    recoger=AsientosLabel.getText()+",19";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1273,11 +1313,14 @@ public class AsientosSala {
                 Color color = a20.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a20.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a20.setBackground(Color.green);
                     a20.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,20";
+                    recoger=AsientosLabel.getText()+",20";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1291,11 +1334,14 @@ public class AsientosSala {
                 Color color = a21.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a21.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a21.setBackground(Color.green);
                     a21.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,21";
+                    recoger=AsientosLabel.getText()+",21";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1309,11 +1355,14 @@ public class AsientosSala {
                 Color color = a22.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a22.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a22.setBackground(Color.green);
                     a22.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,1";
+                    recoger=AsientosLabel.getText()+",22";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1327,11 +1376,14 @@ public class AsientosSala {
                 Color color = a23.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a23.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a23.setBackground(Color.green);
                     a23.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,23";
+                    recoger=AsientosLabel.getText()+",23";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1345,11 +1397,14 @@ public class AsientosSala {
                 Color color = a24.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a24.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a24.setBackground(Color.green);
                     a24.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,24";
+                    recoger=AsientosLabel.getText()+",24";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1363,11 +1418,14 @@ public class AsientosSala {
                 Color color = a25.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a25.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a25.setBackground(Color.green);
                     a25.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,25";
+                    recoger=AsientosLabel.getText()+",25";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1381,11 +1439,14 @@ public class AsientosSala {
                 Color color = a26.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a26.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a26.setBackground(Color.green);
                     a26.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,26";
+                    recoger=AsientosLabel.getText()+",26";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1399,11 +1460,14 @@ public class AsientosSala {
                 Color color = a27.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a27.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a27.setBackground(Color.green);
                     a27.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,27";
+                    recoger=AsientosLabel.getText()+",27";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1417,11 +1481,13 @@ public class AsientosSala {
                 Color color = a28.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a28.getText()+" ya está seleccionado");
+                }else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a28.setBackground(Color.green);
                     a28.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,28";
+                    recoger=AsientosLabel.getText()+",28";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1435,11 +1501,14 @@ public class AsientosSala {
                 Color color = a29.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a29.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a29.setBackground(Color.green);
                     a29.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,29";
+                    recoger=AsientosLabel.getText()+",29";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1453,11 +1522,14 @@ public class AsientosSala {
                 Color color = a30.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a30.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a30.setBackground(Color.green);
                     a30.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,30";
+                    recoger=AsientosLabel.getText()+",30";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1471,11 +1543,14 @@ public class AsientosSala {
                 Color color = a31.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a31.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a31.setBackground(Color.green);
                     a31.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,31";
+                    recoger=AsientosLabel.getText()+",31";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1489,11 +1564,14 @@ public class AsientosSala {
                 Color color = a32.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a32.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a32.setBackground(Color.green);
                     a32.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,32";
+                    recoger=AsientosLabel.getText()+",32";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1507,11 +1585,14 @@ public class AsientosSala {
                 Color color = a33.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a33.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a33.setBackground(Color.green);
                     a33.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,33";
+                    recoger=AsientosLabel.getText()+",33";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1525,11 +1606,14 @@ public class AsientosSala {
                 Color color = a34.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a34.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a34.setBackground(Color.green);
                     a34.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,34";
+                    recoger=AsientosLabel.getText()+",34";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1543,11 +1627,14 @@ public class AsientosSala {
                 Color color = a35.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a35.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a35.setBackground(Color.green);
                     a35.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,35";
+                    recoger=AsientosLabel.getText()+",35";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1561,11 +1648,14 @@ public class AsientosSala {
                 Color color = a36.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a36.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a36.setBackground(Color.green);
                     a36.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,36";
+                    recoger=AsientosLabel.getText()+",36";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1580,11 +1670,14 @@ public class AsientosSala {
                 Color color = a37.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a37.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a37.setBackground(Color.green);
                     a37.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,37";
+                    recoger=AsientosLabel.getText()+",37";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1598,11 +1691,14 @@ public class AsientosSala {
                 Color color = a38.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a38.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a38.setBackground(Color.green);
                     a38.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,38";
+                    recoger=AsientosLabel.getText()+",38";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1616,11 +1712,14 @@ public class AsientosSala {
                 Color color = a39.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a39.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a39.setBackground(Color.green);
                     a39.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,39";
+                    recoger=AsientosLabel.getText()+",39";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1634,11 +1733,14 @@ public class AsientosSala {
                 Color color = a40.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a40.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a40.setBackground(Color.green);
                     a40.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,40";
+                    recoger=AsientosLabel.getText()+",40";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1652,11 +1754,14 @@ public class AsientosSala {
                 Color color = a41.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a41.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a41.setBackground(Color.green);
                     a41.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,41";
+                    recoger=AsientosLabel.getText()+",41";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1670,11 +1775,14 @@ public class AsientosSala {
                 Color color = a42.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a42.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a42.setBackground(Color.green);
                     a42.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,42";
+                    recoger=AsientosLabel.getText()+",42";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1688,11 +1796,14 @@ public class AsientosSala {
                 Color color = a43.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a43.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a43.setBackground(Color.green);
                     a43.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,43";
+                    recoger=AsientosLabel.getText()+",43";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1706,11 +1817,14 @@ public class AsientosSala {
                 Color color = a44.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a44.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a44.setBackground(Color.green);
                     a44.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,44";
+                    recoger=AsientosLabel.getText()+",44";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1724,11 +1838,14 @@ public class AsientosSala {
                 Color color = a45.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a45.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a45.setBackground(Color.green);
                     a45.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,45";
+                    recoger=AsientosLabel.getText()+",45";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1742,11 +1859,14 @@ public class AsientosSala {
                 Color color = a46.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a46.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a46.setBackground(Color.green);
                     a46.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,46";
+                    recoger=AsientosLabel.getText()+",46";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1760,11 +1880,14 @@ public class AsientosSala {
                 Color color = a47.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a47.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a47.setBackground(Color.green);
                     a47.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,47";
+                    recoger=AsientosLabel.getText()+",47";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1778,11 +1901,14 @@ public class AsientosSala {
                 Color color = a48.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a48.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a48.setBackground(Color.green);
                     a48.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,48";
+                    recoger=AsientosLabel.getText()+",48";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1796,11 +1922,14 @@ public class AsientosSala {
                 Color color = a49.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a49.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a49.setBackground(Color.green);
                     a49.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,49";
+                    recoger=AsientosLabel.getText()+",49";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1814,11 +1943,14 @@ public class AsientosSala {
                 Color color = a50.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a50.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a50.setBackground(Color.green);
                     a50.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,50";
+                    recoger=AsientosLabel.getText()+",50";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1832,11 +1964,14 @@ public class AsientosSala {
                 Color color = a51.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a51.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a51.setBackground(Color.green);
                     a51.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,51";
+                    recoger=AsientosLabel.getText()+",51";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1850,11 +1985,14 @@ public class AsientosSala {
                 Color color = a52.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a52.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a52.setBackground(Color.green);
                     a52.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,52";
+                    recoger=AsientosLabel.getText()+",52";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1868,11 +2006,14 @@ public class AsientosSala {
                 Color color = a53.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a53.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a53.setBackground(Color.green);
                     a53.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,53";
+                    recoger=AsientosLabel.getText()+",53";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1886,11 +2027,14 @@ public class AsientosSala {
                 Color color = a54.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a54.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a54.setBackground(Color.green);
                     a54.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,54";
+                    recoger=AsientosLabel.getText()+",54";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1904,11 +2048,14 @@ public class AsientosSala {
                 Color color = a55.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a55.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a55.setBackground(Color.green);
                     a55.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,55";
+                    recoger=AsientosLabel.getText()+",55";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1922,11 +2069,14 @@ public class AsientosSala {
                 Color color = a56.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a56.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a56.setBackground(Color.green);
                     a56.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,56";
+                    recoger=AsientosLabel.getText()+",56";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1940,11 +2090,14 @@ public class AsientosSala {
                 Color color = a57.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a57.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a57.setBackground(Color.green);
                     a57.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,57";
+                    recoger=AsientosLabel.getText()+",57";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1958,11 +2111,14 @@ public class AsientosSala {
                 Color color = a58.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a58.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a58.setBackground(Color.green);
                     a58.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,58";
+                    recoger=AsientosLabel.getText()+",58";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1976,11 +2132,14 @@ public class AsientosSala {
                 Color color = a59.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a59.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a59.setBackground(Color.green);
                     a59.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,59";
+                    recoger=AsientosLabel.getText()+",59";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -1994,11 +2153,14 @@ public class AsientosSala {
                 Color color = a60.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a60.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a60.setBackground(Color.green);
                     a60.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,60";
+                    recoger=AsientosLabel.getText()+",60";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2012,11 +2174,14 @@ public class AsientosSala {
                 Color color = a61.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a61.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a61.setBackground(Color.green);
                     a61.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,61";
+                    recoger=AsientosLabel.getText()+",61";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2030,11 +2195,14 @@ public class AsientosSala {
                 Color color = a62.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a62.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a62.setBackground(Color.green);
                     a62.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,62";
+                    recoger=AsientosLabel.getText()+",62";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2048,11 +2216,14 @@ public class AsientosSala {
                 Color color = a63.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a63.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a63.setBackground(Color.green);
                     a63.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,63";
+                    recoger=AsientosLabel.getText()+",63";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2066,11 +2237,14 @@ public class AsientosSala {
                 Color color = a64.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a64.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a64.setBackground(Color.green);
                     a64.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,64";
+                    recoger=AsientosLabel.getText()+",64";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2084,11 +2258,14 @@ public class AsientosSala {
                 Color color = a65.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a65.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a65.setBackground(Color.green);
                     a65.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,65";
+                    recoger=AsientosLabel.getText()+",65";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2102,11 +2279,14 @@ public class AsientosSala {
                 Color color = a66.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a66.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a66.setBackground(Color.green);
                     a66.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,66";
+                    recoger=AsientosLabel.getText()+",66";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2120,11 +2300,14 @@ public class AsientosSala {
                 Color color = a67.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a67.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a67.setBackground(Color.green);
                     a67.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,67";
+                    recoger=AsientosLabel.getText()+",67";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2138,11 +2321,14 @@ public class AsientosSala {
                 Color color = a68.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a68.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a68.setBackground(Color.green);
                     a68.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,68";
+                    recoger=AsientosLabel.getText()+",68";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2156,11 +2342,14 @@ public class AsientosSala {
                 Color color = a69.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a69.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a69.setBackground(Color.green);
                     a69.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,69";
+                    recoger=AsientosLabel.getText()+",69";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2174,11 +2363,14 @@ public class AsientosSala {
                 Color color = a70.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a70.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a70.setBackground(Color.green);
                     a70.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,70";
+                    recoger=AsientosLabel.getText()+",70";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2192,11 +2384,14 @@ public class AsientosSala {
                 Color color = a71.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a71.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a71.setBackground(Color.green);
                     a71.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,71";
+                    recoger=AsientosLabel.getText()+",71";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2210,11 +2405,14 @@ public class AsientosSala {
                 Color color = a72.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a72.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a72.setBackground(Color.green);
                     a72.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,72";
+                    recoger=AsientosLabel.getText()+",72";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2228,11 +2426,14 @@ public class AsientosSala {
                 Color color = a73.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a73.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a73.setBackground(Color.green);
                     a73.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,73";
+                    recoger=AsientosLabel.getText()+",73";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2246,11 +2447,14 @@ public class AsientosSala {
                 Color color = a74.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a74.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a74.setBackground(Color.green);
                     a74.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,74";
+                    recoger=AsientosLabel.getText()+",74";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2264,11 +2468,14 @@ public class AsientosSala {
                 Color color = a75.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a75.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a75.setBackground(Color.green);
                     a75.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,75";
+                    recoger=AsientosLabel.getText()+",75";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2282,11 +2489,14 @@ public class AsientosSala {
                 Color color = a76.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a76.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a76.setBackground(Color.green);
                     a76.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,76";
+                    recoger=AsientosLabel.getText()+",76";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2300,11 +2510,14 @@ public class AsientosSala {
                 Color color = a77.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a77.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a77.setBackground(Color.green);
                     a77.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,77";
+                    recoger=AsientosLabel.getText()+",77";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2318,11 +2531,14 @@ public class AsientosSala {
                 Color color = a78.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a78.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a78.setBackground(Color.green);
                     a78.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,78";
+                    recoger=AsientosLabel.getText()+",78";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2336,11 +2552,14 @@ public class AsientosSala {
                 Color color = a79.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a79.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a79.setBackground(Color.green);
                     a79.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,79";
+                    recoger=AsientosLabel.getText()+",79";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2354,11 +2573,14 @@ public class AsientosSala {
                 Color color = a80.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a80.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a80.setBackground(Color.green);
                     a80.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,80";
+                    recoger=AsientosLabel.getText()+",80";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2372,11 +2594,14 @@ public class AsientosSala {
                 Color color = a81.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a81.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a81.setBackground(Color.green);
                     a81.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,81";
+                    recoger=AsientosLabel.getText()+",81";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2390,11 +2615,14 @@ public class AsientosSala {
                 Color color = a82.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a82.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a82.setBackground(Color.green);
                     a82.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,82";
+                    recoger=AsientosLabel.getText()+",82";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2408,11 +2636,14 @@ public class AsientosSala {
                 Color color = a83.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a83.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a83.setBackground(Color.green);
                     a83.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,83";
+                    recoger=AsientosLabel.getText()+",83";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2426,11 +2657,14 @@ public class AsientosSala {
                 Color color = a84.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a84.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a84.setBackground(Color.green);
                     a84.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,84";
+                    recoger=AsientosLabel.getText()+",84";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2444,11 +2678,13 @@ public class AsientosSala {
                 Color color = a85.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a85.getText()+" ya está seleccionado");
+                }else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a85.setBackground(Color.green);
                     a85.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,85";
+                    recoger=AsientosLabel.getText()+",85";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2462,11 +2698,14 @@ public class AsientosSala {
                 Color color = a86.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a86.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a86.setBackground(Color.green);
                     a86.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,86";
+                    recoger=AsientosLabel.getText()+",86";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2480,11 +2719,14 @@ public class AsientosSala {
                 Color color = a87.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a87.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a87.setBackground(Color.green);
                     a87.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,87";
+                    recoger=AsientosLabel.getText()+",87";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2498,11 +2740,14 @@ public class AsientosSala {
                 Color color = a88.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a88.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a88.setBackground(Color.green);
                     a88.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,88";
+                    recoger=AsientosLabel.getText()+",88";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2516,11 +2761,14 @@ public class AsientosSala {
                 Color color = a89.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a89.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a89.setBackground(Color.green);
                     a89.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,89";
+                    recoger=AsientosLabel.getText()+",89";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2534,11 +2782,14 @@ public class AsientosSala {
                 Color color = a90.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a90.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a90.setBackground(Color.green);
                     a90.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,90";
+                    recoger=AsientosLabel.getText()+",90";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2552,11 +2803,14 @@ public class AsientosSala {
                 Color color = a91.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a91.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a91.setBackground(Color.green);
                     a91.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,91";
+                    recoger=AsientosLabel.getText()+",91";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2570,11 +2824,14 @@ public class AsientosSala {
                 Color color = a92.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a92.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a92.setBackground(Color.green);
                     a92.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,92";
+                    recoger=AsientosLabel.getText()+",92";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2588,11 +2845,14 @@ public class AsientosSala {
                 Color color = a93.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a93.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a93.setBackground(Color.green);
                     a93.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,93";
+                    recoger=AsientosLabel.getText()+",93";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2606,11 +2866,14 @@ public class AsientosSala {
                 Color color = a94.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a94.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a94.setBackground(Color.green);
                     a94.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,94";
+                    recoger=AsientosLabel.getText()+",94";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2624,11 +2887,14 @@ public class AsientosSala {
                 Color color = a95.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a95.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a95.setBackground(Color.green);
                     a95.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,95";
+                    recoger=AsientosLabel.getText()+",95";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2642,11 +2908,14 @@ public class AsientosSala {
                 Color color = a96.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a96.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a96.setBackground(Color.green);
                     a96.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,96";
+                    recoger=AsientosLabel.getText()+",96";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2660,11 +2929,14 @@ public class AsientosSala {
                 Color color = a97.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a97.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a97.setBackground(Color.green);
                     a97.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,97";
+                    recoger=AsientosLabel.getText()+",97";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2678,11 +2950,14 @@ public class AsientosSala {
                 Color color = a98.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a98.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a98.setBackground(Color.green);
                     a98.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,98";
+                    recoger=AsientosLabel.getText()+",98";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2696,11 +2971,14 @@ public class AsientosSala {
                 Color color = a99.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a99.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a99.setBackground(Color.green);
                     a99.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,99";
+                    recoger=AsientosLabel.getText()+",99";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2714,11 +2992,14 @@ public class AsientosSala {
                 Color color = a100.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a100.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a100.setBackground(Color.green);
                     a100.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,100";
+                    recoger=AsientosLabel.getText()+",100";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2732,11 +3013,14 @@ public class AsientosSala {
                 Color color = a101.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a101.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a101.setBackground(Color.green);
                     a101.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,101";
+                    recoger=AsientosLabel.getText()+",101";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2750,11 +3034,14 @@ public class AsientosSala {
                 Color color = a102.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a102.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a102.setBackground(Color.green);
                     a102.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,102";
+                    recoger=AsientosLabel.getText()+",102";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2768,11 +3055,14 @@ public class AsientosSala {
                 Color color = a103.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a103.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a103.setBackground(Color.green);
                     a103.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,103";
+                    recoger=AsientosLabel.getText()+",103";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2786,11 +3076,14 @@ public class AsientosSala {
                 Color color = a104.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a104.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a104.setBackground(Color.green);
                     a104.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,104";
+                    recoger=AsientosLabel.getText()+",104";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2804,11 +3097,14 @@ public class AsientosSala {
                 Color color = a105.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a105.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a105.setBackground(Color.green);
                     a105.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,105";
+                    recoger=AsientosLabel.getText()+",105";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2822,11 +3118,14 @@ public class AsientosSala {
                 Color color = a106.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a106.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a106.setBackground(Color.green);
                     a106.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,106";
+                    recoger=AsientosLabel.getText()+",106";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2840,11 +3139,14 @@ public class AsientosSala {
                 Color color = a107.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a107.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a107.setBackground(Color.green);
                     a107.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,107";
+                    recoger=AsientosLabel.getText()+",107";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2858,11 +3160,14 @@ public class AsientosSala {
                 Color color = a108.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a108.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a108.setBackground(Color.green);
                     a108.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,108";
+                    recoger=AsientosLabel.getText()+",108";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2876,11 +3181,14 @@ public class AsientosSala {
                 Color color = a109.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a109.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a109.setBackground(Color.green);
                     a109.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,109";
+                    recoger=AsientosLabel.getText()+",109";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2894,11 +3202,14 @@ public class AsientosSala {
                 Color color = a110.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a110.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a110.setBackground(Color.green);
                     a110.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,110";
+                    recoger=AsientosLabel.getText()+",110";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2912,11 +3223,14 @@ public class AsientosSala {
                 Color color = a111.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a111.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a111.setBackground(Color.green);
                     a111.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,111";
+                    recoger=AsientosLabel.getText()+",111";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2930,11 +3244,14 @@ public class AsientosSala {
                 Color color = a112.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a112.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a112.setBackground(Color.green);
                     a112.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,112";
+                    recoger=AsientosLabel.getText()+",112";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2948,11 +3265,14 @@ public class AsientosSala {
                 Color color = a113.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a113.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a113.setBackground(Color.green);
                     a113.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,113";
+                    recoger=AsientosLabel.getText()+",113";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2966,11 +3286,14 @@ public class AsientosSala {
                 Color color = a114.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a114.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a114.setBackground(Color.green);
                     a114.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,114";
+                    recoger=AsientosLabel.getText()+",114";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -2984,11 +3307,14 @@ public class AsientosSala {
                 Color color = a115.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a115.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a115.setBackground(Color.green);
                     a115.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,115";
+                    recoger=AsientosLabel.getText()+",115";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3002,11 +3328,14 @@ public class AsientosSala {
                 Color color = a116.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a116.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a116.setBackground(Color.green);
                     a116.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,116";
+                    recoger=AsientosLabel.getText()+",116";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3020,11 +3349,14 @@ public class AsientosSala {
                 Color color = a117.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a117.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a117.setBackground(Color.green);
                     a117.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,117";
+                    recoger=AsientosLabel.getText()+",117";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3038,11 +3370,14 @@ public class AsientosSala {
                 Color color = a118.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a118.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a118.setBackground(Color.green);
                     a118.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,118";
+                    recoger=AsientosLabel.getText()+",118";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3056,11 +3391,14 @@ public class AsientosSala {
                 Color color = a119.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a119.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a119.setBackground(Color.green);
                     a119.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,119";
+                    recoger=AsientosLabel.getText()+",119";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3074,11 +3412,14 @@ public class AsientosSala {
                 Color color = a120.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a120.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a120.setBackground(Color.green);
                     a120.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,120";
+                    recoger=AsientosLabel.getText()+",120";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3092,11 +3433,14 @@ public class AsientosSala {
                 Color color = a121.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a121.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a121.setBackground(Color.green);
                     a121.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,121";
+                    recoger=AsientosLabel.getText()+",121";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3110,11 +3454,14 @@ public class AsientosSala {
                 Color color = a122.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a122.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a122.setBackground(Color.green);
                     a122.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,122";
+                    recoger=AsientosLabel.getText()+",122";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3128,11 +3475,14 @@ public class AsientosSala {
                 Color color = a123.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a123.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a123.setBackground(Color.green);
                     a123.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,123";
+                    recoger=AsientosLabel.getText()+",123";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3146,11 +3496,14 @@ public class AsientosSala {
                 Color color = a124.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a124.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a124.setBackground(Color.green);
                     a124.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,124";
+                    recoger=AsientosLabel.getText()+",124";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3164,11 +3517,14 @@ public class AsientosSala {
                 Color color = a125.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a125.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a125.setBackground(Color.green);
                     a125.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,125";
+                    recoger=AsientosLabel.getText()+",125";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3182,11 +3538,14 @@ public class AsientosSala {
                 Color color = a126.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a126.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a126.setBackground(Color.green);
                     a126.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,126";
+                    recoger=AsientosLabel.getText()+",126";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3200,11 +3559,14 @@ public class AsientosSala {
                 Color color = a127.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a127.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a127.setBackground(Color.green);
                     a127.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,127";
+                    recoger=AsientosLabel.getText()+",127";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3218,11 +3580,14 @@ public class AsientosSala {
                 Color color = a128.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a128.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a128.setBackground(Color.green);
                     a128.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,128";
+                    recoger=AsientosLabel.getText()+",128";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3236,11 +3601,14 @@ public class AsientosSala {
                 Color color = a129.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a129.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a129.setBackground(Color.green);
                     a129.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,129";
+                    recoger=AsientosLabel.getText()+",129";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3254,11 +3622,14 @@ public class AsientosSala {
                 Color color = a130.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a130.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a130.setBackground(Color.green);
                     a130.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,130";
+                    recoger=AsientosLabel.getText()+",130";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3272,11 +3643,14 @@ public class AsientosSala {
                 Color color = a131.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a131.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a131.setBackground(Color.green);
                     a131.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,131";
+                    recoger=AsientosLabel.getText()+",131";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3290,11 +3664,14 @@ public class AsientosSala {
                 Color color = a132.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a132.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a132.setBackground(Color.green);
                     a132.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,132";
+                    recoger=AsientosLabel.getText()+",132";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3308,11 +3685,14 @@ public class AsientosSala {
                 Color color = a133.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a133.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a133.setBackground(Color.green);
                     a133.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,133";
+                    recoger=AsientosLabel.getText()+",133";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3326,11 +3706,14 @@ public class AsientosSala {
                 Color color = a134.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a134.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a134.setBackground(Color.green);
                     a134.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,134";
+                    recoger=AsientosLabel.getText()+",134";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3344,11 +3727,14 @@ public class AsientosSala {
                 Color color = a135.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a135.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a135.setBackground(Color.green);
                     a135.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,135";
+                    recoger=AsientosLabel.getText()+",135";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3362,11 +3748,14 @@ public class AsientosSala {
                 Color color = a136.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a136.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a136.setBackground(Color.green);
                     a136.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,136";
+                    recoger=AsientosLabel.getText()+",136";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3380,11 +3769,14 @@ public class AsientosSala {
                 Color color = a137.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a137.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a137.setBackground(Color.green);
                     a137.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,137";
+                    recoger=AsientosLabel.getText()+",137";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3398,11 +3790,14 @@ public class AsientosSala {
                 Color color = a138.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a138.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a138.setBackground(Color.green);
                     a138.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,138";
+                    recoger=AsientosLabel.getText()+",138";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3416,11 +3811,14 @@ public class AsientosSala {
                 Color color = a139.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a139.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a139.setBackground(Color.green);
                     a139.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,139";
+                    recoger=AsientosLabel.getText()+",139";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3434,11 +3832,14 @@ public class AsientosSala {
                 Color color = a140.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a140.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a140.setBackground(Color.green);
                     a140.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,140";
+                    recoger=AsientosLabel.getText()+",140";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3452,11 +3853,14 @@ public class AsientosSala {
                 Color color = a141.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a141.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a141.setBackground(Color.green);
                     a141.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,141";
+                    recoger=AsientosLabel.getText()+",141";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3470,11 +3874,14 @@ public class AsientosSala {
                 Color color = a142.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a142.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a142.setBackground(Color.green);
                     a142.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,142";
+                    recoger=AsientosLabel.getText()+",142";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3488,11 +3895,14 @@ public class AsientosSala {
                 Color color = a143.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a143.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a143.setBackground(Color.green);
                     a143.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,143";
+                    recoger=AsientosLabel.getText()+",143";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3506,11 +3916,14 @@ public class AsientosSala {
                 Color color = a144.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a144.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a144.setBackground(Color.green);
                     a144.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,144";
+                    recoger=AsientosLabel.getText()+",144";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3524,11 +3937,14 @@ public class AsientosSala {
                 Color color = a145.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a145.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a145.setBackground(Color.green);
                     a145.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,145";
+                    recoger=AsientosLabel.getText()+",145";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3542,11 +3958,14 @@ public class AsientosSala {
                 Color color = a146.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a146.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a146.setBackground(Color.green);
                     a146.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,146";
+                    recoger=AsientosLabel.getText()+",146";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3560,11 +3979,14 @@ public class AsientosSala {
                 Color color = a147.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a147.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a147.setBackground(Color.green);
                     a147.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,147";
+                    recoger=AsientosLabel.getText()+",147";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3578,11 +4000,14 @@ public class AsientosSala {
                 Color color = a148.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a148.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a148.setBackground(Color.green);
                     a148.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,148";
+                    recoger=AsientosLabel.getText()+",148";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3596,11 +4021,14 @@ public class AsientosSala {
                 Color color = a149.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a149.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a149.setBackground(Color.green);
                     a149.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,149";
+                    recoger=AsientosLabel.getText()+",149";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3614,11 +4042,14 @@ public class AsientosSala {
                 Color color = a150.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a150.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a150.setBackground(Color.green);
                     a150.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,150";
+                    recoger=AsientosLabel.getText()+",150";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3632,11 +4063,13 @@ public class AsientosSala {
                 Color color = a151.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a151.getText()+" ya está seleccionado");
+                }else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a151.setBackground(Color.green);
                     a151.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,151";
+                    recoger=AsientosLabel.getText()+",151";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3650,11 +4083,14 @@ public class AsientosSala {
                 Color color = a152.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a152.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a152.setBackground(Color.green);
                     a152.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,152";
+                    recoger=AsientosLabel.getText()+",152";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3668,11 +4104,14 @@ public class AsientosSala {
                 Color color = a153.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a153.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a153.setBackground(Color.green);
                     a153.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,153";
+                    recoger=AsientosLabel.getText()+",153";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3686,11 +4125,14 @@ public class AsientosSala {
                 Color color = a154.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a154.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a154.setBackground(Color.green);
                     a154.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,154";
+                    recoger=AsientosLabel.getText()+",154";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3704,11 +4146,14 @@ public class AsientosSala {
                 Color color = a155.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a155.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a155.setBackground(Color.green);
                     a155.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,155";
+                    recoger=AsientosLabel.getText()+",155";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3722,11 +4167,14 @@ public class AsientosSala {
                 Color color = a156.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a156.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a156.setBackground(Color.green);
                     a156.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,156";
+                    recoger=AsientosLabel.getText()+",156";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3740,11 +4188,14 @@ public class AsientosSala {
                 Color color = a157.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a157.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a157.setBackground(Color.green);
                     a157.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,157";
+                    recoger=AsientosLabel.getText()+",157";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3758,11 +4209,14 @@ public class AsientosSala {
                 Color color = a158.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a158.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a158.setBackground(Color.green);
                     a158.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,158";
+                    recoger=AsientosLabel.getText()+",158";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3776,11 +4230,14 @@ public class AsientosSala {
                 Color color = a159.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a159.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a159.setBackground(Color.green);
                     a159.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,159";
+                    recoger=AsientosLabel.getText()+",159";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3794,11 +4251,14 @@ public class AsientosSala {
                 Color color = a160.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a160.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a160.setBackground(Color.green);
                     a160.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,160";
+                    recoger=AsientosLabel.getText()+",160";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3812,11 +4272,14 @@ public class AsientosSala {
                 Color color = a161.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a161.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a161.setBackground(Color.green);
                     a161.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,161";
+                    recoger=AsientosLabel.getText()+",161";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3830,11 +4293,14 @@ public class AsientosSala {
                 Color color = a162.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a162.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a162.setBackground(Color.green);
                     a162.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,162";
+                    recoger=AsientosLabel.getText()+",162";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3848,11 +4314,14 @@ public class AsientosSala {
                 Color color = a163.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a163.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a163.setBackground(Color.green);
                     a163.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,163";
+                    recoger=AsientosLabel.getText()+",163";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3866,11 +4335,14 @@ public class AsientosSala {
                 Color color = a164.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a164.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a164.setBackground(Color.green);
                     a164.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,164";
+                    recoger=AsientosLabel.getText()+",164";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3884,11 +4356,14 @@ public class AsientosSala {
                 Color color = a165.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a165.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a165.setBackground(Color.green);
                     a165.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,165";
+                    recoger=AsientosLabel.getText()+",165";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3902,11 +4377,14 @@ public class AsientosSala {
                 Color color = a166.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a166.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a166.setBackground(Color.green);
                     a166.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,166";
+                    recoger=AsientosLabel.getText()+",166";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3920,11 +4398,14 @@ public class AsientosSala {
                 Color color = a167.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a167.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a167.setBackground(Color.green);
                     a167.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,167";
+                    recoger=AsientosLabel.getText()+",167";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3938,11 +4419,14 @@ public class AsientosSala {
                 Color color = a168.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a168.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a168.setBackground(Color.green);
                     a168.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,168";
+                    recoger=AsientosLabel.getText()+",168";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3956,11 +4440,14 @@ public class AsientosSala {
                 Color color = a169.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a169.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a169.setBackground(Color.green);
                     a169.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,169";
+                    recoger=AsientosLabel.getText()+",169";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3974,11 +4461,14 @@ public class AsientosSala {
                 Color color = a170.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a170.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a170.setBackground(Color.green);
                     a170.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,170";
+                    recoger=AsientosLabel.getText()+",170";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -3992,11 +4482,14 @@ public class AsientosSala {
                 Color color = a171.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a171.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a171.setBackground(Color.green);
                     a171.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,171";
+                    recoger=AsientosLabel.getText()+",171";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4010,11 +4503,14 @@ public class AsientosSala {
                 Color color = a172.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a172.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a172.setBackground(Color.green);
                     a172.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,172";
+                    recoger=AsientosLabel.getText()+",172";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4028,11 +4524,14 @@ public class AsientosSala {
                 Color color = a173.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a173.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a173.setBackground(Color.green);
                     a173.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,173";
+                    recoger=AsientosLabel.getText()+",173";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4046,11 +4545,14 @@ public class AsientosSala {
                 Color color = a174.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a174.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a174.setBackground(Color.green);
                     a174.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,174";
+                    recoger=AsientosLabel.getText()+",174";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4064,11 +4566,14 @@ public class AsientosSala {
                 Color color = a175.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a175.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a175.setBackground(Color.green);
                     a175.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,175";
+                    recoger=AsientosLabel.getText()+",175";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4082,11 +4587,14 @@ public class AsientosSala {
                 Color color = a176.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a176.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a176.setBackground(Color.green);
                     a176.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,176";
+                    recoger=AsientosLabel.getText()+",176";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4100,11 +4608,14 @@ public class AsientosSala {
                 Color color = a177.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a177.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a177.setBackground(Color.green);
                     a177.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,177";
+                    recoger=AsientosLabel.getText()+",177";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4118,11 +4629,14 @@ public class AsientosSala {
                 Color color = a178.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a178.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a178.setBackground(Color.green);
                     a178.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,178";
+                    recoger=AsientosLabel.getText()+",178";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4136,11 +4650,14 @@ public class AsientosSala {
                 Color color = a179.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a179.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a179.setBackground(Color.green);
                     a179.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,179";
+                    recoger=AsientosLabel.getText()+",179";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4154,11 +4671,14 @@ public class AsientosSala {
                 Color color = a180.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a180.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a180.setBackground(Color.green);
                     a180.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,180";
+                    recoger=AsientosLabel.getText()+",180";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4172,11 +4692,14 @@ public class AsientosSala {
                 Color color = a181.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a181.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a181.setBackground(Color.green);
                     a181.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,181";
+                    recoger=AsientosLabel.getText()+",181";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4190,11 +4713,14 @@ public class AsientosSala {
                 Color color = a182.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a182.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a182.setBackground(Color.green);
                     a182.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,182";
+                    recoger=AsientosLabel.getText()+",182";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4208,11 +4734,14 @@ public class AsientosSala {
                 Color color = a183.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a183.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a183.setBackground(Color.green);
                     a183.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,183";
+                    recoger=AsientosLabel.getText()+",183";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4226,11 +4755,14 @@ public class AsientosSala {
                 Color color = a184.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a184.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a184.setBackground(Color.green);
                     a184.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,184";
+                    recoger=AsientosLabel.getText()+",184";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4244,11 +4776,14 @@ public class AsientosSala {
                 Color color = a185.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a185.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a185.setBackground(Color.green);
                     a185.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,185";
+                    recoger=AsientosLabel.getText()+",185";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4262,11 +4797,14 @@ public class AsientosSala {
                 Color color = a186.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a186.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a186.setBackground(Color.green);
                     a186.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,186";
+                    recoger=AsientosLabel.getText()+",186";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4280,11 +4818,14 @@ public class AsientosSala {
                 Color color = a187.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a187.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a187.setBackground(Color.green);
                     a187.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,187";
+                    recoger=AsientosLabel.getText()+",187";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4298,11 +4839,14 @@ public class AsientosSala {
                 Color color = a188.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a188.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a188.setBackground(Color.green);
                     a188.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,188";
+                    recoger=AsientosLabel.getText()+",188";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4316,11 +4860,14 @@ public class AsientosSala {
                 Color color = a189.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a189.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a189.setBackground(Color.green);
                     a189.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,189";
+                    recoger=AsientosLabel.getText()+",189";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4334,11 +4881,14 @@ public class AsientosSala {
                 Color color = a190.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a190.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a190.setBackground(Color.green);
                     a190.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,190";
+                    recoger=AsientosLabel.getText()+",190";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4352,11 +4902,14 @@ public class AsientosSala {
                 Color color = a191.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a191.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a191.setBackground(Color.green);
                     a191.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,191";
+                    recoger=AsientosLabel.getText()+",191";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4370,11 +4923,14 @@ public class AsientosSala {
                 Color color = a192.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a192.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a192.setBackground(Color.green);
                     a192.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,192";
+                    recoger=AsientosLabel.getText()+",192";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4388,11 +4944,14 @@ public class AsientosSala {
                 Color color = a193.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a193.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a193.setBackground(Color.green);
                     a193.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,193";
+                    recoger=AsientosLabel.getText()+",193";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4406,11 +4965,14 @@ public class AsientosSala {
                 Color color = a194.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a194.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a194.setBackground(Color.green);
                     a194.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,194";
+                    recoger=AsientosLabel.getText()+",194";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4424,11 +4986,14 @@ public class AsientosSala {
                 Color color = a195.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a195.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a195.setBackground(Color.green);
                     a195.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,195";
+                    recoger=AsientosLabel.getText()+",195";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4442,11 +5007,14 @@ public class AsientosSala {
                 Color color = a196.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a196.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a196.setBackground(Color.green);
                     a196.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,196";
+                    recoger=AsientosLabel.getText()+",196";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4460,11 +5028,14 @@ public class AsientosSala {
                 Color color = a197.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a197.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a197.setBackground(Color.green);
                     a197.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,197";
+                    recoger=AsientosLabel.getText()+",197";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4478,11 +5049,14 @@ public class AsientosSala {
                 Color color = a198.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a198.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a198.setBackground(Color.green);
                     a198.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,198";
+                    recoger=AsientosLabel.getText()+",198";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4496,11 +5070,14 @@ public class AsientosSala {
                 Color color = a199.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a199.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a199.setBackground(Color.green);
                     a199.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,199";
+                    recoger=AsientosLabel.getText()+",199";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4514,11 +5091,14 @@ public class AsientosSala {
                 Color color = a200.getBackground();
                 if(color.equals(Color.green)){
                     JOptionPane.showMessageDialog(null, "El asiento "+a200.getText()+" ya está seleccionado");
+                }
+                else if (color.equals(Color.RED)){
+                    JOptionPane.showMessageDialog(null, "Asiento no disponible");
                 }else{
                     a200.setBackground(Color.green);
                     a200.setForeground(Color.BLACK);
                     String recoger;
-                    recoger=AsientosLabel.getText()+" ,200";
+                    recoger=AsientosLabel.getText()+",200";
                     AsientosLabel.setText(recoger);
                     double valoractual = Double.parseDouble(PrecioLabel.getText());
                     valoractual+=nueva.getPrecio();
@@ -4529,407 +5109,1407 @@ public class AsientosSala {
         reelegirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a1.setBackground(Color.BLACK);
-                a1.setForeground(Color.yellow);
-                a2.setBackground(Color.BLACK);
-                a2.setForeground(Color.yellow);
-                a3.setBackground(Color.BLACK);
-                a3.setForeground(Color.yellow);
-                a4.setBackground(Color.BLACK);
-                a4.setForeground(Color.yellow);
-                a5.setBackground(Color.BLACK);
-                a5.setForeground(Color.yellow);
-                a6.setBackground(Color.BLACK);
-                a6.setForeground(Color.yellow);
-                a7.setBackground(Color.BLACK);
-                a7.setForeground(Color.yellow);
-                a8.setBackground(Color.BLACK);
-                a8.setForeground(Color.yellow);
-                a9.setBackground(Color.BLACK);
-                a9.setForeground(Color.yellow);
-                a10.setBackground(Color.BLACK);
-                a10.setForeground(Color.yellow);
-                a11.setBackground(Color.BLACK);
-                a11.setForeground(Color.yellow);
-                a12.setBackground(Color.BLACK);
-                a12.setForeground(Color.yellow);
-                a13.setBackground(Color.BLACK);
-                a13.setForeground(Color.yellow);
-                a14.setBackground(Color.BLACK);
-                a14.setForeground(Color.yellow);
-                a15.setBackground(Color.BLACK);
-                a15.setForeground(Color.yellow);
-                a16.setBackground(Color.BLACK);
-                a16.setForeground(Color.yellow);
-                a17.setBackground(Color.BLACK);
-                a17.setForeground(Color.yellow);
-                a18.setBackground(Color.BLACK);
-                a18.setForeground(Color.yellow);
-                a19.setBackground(Color.BLACK);
-                a19.setForeground(Color.yellow);
-                a20.setBackground(Color.BLACK);
-                a20.setForeground(Color.yellow);
-                a21.setBackground(Color.BLACK);
-                a21.setForeground(Color.yellow);
-                a22.setBackground(Color.BLACK);
-                a22.setForeground(Color.yellow);
-                a23.setBackground(Color.BLACK);
-                a23.setForeground(Color.yellow);
-                a24.setBackground(Color.BLACK);
-                a24.setForeground(Color.yellow);
-                a25.setBackground(Color.BLACK);
-                a25.setForeground(Color.yellow);
-                a26.setBackground(Color.BLACK);
-                a26.setForeground(Color.yellow);
-                a27.setBackground(Color.BLACK);
-                a27.setForeground(Color.yellow);
-                a28.setBackground(Color.BLACK);
-                a28.setForeground(Color.yellow);
-                a29.setBackground(Color.BLACK);
-                a29.setForeground(Color.yellow);
-                a30.setBackground(Color.BLACK);
-                a30.setForeground(Color.yellow);
-                a31.setBackground(Color.BLACK);
-                a31.setForeground(Color.yellow);
-                a32.setBackground(Color.BLACK);
-                a32.setForeground(Color.yellow);
-                a33.setBackground(Color.BLACK);
-                a33.setForeground(Color.yellow);
-                a34.setBackground(Color.BLACK);
-                a34.setForeground(Color.yellow);
-                a35.setBackground(Color.BLACK);
-                a35.setForeground(Color.yellow);
-                a36.setBackground(Color.BLACK);
-                a36.setForeground(Color.yellow);
-                a37.setBackground(Color.BLACK);
-                a37.setForeground(Color.yellow);
-                a38.setBackground(Color.BLACK);
-                a38.setForeground(Color.yellow);
-                a39.setBackground(Color.BLACK);
-                a39.setForeground(Color.yellow);
-                a40.setBackground(Color.BLACK);
-                a40.setForeground(Color.yellow);
-                a41.setBackground(Color.BLACK);
-                a41.setForeground(Color.yellow);
-                a42.setBackground(Color.BLACK);
-                a42.setForeground(Color.yellow);
-                a43.setBackground(Color.BLACK);
-                a43.setForeground(Color.yellow);
-                a44.setBackground(Color.BLACK);
-                a44.setForeground(Color.yellow);
-                a45.setBackground(Color.BLACK);
-                a45.setForeground(Color.yellow);
-                a46.setBackground(Color.BLACK);
-                a46.setForeground(Color.yellow);
-                a47.setBackground(Color.BLACK);
-                a47.setForeground(Color.yellow);
-                a48.setBackground(Color.BLACK);
-                a48.setForeground(Color.yellow);
-                a49.setBackground(Color.BLACK);
-                a49.setForeground(Color.yellow);
-                a50.setBackground(Color.BLACK);
-                a50.setForeground(Color.yellow);
-                a51.setBackground(Color.BLACK);
-                a51.setForeground(Color.yellow);
-                a52.setBackground(Color.BLACK);
-                a52.setForeground(Color.yellow);
-                a53.setBackground(Color.BLACK);
-                a53.setForeground(Color.yellow);
-                a54.setBackground(Color.BLACK);
-                a54.setForeground(Color.yellow);
-                a55.setBackground(Color.BLACK);
-                a55.setForeground(Color.yellow);
-                a56.setBackground(Color.BLACK);
-                a56.setForeground(Color.yellow);
-                a57.setBackground(Color.BLACK);
-                a57.setForeground(Color.yellow);
-                a58.setBackground(Color.BLACK);
-                a58.setForeground(Color.yellow);
-                a59.setBackground(Color.BLACK);
-                a59.setForeground(Color.yellow);
-                a60.setBackground(Color.BLACK);
-                a60.setForeground(Color.yellow);
-                a61.setBackground(Color.BLACK);
-                a61.setForeground(Color.yellow);
-                a62.setBackground(Color.BLACK);
-                a62.setForeground(Color.yellow);
-                a63.setBackground(Color.BLACK);
-                a63.setForeground(Color.yellow);
-                a64.setBackground(Color.BLACK);
-                a64.setForeground(Color.yellow);
-                a65.setBackground(Color.BLACK);
-                a65.setForeground(Color.yellow);
-                a66.setBackground(Color.BLACK);
-                a66.setForeground(Color.yellow);
-                a67.setBackground(Color.BLACK);
-                a67.setForeground(Color.yellow);
-                a68.setBackground(Color.BLACK);
-                a68.setForeground(Color.yellow);
-                a69.setBackground(Color.BLACK);
-                a69.setForeground(Color.yellow);
-                a70.setBackground(Color.BLACK);
-                a70.setForeground(Color.yellow);
-                a71.setBackground(Color.BLACK);
-                a71.setForeground(Color.yellow);
-                a72.setBackground(Color.BLACK);
-                a72.setForeground(Color.yellow);
-                a73.setBackground(Color.BLACK);
-                a73.setForeground(Color.yellow);
-                a74.setBackground(Color.BLACK);
-                a74.setForeground(Color.yellow);
-                a75.setBackground(Color.BLACK);
-                a75.setForeground(Color.yellow);
-                a76.setBackground(Color.BLACK);
-                a76.setForeground(Color.yellow);
-                a77.setBackground(Color.BLACK);
-                a77.setForeground(Color.yellow);
-                a78.setBackground(Color.BLACK);
-                a78.setForeground(Color.yellow);
-                a79.setBackground(Color.BLACK);
-                a79.setForeground(Color.yellow);
-                a80.setBackground(Color.BLACK);
-                a80.setForeground(Color.yellow);
-                a81.setBackground(Color.BLACK);
-                a81.setForeground(Color.yellow);
-                a82.setBackground(Color.BLACK);
-                a82.setForeground(Color.yellow);
-                a83.setBackground(Color.BLACK);
-                a83.setForeground(Color.yellow);
-                a84.setBackground(Color.BLACK);
-                a84.setForeground(Color.yellow);
-                a85.setBackground(Color.BLACK);
-                a85.setForeground(Color.yellow);
-                a86.setBackground(Color.BLACK);
-                a86.setForeground(Color.yellow);
-                a87.setBackground(Color.BLACK);
-                a87.setForeground(Color.yellow);
-                a88.setBackground(Color.BLACK);
-                a88.setForeground(Color.yellow);
-                a89.setBackground(Color.BLACK);
-                a89.setForeground(Color.yellow);
-                a90.setBackground(Color.BLACK);
-                a90.setForeground(Color.yellow);
-                a91.setBackground(Color.BLACK);
-                a91.setForeground(Color.yellow);
-                a92.setBackground(Color.BLACK);
-                a92.setForeground(Color.yellow);
-                a93.setBackground(Color.BLACK);
-                a93.setForeground(Color.yellow);
-                a94.setBackground(Color.BLACK);
-                a94.setForeground(Color.yellow);
-                a95.setBackground(Color.BLACK);
-                a95.setForeground(Color.yellow);
-                a96.setBackground(Color.BLACK);
-                a96.setForeground(Color.yellow);
-                a97.setBackground(Color.BLACK);
-                a97.setForeground(Color.yellow);
-                a98.setBackground(Color.BLACK);
-                a98.setForeground(Color.yellow);
-                a99.setBackground(Color.BLACK);
-                a99.setForeground(Color.yellow);
-                a100.setBackground(Color.BLACK);
-                a100.setForeground(Color.yellow);
-                a101.setBackground(Color.BLACK);
-                a101.setForeground(Color.yellow);
-                a102.setBackground(Color.BLACK);
-                a102.setForeground(Color.yellow);
-                a103.setBackground(Color.BLACK);
-                a103.setForeground(Color.yellow);
-                a104.setBackground(Color.BLACK);
-                a104.setForeground(Color.yellow);
-                a105.setBackground(Color.BLACK);
-                a105.setForeground(Color.yellow);
-                a106.setBackground(Color.BLACK);
-                a106.setForeground(Color.yellow);
-                a107.setBackground(Color.BLACK);
-                a107.setForeground(Color.yellow);
-                a108.setBackground(Color.BLACK);
-                a108.setForeground(Color.yellow);
-                a109.setBackground(Color.BLACK);
-                a109.setForeground(Color.yellow);
-                a110.setBackground(Color.BLACK);
-                a110.setForeground(Color.yellow);
-                a111.setBackground(Color.BLACK);
-                a111.setForeground(Color.yellow);
-                a112.setBackground(Color.BLACK);
-                a112.setForeground(Color.yellow);
-                a113.setBackground(Color.BLACK);
-                a113.setForeground(Color.yellow);
-                a114.setBackground(Color.BLACK);
-                a114.setForeground(Color.yellow);
-                a115.setBackground(Color.BLACK);
-                a115.setForeground(Color.yellow);
-                a116.setBackground(Color.BLACK);
-                a116.setForeground(Color.yellow);
-                a117.setBackground(Color.BLACK);
-                a117.setForeground(Color.yellow);
-                a118.setBackground(Color.BLACK);
-                a118.setForeground(Color.yellow);
-                a119.setBackground(Color.BLACK);
-                a119.setForeground(Color.yellow);
-                a120.setBackground(Color.BLACK);
-                a120.setForeground(Color.yellow);
-                a121.setBackground(Color.BLACK);
-                a121.setForeground(Color.yellow);
-                a122.setBackground(Color.BLACK);
-                a122.setForeground(Color.yellow);
-                a123.setBackground(Color.BLACK);
-                a123.setForeground(Color.yellow);
-                a124.setBackground(Color.BLACK);
-                a124.setForeground(Color.yellow);
-                a125.setBackground(Color.BLACK);
-                a125.setForeground(Color.yellow);
-                a126.setBackground(Color.BLACK);
-                a126.setForeground(Color.yellow);
-                a127.setBackground(Color.BLACK);
-                a127.setForeground(Color.yellow);
-                a128.setBackground(Color.BLACK);
-                a128.setForeground(Color.yellow);
-                a129.setBackground(Color.BLACK);
-                a129.setForeground(Color.yellow);
-                a130.setBackground(Color.BLACK);
-                a130.setForeground(Color.yellow);
-                a131.setBackground(Color.BLACK);
-                a131.setForeground(Color.yellow);
-                a132.setBackground(Color.BLACK);
-                a132.setForeground(Color.yellow);
-                a133.setBackground(Color.BLACK);
-                a133.setForeground(Color.yellow);
-                a134.setBackground(Color.BLACK);
-                a134.setForeground(Color.yellow);
-                a135.setBackground(Color.BLACK);
-                a135.setForeground(Color.yellow);
-                a136.setBackground(Color.BLACK);
-                a136.setForeground(Color.yellow);
-                a137.setBackground(Color.BLACK);
-                a137.setForeground(Color.yellow);
-                a138.setBackground(Color.BLACK);
-                a138.setForeground(Color.yellow);
-                a139.setBackground(Color.BLACK);
-                a139.setForeground(Color.yellow);
-                a140.setBackground(Color.BLACK);
-                a140.setForeground(Color.yellow);
-                a141.setBackground(Color.BLACK);
-                a141.setForeground(Color.yellow);
-                a142.setBackground(Color.BLACK);
-                a142.setForeground(Color.yellow);
-                a143.setBackground(Color.BLACK);
-                a143.setForeground(Color.yellow);
-                a144.setBackground(Color.BLACK);
-                a144.setForeground(Color.yellow);
-                a145.setBackground(Color.BLACK);
-                a145.setForeground(Color.yellow);
-                a146.setBackground(Color.BLACK);
-                a146.setForeground(Color.yellow);
-                a147.setBackground(Color.BLACK);
-                a147.setForeground(Color.yellow);
-                a148.setBackground(Color.BLACK);
-                a148.setForeground(Color.yellow);
-                a149.setBackground(Color.BLACK);
-                a149.setForeground(Color.yellow);
-                a150.setBackground(Color.BLACK);
-                a150.setForeground(Color.yellow);
-                a151.setBackground(Color.BLACK);
-                a151.setForeground(Color.yellow);
-                a152.setBackground(Color.BLACK);
-                a152.setForeground(Color.yellow);
-                a153.setBackground(Color.BLACK);
-                a153.setForeground(Color.yellow);
-                a154.setBackground(Color.BLACK);
-                a154.setForeground(Color.yellow);
-                a155.setBackground(Color.BLACK);
-                a155.setForeground(Color.yellow);
-                a156.setBackground(Color.BLACK);
-                a156.setForeground(Color.yellow);
-                a157.setBackground(Color.BLACK);
-                a157.setForeground(Color.yellow);
-                a158.setBackground(Color.BLACK);
-                a158.setForeground(Color.yellow);
-                a159.setBackground(Color.BLACK);
-                a159.setForeground(Color.yellow);
-                a160.setBackground(Color.BLACK);
-                a160.setForeground(Color.yellow);
-                a161.setBackground(Color.BLACK);
-                a161.setForeground(Color.yellow);
-                a162.setBackground(Color.BLACK);
-                a162.setForeground(Color.yellow);
-                a163.setBackground(Color.BLACK);
-                a163.setForeground(Color.yellow);
-                a164.setBackground(Color.BLACK);
-                a164.setForeground(Color.yellow);
-                a165.setBackground(Color.BLACK);
-                a165.setForeground(Color.yellow);
-                a166.setBackground(Color.BLACK);
-                a166.setForeground(Color.yellow);
-                a167.setBackground(Color.BLACK);
-                a167.setForeground(Color.yellow);
-                a168.setBackground(Color.BLACK);
-                a168.setForeground(Color.yellow);
-                a169.setBackground(Color.BLACK);
-                a169.setForeground(Color.yellow);
-                a170.setBackground(Color.BLACK);
-                a170.setForeground(Color.yellow);
-                a171.setBackground(Color.BLACK);
-                a171.setForeground(Color.yellow);
-                a172.setBackground(Color.BLACK);
-                a172.setForeground(Color.yellow);
-                a173.setBackground(Color.BLACK);
-                a173.setForeground(Color.yellow);
-                a174.setBackground(Color.BLACK);
-                a174.setForeground(Color.yellow);
-                a175.setBackground(Color.BLACK);
-                a175.setForeground(Color.yellow);
-                a176.setBackground(Color.BLACK);
-                a176.setForeground(Color.yellow);
-                a177.setBackground(Color.BLACK);
-                a177.setForeground(Color.yellow);
-                a178.setBackground(Color.BLACK);
-                a178.setForeground(Color.yellow);
-                a179.setBackground(Color.BLACK);
-                a179.setForeground(Color.yellow);
-                a180.setBackground(Color.BLACK);
-                a180.setForeground(Color.yellow);
-                a181.setBackground(Color.BLACK);
-                a181.setForeground(Color.yellow);
-                a182.setBackground(Color.BLACK);
-                a182.setForeground(Color.yellow);
-                a183.setBackground(Color.BLACK);
-                a183.setForeground(Color.yellow);
-                a184.setBackground(Color.BLACK);
-                a184.setForeground(Color.yellow);
-                a185.setBackground(Color.BLACK);
-                a185.setForeground(Color.yellow);
-                a186.setBackground(Color.BLACK);
-                a186.setForeground(Color.yellow);
-                a187.setBackground(Color.BLACK);
-                a187.setForeground(Color.yellow);
-                a188.setBackground(Color.BLACK);
-                a188.setForeground(Color.yellow);
-                a189.setBackground(Color.BLACK);
-                a189.setForeground(Color.yellow);
-                a190.setBackground(Color.BLACK);
-                a190.setForeground(Color.yellow);
-                a191.setBackground(Color.BLACK);
-                a191.setForeground(Color.yellow);
-                a192.setBackground(Color.BLACK);
-                a192.setForeground(Color.yellow);
-                a193.setBackground(Color.BLACK);
-                a193.setForeground(Color.yellow);
-                a194.setBackground(Color.BLACK);
-                a194.setForeground(Color.yellow);
-                a195.setBackground(Color.BLACK);
-                a195.setForeground(Color.yellow);
-                a196.setBackground(Color.BLACK);
-                a196.setForeground(Color.yellow);
-                a197.setBackground(Color.BLACK);
-                a197.setForeground(Color.yellow);
-                a198.setBackground(Color.BLACK);
-                a198.setForeground(Color.yellow);
-                a199.setBackground(Color.BLACK);
-                a199.setForeground(Color.yellow);
-                a200.setBackground(Color.BLACK);
-                a200.setForeground(Color.yellow);
+                Color boton1=a1.getBackground();
+                Color boton2=a2.getBackground();
+                Color boton3=a3.getBackground();
+                Color boton4=a4.getBackground();
+                Color boton5=a5.getBackground();
+                Color boton6=a6.getBackground();
+                Color boton7=a7.getBackground();
+                Color boton8=a8.getBackground();
+                Color boton9=a9.getBackground();
+                Color boton10=a10.getBackground();
+                Color boton11=a11.getBackground();
+                Color boton12=a12.getBackground();
+                Color boton13=a13.getBackground();
+                Color boton14=a14.getBackground();
+                Color boton15=a15.getBackground();
+                Color boton16=a16.getBackground();
+                Color boton17=a17.getBackground();
+                Color boton18=a18.getBackground();
+                Color boton19=a19.getBackground();
+                Color boton20=a20.getBackground();
+                Color boton21=a21.getBackground();
+                Color boton22=a22.getBackground();
+                Color boton23=a23.getBackground();
+                Color boton24=a24.getBackground();
+                Color boton25=a25.getBackground();
+                Color boton26=a26.getBackground();
+                Color boton27=a27.getBackground();
+                Color boton28=a28.getBackground();
+                Color boton29=a29.getBackground();
+                Color boton30=a30.getBackground();
+                Color boton31=a31.getBackground();
+                Color boton32=a32.getBackground();
+                Color boton33=a33.getBackground();
+                Color boton34=a34.getBackground();
+                Color boton35=a35.getBackground();
+                Color boton36=a36.getBackground();
+                Color boton37=a37.getBackground();
+                Color boton38=a38.getBackground();
+                Color boton39=a39.getBackground();
+                Color boton40=a40.getBackground();
+                Color boton41=a41.getBackground();
+                Color boton42=a42.getBackground();
+                Color boton43=a43.getBackground();
+                Color boton44 = a44.getBackground();
+                Color boton45 = a45.getBackground();
+                Color boton46 = a46.getBackground();
+                Color boton47 = a47.getBackground();
+                Color boton48 = a48.getBackground();
+                Color boton49 = a49.getBackground();
+                Color boton50 = a50.getBackground();
+                Color boton51 = a51.getBackground();
+                Color boton52 = a52.getBackground();
+                Color boton53 = a53.getBackground();
+                Color boton54 = a54.getBackground();
+                Color boton55 = a55.getBackground();
+                Color boton56 = a56.getBackground();
+                Color boton57 = a57.getBackground();
+                Color boton58 = a58.getBackground();
+                Color boton59 = a59.getBackground();
+                Color boton60 = a60.getBackground();
+                Color boton61 = a61.getBackground();
+                Color boton62 = a62.getBackground();
+                Color boton63 = a63.getBackground();
+                Color boton64 = a64.getBackground();
+                Color boton65 = a65.getBackground();
+                Color boton66 = a66.getBackground();
+                Color boton67 = a67.getBackground();
+                Color boton68 = a68.getBackground();
+                Color boton69 = a69.getBackground();
+                Color boton70 = a70.getBackground();
+                Color boton71 = a71.getBackground();
+                Color boton72 = a72.getBackground();
+                Color boton73 = a73.getBackground();
+                Color boton74 = a74.getBackground();
+                Color boton75 = a75.getBackground();
+                Color boton76 = a76.getBackground();
+                Color boton77 = a77.getBackground();
+                Color boton78 = a78.getBackground();
+                Color boton79 = a79.getBackground();
+                Color boton80 = a80.getBackground();
+                Color boton81 = a81.getBackground();
+                Color boton82 = a82.getBackground();
+                Color boton83 = a83.getBackground();
+                Color boton84 = a84.getBackground();
+                Color boton85 = a85.getBackground();
+                Color boton86 = a86.getBackground();
+                Color boton87 = a87.getBackground();
+                Color boton88 = a88.getBackground();
+                Color boton89 = a89.getBackground();
+                Color boton90 = a90.getBackground();
+                Color boton91 = a91.getBackground();
+                Color boton92 = a92.getBackground();
+                Color boton93 = a93.getBackground();
+                Color boton94 = a94.getBackground();
+                Color boton95 = a95.getBackground();
+                Color boton96 = a96.getBackground();
+                Color boton97 = a97.getBackground();
+                Color boton98 = a98.getBackground();
+                Color boton99 = a99.getBackground();
+                Color boton100 = a100.getBackground();
+                Color boton101 = a101.getBackground();
+                Color boton102 = a102.getBackground();
+                Color boton103 = a103.getBackground();
+                Color boton104 = a104.getBackground();
+                Color boton105 = a105.getBackground();
+                Color boton106 = a106.getBackground();
+                Color boton107 = a107.getBackground();
+                Color boton108 = a108.getBackground();
+                Color boton109 = a109.getBackground();
+                Color boton110 = a110.getBackground();
+                Color boton111 = a111.getBackground();
+                Color boton112 = a112.getBackground();
+                Color boton113 = a113.getBackground();
+                Color boton114 = a114.getBackground();
+                Color boton115 = a115.getBackground();
+                Color boton116 = a116.getBackground();
+                Color boton117 = a117.getBackground();
+                Color boton118 = a118.getBackground();
+                Color boton119 = a119.getBackground();
+                Color boton120 = a120.getBackground();
+                Color boton121 = a121.getBackground();
+                Color boton122 = a122.getBackground();
+                Color boton123 = a123.getBackground();
+                Color boton124 = a124.getBackground();
+                Color boton125 = a125.getBackground();
+                Color boton126 = a126.getBackground();
+                Color boton127 = a127.getBackground();
+                Color boton128 = a128.getBackground();
+                Color boton129 = a129.getBackground();
+                Color boton130 = a130.getBackground();
+                Color boton131 = a131.getBackground();
+                Color boton132 = a132.getBackground();
+                Color boton133 = a133.getBackground();
+                Color boton134 = a134.getBackground();
+                Color boton135 = a135.getBackground();
+                Color boton136 = a136.getBackground();
+                Color boton137 = a137.getBackground();
+                Color boton138 = a138.getBackground();
+                Color boton139 = a139.getBackground();
+                Color boton140 = a140.getBackground();
+                Color boton141 = a141.getBackground();
+                Color boton142 = a142.getBackground();
+                Color boton143 = a143.getBackground();
+                Color boton144 = a144.getBackground();
+                Color boton145 = a145.getBackground();
+                Color boton146 = a146.getBackground();
+                Color boton147 = a147.getBackground();
+                Color boton148 = a148.getBackground();
+                Color boton149 = a149.getBackground();
+                Color boton150 = a150.getBackground();
+                Color boton151 = a151.getBackground();
+                Color boton152 = a152.getBackground();
+                Color boton153 = a153.getBackground();
+                Color boton154 = a154.getBackground();
+                Color boton155 = a155.getBackground();
+                Color boton156 = a156.getBackground();
+                Color boton157 = a157.getBackground();
+                Color boton158 = a158.getBackground();
+                Color boton159 = a159.getBackground();
+                Color boton160 = a160.getBackground();
+                Color boton161 = a161.getBackground();
+                Color boton162 = a162.getBackground();
+                Color boton163 = a163.getBackground();
+                Color boton164 = a164.getBackground();
+                Color boton165 = a165.getBackground();
+                Color boton166 = a166.getBackground();
+                Color boton167 = a167.getBackground();
+                Color boton168 = a168.getBackground();
+                Color boton169 = a169.getBackground();
+                Color boton170 = a170.getBackground();
+                Color boton171 = a171.getBackground();
+                Color boton172 = a172.getBackground();
+                Color boton173 = a173.getBackground();
+                Color boton174 = a174.getBackground();
+                Color boton175 = a175.getBackground();
+                Color boton176 = a176.getBackground();
+                Color boton177 = a177.getBackground();
+                Color boton178 = a178.getBackground();
+                Color boton179 = a179.getBackground();
+                Color boton180 = a180.getBackground();
+                Color boton181 = a181.getBackground();
+                Color boton182 = a182.getBackground();
+                Color boton183 = a183.getBackground();
+                Color boton184 = a184.getBackground();
+                Color boton185 = a185.getBackground();
+                Color boton186 = a186.getBackground();
+                Color boton187 = a187.getBackground();
+                Color boton188 = a188.getBackground();
+                Color boton189 = a189.getBackground();
+                Color boton190 = a190.getBackground();
+                Color boton191 = a191.getBackground();
+                Color boton192 = a192.getBackground();
+                Color boton193 = a193.getBackground();
+                Color boton194 = a194.getBackground();
+                Color boton195 = a195.getBackground();
+                Color boton196 = a196.getBackground();
+                Color boton197 = a197.getBackground();
+                Color boton198 = a198.getBackground();
+                Color boton199 = a199.getBackground();
+                Color boton200 = a200.getBackground();
 
+                if(boton1.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a1.setBackground(Color.BLACK);
+                    a1.setForeground(Color.yellow);
+                }
+                if(boton2.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a2.setBackground(Color.BLACK);
+                    a2.setForeground(Color.YELLOW);
+                }
+                if(boton3.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a3.setBackground(Color.BLACK);
+                    a3.setForeground(Color.YELLOW);
+                }
+                if(boton4.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a4.setBackground(Color.BLACK);
+                    a4.setForeground(Color.YELLOW);
+                }
+                if(boton5.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a5.setBackground(Color.BLACK);
+                    a5.setForeground(Color.YELLOW);
+                }
+                if(boton6.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a6.setBackground(Color.BLACK);
+                    a6.setForeground(Color.YELLOW);
+                }
+                if(boton7.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a7.setBackground(Color.BLACK);
+                    a7.setForeground(Color.YELLOW);
+                }
+                if(boton8.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a8.setBackground(Color.BLACK);
+                    a8.setForeground(Color.YELLOW);
+                }
+                if(boton9.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a9.setBackground(Color.BLACK);
+                    a9.setForeground(Color.YELLOW);
+                }
+                if(boton10.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a10.setBackground(Color.BLACK);
+                    a10.setForeground(Color.YELLOW);
+                }
+                if(boton11.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a11.setBackground(Color.BLACK);
+                    a11.setForeground(Color.YELLOW);
+                }
+                if(boton12.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a12.setBackground(Color.BLACK);
+                    a12.setForeground(Color.YELLOW);
+                }
+                if(boton13.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a13.setBackground(Color.BLACK);
+                    a13.setForeground(Color.YELLOW);
+                }
+                if(boton14.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a14.setBackground(Color.BLACK);
+                    a14.setForeground(Color.YELLOW);
+                }
+                if(boton15.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a15.setBackground(Color.BLACK);
+                    a15.setForeground(Color.YELLOW);
+                }
+                if(boton16.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a16.setBackground(Color.BLACK);
+                    a16.setForeground(Color.YELLOW);
+                }
+                if(boton17.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a17.setBackground(Color.BLACK);
+                    a17.setForeground(Color.YELLOW);
+                }
+                if(boton18.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a18.setBackground(Color.BLACK);
+                    a18.setForeground(Color.YELLOW);
+                }
+                if(boton19.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a19.setBackground(Color.BLACK);
+                    a19.setForeground(Color.YELLOW);
+                }
+                if(boton20.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a20.setBackground(Color.BLACK);
+                    a20.setForeground(Color.YELLOW);
+                }
+                if(boton21.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a21.setBackground(Color.BLACK);
+                    a21.setForeground(Color.YELLOW);
+                }
+                if(boton22.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a22.setBackground(Color.BLACK);
+                    a22.setForeground(Color.YELLOW);
+                }
+                if(boton23.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a23.setBackground(Color.BLACK);
+                    a23.setForeground(Color.YELLOW);
+                }
+                if(boton24.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a24.setBackground(Color.BLACK);
+                    a24.setForeground(Color.YELLOW);
+                }
+                if(boton25.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a25.setBackground(Color.BLACK);
+                    a25.setForeground(Color.YELLOW);
+                }
+                if(boton26.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a26.setBackground(Color.BLACK);
+                    a26.setForeground(Color.YELLOW);
+                }
+                if(boton27.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a27.setBackground(Color.BLACK);
+                    a27.setForeground(Color.YELLOW);
+                }
+                if(boton28.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a28.setBackground(Color.BLACK);
+                    a28.setForeground(Color.YELLOW);
+                }
+                if(boton29.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a29.setBackground(Color.BLACK);
+                    a29.setForeground(Color.YELLOW);
+                }
+                if(boton30.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a30.setBackground(Color.BLACK);
+                    a30.setForeground(Color.YELLOW);
+                }
+                if(boton31.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a31.setBackground(Color.BLACK);
+                    a31.setForeground(Color.YELLOW);
+                }
+                if(boton32.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a32.setBackground(Color.BLACK);
+                    a32.setForeground(Color.YELLOW);
+                }
+                if(boton33.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a33.setBackground(Color.BLACK);
+                    a33.setForeground(Color.YELLOW);
+                }
+                if(boton34.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a34.setBackground(Color.BLACK);
+                    a34.setForeground(Color.YELLOW);
+                }
+                if(boton35.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a35.setBackground(Color.BLACK);
+                    a35.setForeground(Color.YELLOW);
+                }
+                if(boton36.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a36.setBackground(Color.BLACK);
+                    a36.setForeground(Color.YELLOW);
+                }
+                if(boton37.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a37.setBackground(Color.BLACK);
+                    a37.setForeground(Color.YELLOW);
+                }
+                if(boton38.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a38.setBackground(Color.BLACK);
+                    a38.setForeground(Color.YELLOW);
+                }
+                if(boton39.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a39.setBackground(Color.BLACK);
+                    a39.setForeground(Color.YELLOW);
+                }
+                if(boton40.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a40.setBackground(Color.BLACK);
+                    a40.setForeground(Color.YELLOW);
+                }
+                if(boton41.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a41.setBackground(Color.BLACK);
+                    a41.setForeground(Color.YELLOW);
+                }
+                if(boton42.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a42.setBackground(Color.BLACK);
+                    a42.setForeground(Color.YELLOW);
+                }
+                if(boton43.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a43.setBackground(Color.BLACK);
+                    a43.setForeground(Color.YELLOW);
+                }
+                if(boton44.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a44.setBackground(Color.BLACK);
+                    a44.setForeground(Color.YELLOW);
+                }
+                if(boton45.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a45.setBackground(Color.BLACK);
+                    a45.setForeground(Color.YELLOW);
+                }
+                if(boton46.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a46.setBackground(Color.BLACK);
+                    a46.setForeground(Color.YELLOW);
+                }
+                if(boton47.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a47.setBackground(Color.BLACK);
+                    a47.setForeground(Color.YELLOW);
+                }
+                if(boton48.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a48.setBackground(Color.BLACK);
+                    a48.setForeground(Color.YELLOW);
+                }
+                if(boton49.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a49.setBackground(Color.BLACK);
+                    a49.setForeground(Color.YELLOW);
+                }
+                if(boton50.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a50.setBackground(Color.BLACK);
+                    a50.setForeground(Color.YELLOW);
+                }
+                if(boton51.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a51.setBackground(Color.BLACK);
+                    a51.setForeground(Color.YELLOW);
+                }
+                if(boton52.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a52.setBackground(Color.BLACK);
+                    a52.setForeground(Color.YELLOW);
+                }
+                if(boton53.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a53.setBackground(Color.BLACK);
+                    a53.setForeground(Color.YELLOW);
+                }
+                if(boton54.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a54.setBackground(Color.BLACK);
+                    a54.setForeground(Color.YELLOW);
+                }
+                if(boton55.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a55.setBackground(Color.BLACK);
+                    a55.setForeground(Color.YELLOW);
+                }
+                if(boton56.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a56.setBackground(Color.BLACK);
+                    a56.setForeground(Color.YELLOW);
+                }
+                if(boton57.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a57.setBackground(Color.BLACK);
+                    a57.setForeground(Color.YELLOW);
+                }
+                if(boton58.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a58.setBackground(Color.BLACK);
+                    a58.setForeground(Color.YELLOW);
+                }
+                if(boton59.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a59.setBackground(Color.BLACK);
+                    a59.setForeground(Color.YELLOW);
+                }
+                if(boton60.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a60.setBackground(Color.BLACK);
+                    a60.setForeground(Color.YELLOW);
+                }
+                if(boton61.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a61.setBackground(Color.BLACK);
+                    a61.setForeground(Color.YELLOW);
+                }
+                if(boton62.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a62.setBackground(Color.BLACK);
+                    a62.setForeground(Color.YELLOW);
+                }
+                if(boton63.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a63.setBackground(Color.BLACK);
+                    a63.setForeground(Color.YELLOW);
+                }
+                if(boton64.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a64.setBackground(Color.BLACK);
+                    a64.setForeground(Color.YELLOW);
+                }
+                if(boton65.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a65.setBackground(Color.BLACK);
+                    a65.setForeground(Color.YELLOW);
+                }
+                if(boton66.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a66.setBackground(Color.BLACK);
+                    a66.setForeground(Color.YELLOW);
+                }
+                if(boton67.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a67.setBackground(Color.BLACK);
+                    a67.setForeground(Color.YELLOW);
+                }
+                if(boton68.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a68.setBackground(Color.BLACK);
+                    a68.setForeground(Color.YELLOW);
+                }
+                if(boton69.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a69.setBackground(Color.BLACK);
+                    a69.setForeground(Color.YELLOW);
+                }
+                if(boton70.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a70.setBackground(Color.BLACK);
+                    a70.setForeground(Color.YELLOW);
+                }
+                if(boton71.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a71.setBackground(Color.BLACK);
+                    a71.setForeground(Color.YELLOW);
+                }
+                if(boton72.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a72.setBackground(Color.BLACK);
+                    a72.setForeground(Color.YELLOW);
+                }
+                if(boton73.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a73.setBackground(Color.BLACK);
+                    a73.setForeground(Color.YELLOW);
+                }
+                if(boton74.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a74.setBackground(Color.BLACK);
+                    a74.setForeground(Color.YELLOW);
+                }
+                if(boton75.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a75.setBackground(Color.BLACK);
+                    a75.setForeground(Color.YELLOW);
+                }
+                if(boton76.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a76.setBackground(Color.BLACK);
+                    a76.setForeground(Color.YELLOW);
+                }
+                if(boton77.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a77.setBackground(Color.BLACK);
+                    a77.setForeground(Color.YELLOW);
+                }
+                if(boton78.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a78.setBackground(Color.BLACK);
+                    a78.setForeground(Color.YELLOW);
+                }
+                if(boton79.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a79.setBackground(Color.BLACK);
+                    a79.setForeground(Color.YELLOW);
+                }
+                if(boton80.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a80.setBackground(Color.BLACK);
+                    a80.setForeground(Color.YELLOW);
+                }
+                if(boton81.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a81.setBackground(Color.BLACK);
+                    a81.setForeground(Color.YELLOW);
+                }
+                if(boton82.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a82.setBackground(Color.BLACK);
+                    a82.setForeground(Color.YELLOW);
+                }
+                if(boton83.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a83.setBackground(Color.BLACK);
+                    a83.setForeground(Color.YELLOW);
+                }
+                if(boton84.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a84.setBackground(Color.BLACK);
+                    a84.setForeground(Color.YELLOW);
+                }
+                if(boton85.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a85.setBackground(Color.BLACK);
+                    a85.setForeground(Color.YELLOW);
+                }
+                if(boton86.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a86.setBackground(Color.BLACK);
+                    a86.setForeground(Color.YELLOW);
+                }
+                if(boton87.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a87.setBackground(Color.BLACK);
+                    a87.setForeground(Color.YELLOW);
+                }
+                if(boton88.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a88.setBackground(Color.BLACK);
+                    a88.setForeground(Color.YELLOW);
+                }
+                if(boton89.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a89.setBackground(Color.BLACK);
+                    a89.setForeground(Color.YELLOW);
+                }
+                if(boton90.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a90.setBackground(Color.BLACK);
+                    a90.setForeground(Color.YELLOW);
+                }
+                if(boton91.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a91.setBackground(Color.BLACK);
+                    a91.setForeground(Color.YELLOW);
+                }
+                if(boton92.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a92.setBackground(Color.BLACK);
+                    a92.setForeground(Color.YELLOW);
+                }
+                if(boton93.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a93.setBackground(Color.BLACK);
+                    a93.setForeground(Color.YELLOW);
+                }
+                if(boton94.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a94.setBackground(Color.BLACK);
+                    a94.setForeground(Color.YELLOW);
+                }
+                if(boton95.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a95.setBackground(Color.BLACK);
+                    a95.setForeground(Color.YELLOW);
+                }
+                if(boton96.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a96.setBackground(Color.BLACK);
+                    a96.setForeground(Color.YELLOW);
+                }
+                if(boton97.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a97.setBackground(Color.BLACK);
+                    a97.setForeground(Color.YELLOW);
+                }
+                if(boton98.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a98.setBackground(Color.BLACK);
+                    a98.setForeground(Color.YELLOW);
+                }
+                if(boton99.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a99.setBackground(Color.BLACK);
+                    a99.setForeground(Color.YELLOW);
+                }
+                if(boton100.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a100.setBackground(Color.BLACK);
+                    a100.setForeground(Color.YELLOW);
+                }
+                if(boton101.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a101.setBackground(Color.BLACK);
+                    a101.setForeground(Color.YELLOW);
+                }
+                if(boton102.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a102.setBackground(Color.BLACK);
+                    a102.setForeground(Color.YELLOW);
+                }
+                if(boton103.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a103.setBackground(Color.BLACK);
+                    a103.setForeground(Color.YELLOW);
+                }
+                if(boton104.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a104.setBackground(Color.BLACK);
+                    a104.setForeground(Color.YELLOW);
+                }
+                if(boton105.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a105.setBackground(Color.BLACK);
+                    a105.setForeground(Color.YELLOW);
+                }
+                if(boton106.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a106.setBackground(Color.BLACK);
+                    a106.setForeground(Color.YELLOW);
+                }
+                if(boton107.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a107.setBackground(Color.BLACK);
+                    a107.setForeground(Color.YELLOW);
+                }
+                if(boton108.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a108.setBackground(Color.BLACK);
+                    a108.setForeground(Color.YELLOW);
+                }
+                if(boton109.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a109.setBackground(Color.BLACK);
+                    a109.setForeground(Color.YELLOW);
+                }
+                if(boton110.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a110.setBackground(Color.BLACK);
+                    a110.setForeground(Color.YELLOW);
+                }
+                if(boton111.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a111.setBackground(Color.BLACK);
+                    a111.setForeground(Color.YELLOW);
+                }
+                if(boton112.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a112.setBackground(Color.BLACK);
+                    a112.setForeground(Color.YELLOW);
+                }
+                if(boton113.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a113.setBackground(Color.BLACK);
+                    a113.setForeground(Color.YELLOW);
+                }
+                if(boton114.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a114.setBackground(Color.BLACK);
+                    a114.setForeground(Color.YELLOW);
+                }
+                if(boton115.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a115.setBackground(Color.BLACK);
+                    a115.setForeground(Color.YELLOW);
+                }
+                if(boton116.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a116.setBackground(Color.BLACK);
+                    a116.setForeground(Color.YELLOW);
+                }
+                if(boton117.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a117.setBackground(Color.BLACK);
+                    a117.setForeground(Color.YELLOW);
+                }
+                if(boton118.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a118.setBackground(Color.BLACK);
+                    a118.setForeground(Color.YELLOW);
+                }
+                if(boton119.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a119.setBackground(Color.BLACK);
+                    a119.setForeground(Color.YELLOW);
+                }
+                if(boton120.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a120.setBackground(Color.BLACK);
+                    a120.setForeground(Color.YELLOW);
+                }
+                if(boton121.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a121.setBackground(Color.BLACK);
+                    a121.setForeground(Color.YELLOW);
+                }
+                if(boton122.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a122.setBackground(Color.BLACK);
+                    a122.setForeground(Color.YELLOW);
+                }
+                if(boton123.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a123.setBackground(Color.BLACK);
+                    a123.setForeground(Color.YELLOW);
+                }
+                if(boton124.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a124.setBackground(Color.BLACK);
+                    a124.setForeground(Color.YELLOW);
+                }
+                if(boton125.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a125.setBackground(Color.BLACK);
+                    a125.setForeground(Color.YELLOW);
+                }
+                if(boton126.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a126.setBackground(Color.BLACK);
+                    a126.setForeground(Color.YELLOW);
+                }
+                if(boton127.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a127.setBackground(Color.BLACK);
+                    a127.setForeground(Color.YELLOW);
+                }
+                if(boton128.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a128.setBackground(Color.BLACK);
+                    a128.setForeground(Color.YELLOW);
+                }
+                if(boton129.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a129.setBackground(Color.BLACK);
+                    a129.setForeground(Color.YELLOW);
+                }
+                if(boton130.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a130.setBackground(Color.BLACK);
+                    a130.setForeground(Color.YELLOW);
+                }
+                if(boton131.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a131.setBackground(Color.BLACK);
+                    a131.setForeground(Color.YELLOW);
+                }
+                if(boton132.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a132.setBackground(Color.BLACK);
+                    a132.setForeground(Color.YELLOW);
+                }
+                if(boton133.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a133.setBackground(Color.BLACK);
+                    a133.setForeground(Color.YELLOW);
+                }
+                if(boton134.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a134.setBackground(Color.BLACK);
+                    a134.setForeground(Color.YELLOW);
+                }
+                if(boton135.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a135.setBackground(Color.BLACK);
+                    a135.setForeground(Color.YELLOW);
+                }
+                if(boton136.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a136.setBackground(Color.BLACK);
+                    a136.setForeground(Color.YELLOW);
+                }
+                if(boton137.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a137.setBackground(Color.BLACK);
+                    a137.setForeground(Color.YELLOW);
+                }
+                if(boton138.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a138.setBackground(Color.BLACK);
+                    a138.setForeground(Color.YELLOW);
+                }
+                if(boton139.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a139.setBackground(Color.BLACK);
+                    a139.setForeground(Color.YELLOW);
+                }
+                if(boton140.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a140.setBackground(Color.BLACK);
+                    a140.setForeground(Color.YELLOW);
+                }
+                if(boton141.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a141.setBackground(Color.BLACK);
+                    a141.setForeground(Color.YELLOW);
+                }
+                if(boton142.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a142.setBackground(Color.BLACK);
+                    a142.setForeground(Color.YELLOW);
+                }
+                if(boton143.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a143.setBackground(Color.BLACK);
+                    a143.setForeground(Color.YELLOW);
+                }
+                if(boton144.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a144.setBackground(Color.BLACK);
+                    a144.setForeground(Color.YELLOW);
+                }
+                if(boton145.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a145.setBackground(Color.BLACK);
+                    a145.setForeground(Color.YELLOW);
+                }
+                if(boton146.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a146.setBackground(Color.BLACK);
+                    a146.setForeground(Color.YELLOW);
+                }
+                if(boton147.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a147.setBackground(Color.BLACK);
+                    a147.setForeground(Color.YELLOW);
+                }
+                if(boton148.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a148.setBackground(Color.BLACK);
+                    a148.setForeground(Color.YELLOW);
+                }
+                if(boton149.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a149.setBackground(Color.BLACK);
+                    a149.setForeground(Color.YELLOW);
+                }
+                if(boton150.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a150.setBackground(Color.BLACK);
+                    a150.setForeground(Color.YELLOW);
+                }
+                if(boton151.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a151.setBackground(Color.BLACK);
+                    a151.setForeground(Color.YELLOW);
+                }
+                if(boton152.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a152.setBackground(Color.BLACK);
+                    a152.setForeground(Color.YELLOW);
+                }
+                if(boton153.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a153.setBackground(Color.BLACK);
+                    a153.setForeground(Color.YELLOW);
+                }
+                if(boton154.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a154.setBackground(Color.BLACK);
+                    a154.setForeground(Color.YELLOW);
+                }
+                if(boton155.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a155.setBackground(Color.BLACK);
+                    a155.setForeground(Color.YELLOW);
+                }
+                if(boton156.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a156.setBackground(Color.BLACK);
+                    a156.setForeground(Color.YELLOW);
+                }
+                if(boton157.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a157.setBackground(Color.BLACK);
+                    a157.setForeground(Color.YELLOW);
+                }
+                if(boton158.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a158.setBackground(Color.BLACK);
+                    a158.setForeground(Color.YELLOW);
+                }
+                if(boton159.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a159.setBackground(Color.BLACK);
+                    a159.setForeground(Color.YELLOW);
+                }
+                if(boton160.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a160.setBackground(Color.BLACK);
+                    a160.setForeground(Color.YELLOW);
+                }
+                if(boton161.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a161.setBackground(Color.BLACK);
+                    a161.setForeground(Color.YELLOW);
+                }
+                if(boton162.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a162.setBackground(Color.BLACK);
+                    a162.setForeground(Color.YELLOW);
+                }
+                if(boton163.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a163.setBackground(Color.BLACK);
+                    a163.setForeground(Color.YELLOW);
+                }
+                if(boton164.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a164.setBackground(Color.BLACK);
+                    a164.setForeground(Color.YELLOW);
+                }
+                if(boton165.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a165.setBackground(Color.BLACK);
+                    a165.setForeground(Color.YELLOW);
+                }
+                if(boton166.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a166.setBackground(Color.BLACK);
+                    a166.setForeground(Color.YELLOW);
+                }
+                if(boton167.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a167.setBackground(Color.BLACK);
+                    a167.setForeground(Color.YELLOW);
+                }
+                if(boton168.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a168.setBackground(Color.BLACK);
+                    a168.setForeground(Color.YELLOW);
+                }
+                if(boton169.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a169.setBackground(Color.BLACK);
+                    a169.setForeground(Color.YELLOW);
+                }
+                if(boton170.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a170.setBackground(Color.BLACK);
+                    a170.setForeground(Color.YELLOW);
+                }
+                if(boton171.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a171.setBackground(Color.BLACK);
+                    a171.setForeground(Color.YELLOW);
+                }
+                if(boton172.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a172.setBackground(Color.BLACK);
+                    a172.setForeground(Color.YELLOW);
+                }
+                if(boton173.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a173.setBackground(Color.BLACK);
+                    a173.setForeground(Color.YELLOW);
+                }
+                if(boton174.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a174.setBackground(Color.BLACK);
+                    a174.setForeground(Color.YELLOW);
+                }
+                if(boton175.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a175.setBackground(Color.BLACK);
+                    a175.setForeground(Color.YELLOW);
+                }
+                if(boton176.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a176.setBackground(Color.BLACK);
+                    a176.setForeground(Color.YELLOW);
+                }
+                if(boton177.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a177.setBackground(Color.BLACK);
+                    a177.setForeground(Color.YELLOW);
+                }
+                if(boton178.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a178.setBackground(Color.BLACK);
+                    a178.setForeground(Color.YELLOW);
+                }
+                if(boton179.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a179.setBackground(Color.BLACK);
+                    a179.setForeground(Color.YELLOW);
+                }
+                if(boton180.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a180.setBackground(Color.BLACK);
+                    a180.setForeground(Color.YELLOW);
+                }
+                if(boton181.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a181.setBackground(Color.BLACK);
+                    a181.setForeground(Color.YELLOW);
+                }
+                if(boton182.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a182.setBackground(Color.BLACK);
+                    a182.setForeground(Color.YELLOW);
+                }
+                if(boton183.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a183.setBackground(Color.BLACK);
+                    a183.setForeground(Color.YELLOW);
+                }
+                if(boton184.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a184.setBackground(Color.BLACK);
+                    a184.setForeground(Color.YELLOW);
+                }
+                if(boton185.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a185.setBackground(Color.BLACK);
+                    a185.setForeground(Color.YELLOW);
+                }
+                if(boton186.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a186.setBackground(Color.BLACK);
+                    a186.setForeground(Color.YELLOW);
+                }
+                if(boton187.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a187.setBackground(Color.BLACK);
+                    a187.setForeground(Color.YELLOW);
+                }
+                if(boton188.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a188.setBackground(Color.BLACK);
+                    a188.setForeground(Color.YELLOW);
+                }
+                if(boton189.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a189.setBackground(Color.BLACK);
+                    a189.setForeground(Color.YELLOW);
+                }
+                if(boton190.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a190.setBackground(Color.BLACK);
+                    a190.setForeground(Color.YELLOW);
+                }
+                if(boton191.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a191.setBackground(Color.BLACK);
+                    a191.setForeground(Color.YELLOW);
+                }
+                if(boton192.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a192.setBackground(Color.BLACK);
+                    a192.setForeground(Color.YELLOW);
+                }
+                if(boton193.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a193.setBackground(Color.BLACK);
+                    a193.setForeground(Color.YELLOW);
+                }
+                if(boton194.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a194.setBackground(Color.BLACK);
+                    a194.setForeground(Color.YELLOW);
+                }
+                if(boton195.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a195.setBackground(Color.BLACK);
+                    a195.setForeground(Color.YELLOW);
+                }
+                if(boton196.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a196.setBackground(Color.BLACK);
+                    a196.setForeground(Color.YELLOW);
+                }
+                if(boton197.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a197.setBackground(Color.BLACK);
+                    a197.setForeground(Color.YELLOW);
+                }
+                if(boton198.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a198.setBackground(Color.BLACK);
+                    a198.setForeground(Color.YELLOW);
+                }
+                if(boton199.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a199.setBackground(Color.BLACK);
+                    a199.setForeground(Color.YELLOW);
+                }
+                if(boton200.equals(Color.RED)){
+                    //nada aqui
+                }else{
+                    a200.setBackground(Color.BLACK);
+                    a200.setForeground(Color.YELLOW);
+                }
                 AsientosLabel.setText("");
                 PrecioLabel.setText("0");
             }
@@ -4947,6 +6527,62 @@ public class AsientosSala {
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
                 reservar.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
+            }
+        });
+        reservarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(AsientosLabel.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Escoja al menos un asiento");
+                }else{
+                    String obtenerAsientos = AsientosLabel.getText();
+                    String [] separador = obtenerAsientos.split(",");
+                    int asientosTotales = separador.length-1;
+                    SALAS paraAsientos = new SALAS();
+                    try(MongoClient cliente3 =MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                        MongoDatabase baseDeDatos = cliente3.getDatabase("Salas");
+                        MongoCollection<Document> coleccion3 = baseDeDatos.getCollection("Sala"+nueva.getSala());
+
+                        FindIterable<Document> encontrar = coleccion3.find();
+                        for(Document documento1 : encontrar){
+                            if((documento1.getString("pelicula")).equals(nueva.getTitulo()) && (documento1.getString("fecha")).equals(nueva.getFecha())
+                                    && (documento1.getString("hora")).equals(nueva.getHorario())){
+                                int asientos_disponibles = Integer.parseInt(documento1.getString("asientos_disponibles"));
+                                int asientos_vendidos = Integer.parseInt(documento1.getString("asientos_vendidos"));
+                                int total_disponibles = asientos_disponibles - asientosTotales;
+                                int total_vendidos = asientos_vendidos + asientosTotales;
+                                paraAsientos.setAsientos_disponibles(String.valueOf(total_disponibles));
+                                paraAsientos.setAsientos_vendidos(String.valueOf(total_vendidos));
+                            }
+                        }
+
+                        Document buscar = new Document("pelicula", nueva.getTitulo()).append("fecha", nueva.getFecha())
+                                .append("hora", nueva.getHorario());
+
+                        Document anidado = new Document();
+                        for(int i=1; i<separador.length; i++){
+                            anidado.append(separador[i], "ocupado");
+                        }
+                        Document actualizar = new Document("$set", anidado);
+                        UpdateResult actualizacion = coleccion3.updateOne(buscar, actualizar);
+
+                        Document asientos = new Document("$set", new Document("asientos_disponibles",paraAsientos.getAsientos_disponibles())
+                                .append("asientos_vendidos", paraAsientos.getAsientos_vendidos()));
+                        UpdateResult actualizarAsientos = coleccion3.updateOne(buscar, asientos);
+                    }
+                    JOptionPane.showMessageDialog(null, "Reservación completada, cancelar $"+PrecioLabel.getText()+" en caja el día de la función.");
+
+                    JFrame regresar = new JFrame();
+                    regresar.setTitle("PoliCine");
+                    regresar.setContentPane(new ReservaPelicula().MainPanel);
+                    regresar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    regresar.setSize(500, 350);
+                    regresar.setLocationRelativeTo(null);
+                    regresar.setVisible(true);
+                    ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                    regresar.setIconImage(imagen.getImage());
+                    ((JFrame) SwingUtilities.getWindowAncestor(reservarButton)).dispose();
+                }
             }
         });
     }
