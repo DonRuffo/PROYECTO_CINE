@@ -47,5 +47,20 @@ public class PaginaClientes {
                 ((JFrame) SwingUtilities.getWindowAncestor(reservarPelículaButton)).dispose();
             }
         });
+        verHorariosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame horarios = new JFrame();
+                horarios.setTitle("PoliCine");
+                horarios.setContentPane(new HorariosPeliculas().MainPanel);
+                horarios.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                horarios.setSize(650, 350);
+                horarios.setLocationRelativeTo(null);
+                horarios.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                horarios.setIconImage(imagen.getImage());
+                ((JFrame) SwingUtilities.getWindowAncestor(verHorariosButton)).dispose();
+            }
+        });
     }
 }
