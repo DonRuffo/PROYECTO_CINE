@@ -56,6 +56,7 @@ public class Cambiar_horarios_salas {
         anioModel.addElement("Año");
         nuevaSalaModel.addElement("Sala");
         nuevaHoraModel.addElement("Hora");
+        tituloModel.addElement("Título");
 
         anioModel.addElement("2024");
         anioModel.addElement("2025");

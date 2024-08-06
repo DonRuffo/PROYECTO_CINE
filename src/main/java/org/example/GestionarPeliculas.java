@@ -69,7 +69,7 @@ public class GestionarPeliculas {
                 nuevoshorarios.setTitle("PoliCine");
                 nuevoshorarios.setContentPane(new Cambiar_horarios_salas().MainPanel);
                 nuevoshorarios.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                nuevoshorarios.setSize(500, 350);
+                nuevoshorarios.setSize(550, 350);
                 nuevoshorarios.setLocationRelativeTo(null);
                 nuevoshorarios.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");

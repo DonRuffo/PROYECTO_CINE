@@ -32,5 +32,20 @@ public class OcupacionDeSalas {
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
+        porFechaYFunciónButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ocupacion = new JFrame();
+                ocupacion.setTitle("PoliCine");
+                ocupacion.setContentPane(new OcupacionPorFuncion().MainPanel);
+                ocupacion.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                ocupacion.setSize(900, 600);
+                ocupacion.setLocationRelativeTo(null);
+                ocupacion.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                ocupacion.setIconImage(imagen.getImage());
+                ((JFrame) SwingUtilities.getWindowAncestor(porFechaYFunciónButton)).dispose();
+            }
+        });
     }
 }

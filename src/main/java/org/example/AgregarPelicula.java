@@ -23,6 +23,8 @@ public class AgregarPelicula {
     private JComboBox MesBox;
     private JComboBox DiaBox;
 
+
+
     DefaultComboBoxModel horarioModel=new DefaultComboBoxModel();
     DefaultComboBoxModel salaModel=new DefaultComboBoxModel();
     DefaultComboBoxModel edadModel=new DefaultComboBoxModel();

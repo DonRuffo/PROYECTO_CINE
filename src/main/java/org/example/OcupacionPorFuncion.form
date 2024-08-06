@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.example.OcupacionPorFuncion">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="0" bottom="10" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="969" height="523"/>
+    </constraints>
+    <properties>
+      <background color="-15790321"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="2246b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Berlin Sans FB Demi" size="21"/>
+          <foreground color="-1"/>
+          <text value="Ocupación de Salas"/>
+        </properties>
+      </component>
+      <grid id="74ceb" layout-manager="GridLayoutManager" row-count="8" column-count="17" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-9174785"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="a97d3" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+              <text value="Por fecha y hora:"/>
+            </properties>
+          </component>
+          <component id="b5bc5" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Año:"/>
+            </properties>
+          </component>
+          <component id="84bd6" class="javax.swing.JComboBox" binding="AnioBox1">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <component id="1e9e1" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Mes:"/>
+            </properties>
+          </component>
+          <component id="8dd7c" class="javax.swing.JComboBox" binding="MesBox1">
+            <constraints>
+              <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <component id="8f421" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Día:"/>
+            </properties>
+          </component>
+          <component id="18116" class="javax.swing.JComboBox" binding="DiaBox1">
+            <constraints>
+              <grid row="1" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <component id="13fb1" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Hora:"/>
+            </properties>
+          </component>
+          <component id="a9990" class="javax.swing.JComboBox" binding="HoraBox1">
+            <constraints>
+              <grid row="1" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <grid id="88562" binding="PanelFuncion" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="12" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <visible value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="e742a" class="javax.swing.JLabel" binding="AnioLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="4" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="90e62" class="javax.swing.JLabel" binding="MesLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="34bd" class="javax.swing.JLabel" binding="DiaLabel">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="3db62" class="javax.swing.JLabel" binding="HoraLabel">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="eeeb5" class="javax.swing.JLabel" binding="VendidosLabel">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-16730617"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="68ff3" class="javax.swing.JLabel" binding="TotalLabel">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-65508"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <vspacer id="1f48a">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <vspacer id="22762">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="ed4fa" class="javax.swing.JLabel" binding="PorcentajeLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-4012541"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <hspacer id="795ee">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="e3aae">
+            <constraints>
+              <grid row="1" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="61fcc" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+              <text value="Por Sala:"/>
+            </properties>
+          </component>
+          <component id="a04f3" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Sala:"/>
+            </properties>
+          </component>
+          <component id="4386f" class="javax.swing.JComboBox" binding="SalaBox">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <component id="5c780" class="javax.swing.JComboBox" binding="AnioBox2">
+            <constraints>
+              <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <component id="c3323" class="javax.swing.JComboBox" binding="MesBox2">
+            <constraints>
+              <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <component id="2af08" class="javax.swing.JComboBox" binding="DiaBox2">
+            <constraints>
+              <grid row="5" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <component id="d0177" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Año:"/>
+            </properties>
+          </component>
+          <component id="3ff8b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Mes:"/>
+            </properties>
+          </component>
+          <component id="a2ec" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Día:"/>
+            </properties>
+          </component>
+          <component id="98bb2" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Hora:"/>
+            </properties>
+          </component>
+          <component id="b6f60" class="javax.swing.JComboBox" binding="HoraBox2">
+            <constraints>
+              <grid row="5" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-1"/>
+            </properties>
+          </component>
+          <grid id="b0800" binding="PanelSala" layout-manager="GridLayoutManager" row-count="4" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="14" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <visible value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="82ed1" class="javax.swing.JLabel" binding="SalaLabel2">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="fc1d6" class="javax.swing.JLabel" binding="AnioLabel2">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="67a75" class="javax.swing.JLabel" binding="MesLabel2">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="388fe" class="javax.swing.JLabel" binding="DiaLabel2">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="71873" class="javax.swing.JLabel" binding="HoraLabel2">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <vspacer id="4b4c4">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="55de9" class="javax.swing.JLabel" binding="VendidosLabel2">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-16730617"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="e4fcd" class="javax.swing.JLabel" binding="TotalLabel2">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-65508"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <vspacer id="e9d63">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="26bf8" class="javax.swing.JLabel" binding="PorcentajeLabel2">
+                <constraints>
+                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Berlin Sans FB Demi" size="14"/>
+                  <foreground color="-4012541"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <vspacer id="79c62">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="5fcc1" class="javax.swing.JButton" binding="cargarFecha">
+            <constraints>
+              <grid row="1" column="14" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Cargar"/>
+            </properties>
+          </component>
+          <hspacer id="27603">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="a3903">
+            <constraints>
+              <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="20eb3">
+            <constraints>
+              <grid row="1" column="9" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="1a3fc">
+            <constraints>
+              <grid row="1" column="12" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="5efa5" class="javax.swing.JButton" binding="cargarSala">
+            <constraints>
+              <grid row="5" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15790321"/>
+              <font name="Berlin Sans FB Demi" size="14"/>
+              <foreground color="-4012541"/>
+              <text value="Cargar"/>
+            </properties>
+          </component>
+          <hspacer id="952ae">
+            <constraints>
+              <grid row="5" column="15" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <vspacer id="4c05d">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
