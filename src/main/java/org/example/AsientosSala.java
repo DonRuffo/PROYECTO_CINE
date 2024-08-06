@@ -6591,9 +6591,10 @@ public class AsientosSala {
                         //direccionamiento a la base del año y mes seleccionado desde el Caché
                         MongoDatabase datosMeses = cliente3.getDatabase(anio);
                         MongoCollection<Document> coleccionMeses = datosMeses.getCollection(mes);
+                        MongoCollection<Document> coleccionAnual= datosMeses.getCollection("Anual");
                         //actualizacion de la cantidad de los asientos disponbles y vendidos en la coleccion actual
                         UpdateResult actualizarEnMeses = coleccionMeses.updateOne(buscar2,asientos);
-
+                        UpdateResult actualizarEnAnual = coleccionAnual.updateOne(buscar2,asientos);
                     }
                     JOptionPane.showMessageDialog(null, "Reservación completada, cancelar $"+PrecioLabel.getText()+" en caja el día de la función.");
 
