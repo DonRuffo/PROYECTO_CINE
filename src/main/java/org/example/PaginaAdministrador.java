@@ -1,6 +1,5 @@
 package org.example;
 
-import javax.management.remote.JMXConnectorFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class PaginaAdministrador {
     private JButton gestionarPelículasButton;
-    private JButton estadísticasButton;
+    private JButton estadisticasButton;
     private JButton gestionarClientesButton;
     public JPanel PanelPaginaAdmin;
     private JPanel PanelImagen1;
@@ -16,7 +15,7 @@ public class PaginaAdministrador {
 
     public PaginaAdministrador() {
         PanelImagen1.setLayout(new BorderLayout());
-        String imagen="IMAGENES/CINEMA.png";
+        String imagen="IMAGENES/CINE.png";
         ImageIcon iconImage = new ImageIcon(imagen);
         JLabel labelImage = new JLabel(iconImage);
         PanelImagen1.add(labelImage, BorderLayout.CENTER);
@@ -63,6 +62,21 @@ public class PaginaAdministrador {
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
                 gestionarClientes.setIconImage(imagen.getImage());
                 ((JFrame) SwingUtilities.getWindowAncestor(gestionarClientesButton)).dispose();
+            }
+        });
+        estadisticasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame estadisticas = new JFrame();
+                estadisticas.setTitle("PoliCine");
+                estadisticas.setContentPane(new Estadisticas().MainPanel);
+                estadisticas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                estadisticas.setSize(500,350);
+                estadisticas.setLocationRelativeTo(null);
+                estadisticas.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                estadisticas.setIconImage(imagen.getImage());
+                ((JFrame) SwingUtilities.getWindowAncestor(estadisticasButton)).dispose();
             }
         });
     }

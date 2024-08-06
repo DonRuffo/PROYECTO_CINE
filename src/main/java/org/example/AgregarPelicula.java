@@ -154,7 +154,7 @@ public class AgregarPelicula {
                                 System.out.println("CONEXION EXITOSA");
                                 FindIterable<Document> documentos= datos.find();
                                 for(Document documento:documentos) {
-                                    if (Objects.equals(peli1.getSala(), documento.getString("sala")) && peli1.getHorario().equals(documento.getString("hora")) &&
+                                    if (peli1.getSala().equals(documento.getString("sala")) && peli1.getHorario().equals(documento.getString("hora")) &&
                                             fechas.equals(documento.getString("fecha"))){
                                         ident = 1;
                                     }
@@ -170,9 +170,6 @@ public class AgregarPelicula {
                                     datos.insertOne(insercion);
                                     JOptionPane.showMessageDialog(null,"Registro Exitoso");
                                     puerta=1;
-                                    TituloField.setText("");
-                                    CateegoriaField.setText("");
-                                    PrecioField.setText("");
                                     ident=0;
                                 }
                             }
@@ -180,7 +177,7 @@ public class AgregarPelicula {
                                 try(MongoClient definirsala = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                                     MongoDatabase sala=definirsala.getDatabase("Salas");
                                     MongoCollection<Document> datos=sala.getCollection("Sala"+peli1.getSala());
-                                    Document insercion2= new Document("pelicula",peli1.getTitulo())
+                                    Document insercion2= new Document("titulo",peli1.getTitulo())
                                             .append("hora",peli1.getHorario()).append("fecha",fechas)
                                             .append("asientos_disponibles",salaGeneral.getAsientos_disponibles())
                                             .append("asientos_vendidos",salaGeneral.getAsientos_vendidos())
@@ -252,6 +249,16 @@ public class AgregarPelicula {
                                             .append("196","libre").append("197","libre").append("198","libre")
                                             .append("199","libre").append("200","libre");
                                     datos.insertOne(insercion2);
+                                    MongoDatabase base = definirsala.getDatabase(peli1.getAnio());
+                                    MongoCollection<Document> datoMes = base.getCollection(peli1.getMes());
+                                    MongoCollection<Document> anual = base.getCollection("Anual");
+
+                                    Document insertar = new Document("titulo", peli1.getTitulo()).append("fecha", fechas)
+                                            .append("sala", peli1.getSala()).append("hora", peli1.getHorario())
+                                            .append("precio_asiento", peli1.getPrecio()).append("asientos_disponibles", "200")
+                                            .append("asientos_vendidos", "0");
+                                    datoMes.insertOne(insertar);
+                                    anual.insertOne(insertar);
                                 }
                             }
                         }

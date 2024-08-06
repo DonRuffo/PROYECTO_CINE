@@ -4,15 +4,17 @@ import com.mongodb.client.*;
 import org.bson.Document;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class HorariosPeliculas {
     public JPanel MainPanel;
     private JScrollPane ScrollTabla;
+    private JButton regresarButton;
 
 
     public HorariosPeliculas() {
@@ -61,6 +63,21 @@ public class HorariosPeliculas {
             tablaDatos.setCellSelectionEnabled(true);
         }
 
+        regresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame paginaClientes = new JFrame();
+                paginaClientes.setTitle("PoliCine");
+                paginaClientes.setContentPane(new PaginaClientes().MainPanel);
+                paginaClientes.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                paginaClientes.setSize(500, 350);
+                paginaClientes.setLocationRelativeTo(null);
+                paginaClientes.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                paginaClientes.setIconImage(imagen.getImage());
+                ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
+            }
+        });
     }
 
 }

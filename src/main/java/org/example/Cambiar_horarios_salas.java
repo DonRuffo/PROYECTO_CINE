@@ -1,9 +1,11 @@
 package org.example;
 
 import com.mongodb.client.*;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 
+import javax.print.Doc;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -103,7 +105,7 @@ public class Cambiar_horarios_salas {
         pelis.clear();
         MesBox.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent a) {
                 PELICULAS peli=new PELICULAS();
                 peli.setMes(mesModel.getSelectedItem().toString());
                 peli.setAnio(anioModel.getSelectedItem().toString());
@@ -148,7 +150,7 @@ public class Cambiar_horarios_salas {
 
         TituloBox.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent b) {
                 if(FechaBox.getItemCount()>1){
                     for(int i = 0; i<= FechasPelis.size()-1; i++){
                         FechaBox.removeItem(FechasPelis.get(i));
@@ -172,18 +174,18 @@ public class Cambiar_horarios_salas {
                 for(int i=0;i<=fechasNuevas.size()-1;i++){
                     fechaModel.addElement(fechasNuevas.get(i));
                 }
+                fechasNuevas.clear();
             }
         });
 
 
         FechaBox.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent c) {
                 if(SalaBox.getItemCount()>1){
-                    for(int i=0; i<=salas.size()-1; i++){
+                    for(int i=0; i<=salas.size()-1;i++){
                         SalaBox.removeItem(salas.get(i));
-                    }
-                    salas.clear();
+                    }salas.clear();
                 }
                 peliCambiar.setFecha(fechaModel.getSelectedItem().toString());
                 try(MongoClient cliente1 = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
@@ -201,11 +203,12 @@ public class Cambiar_horarios_salas {
                 for(int i=0;i<=salasLimpiadas.size()-1;i++){
                     salaModel.addElement(salasLimpiadas.get(i));
                 }
+                salasLimpiadas.clear();
             }
         });
         SalaBox.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent d) {
                 if(HoraBox.getItemCount()>1){
                     HoraBox.removeAllItems();
                     horaModel.addElement("Hora");
@@ -242,7 +245,7 @@ public class Cambiar_horarios_salas {
         });
         cambiarButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent f) {
                 if(fechaModel.getSelectedItem().toString().equals("Fecha") ||
                     salaModel.getSelectedItem().toString().equals("Sala") ||
                     horaModel.getSelectedItem().toString().equals("Hora") ||
@@ -262,23 +265,181 @@ public class Cambiar_horarios_salas {
                     peliActual.setHorario(nuevaHoraModel.getSelectedItem().toString());
                     peliActual.setSala(nuevaSalaModel.getSelectedItem().toString());
                     peliActual.setFecha(fechaActual);
+                    peliActual.setMes(mesModel.getSelectedItem().toString());
+                    peliActual.setAnio(anioModel.getSelectedItem().toString());
                     peliCambiar.setHorario(horaModel.getSelectedItem().toString());
+                    String anioAcambiar= peliCambiar.getFecha().substring(6,10);
+                    String mesAcambiar= peliCambiar.getFecha().substring(3,5);
+                    int ident=0;
+                    String valor = "";
                     try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                         MongoDatabase base = cliente.getDatabase("Peliculas");
                         MongoCollection<Document> coleccion = base.getCollection("Datos_Peliculas");
-                        Document buscar = new Document("titulo", peliCambiar.getTitulo()).append("fecha", peliCambiar.getFecha())
-                                .append("sala", peliCambiar.getSala()).append("hora", peliCambiar.getHorario());
-                        Document actualizar = new Document("$set",new Document("fecha",peliActual.getFecha()).append("sala", peliActual.getSala())
-                                .append("hora", peliActual.getHorario()));
-                        UpdateResult actualizacion = coleccion.updateOne(buscar, actualizar);
-                        JOptionPane.showMessageDialog(null,"Horario modificado correctamente");
+
+                        FindIterable<Document> documentos = coleccion.find();
+                        for(Document documento:documentos) {
+                            if (peliActual.getSala().equals(documento.getString("sala")) && peliActual.getHorario().equals(documento.getString("hora")) &&
+                                    peliActual.getFecha().equals(documento.getString("fecha"))){
+                                ident = 1;
+                            }
+                        }
+                        if(ident==0){
+                            MongoDatabase Historial = cliente.getDatabase(anioAcambiar);
+                            MongoCollection<Document> histColeccion = Historial.getCollection(mesAcambiar);
+                            MongoCollection<Document> anualColeccion = Historial.getCollection("Anual");
+                            FindIterable<Document> busquedaVentas = histColeccion.find();
+                            for(Document busqueda:busquedaVentas){
+                                if((busqueda.getString("titulo")).equals(peliCambiar.getTitulo()) && (busqueda.getString("fecha")).equals(peliCambiar.getFecha())
+                                    && (busqueda.getString("sala")).equals(peliCambiar.getSala()) && (busqueda.getString("hora")).equals(peliCambiar.getHorario())){
+                                    valor=busqueda.getString("asientos_vendidos");
+                                }
+                            }
+                            System.out.println(valor);
+                            if(valor.equals("0")){
+                                //documento de búsqueda en general
+                                Document buscar = new Document("titulo", peliCambiar.getTitulo()).append("fecha", peliCambiar.getFecha())
+                                        .append("sala", peliCambiar.getSala()).append("hora", peliCambiar.getHorario());
+
+                                //Documento para buscar en coleccion Salas
+                                Document buscar2 = new Document("titulo", peliCambiar.getTitulo()).append("fecha", peliCambiar.getFecha())
+                                        .append("hora", peliCambiar.getHorario());
+
+                                //actualiza la cartelera
+                                Document actualizar = new Document("$set",new Document("fecha",peliActual.getFecha()).append("sala", peliActual.getSala())
+                                        .append("hora", peliActual.getHorario()));
+
+                                //actualiza la coleccion Salas
+                                Document actualizarMiSala = new Document("$set", new Document("fecha",peliActual.getFecha())
+                                        .append("hora", peliActual.getHorario()));
+
+                                //nuevo documento para insertar en el historial del nuevo horario de la pelicula
+                                Document insercionCambio = new Document("titulo", peliActual.getTitulo()).append("fecha", peliActual.getFecha())
+                                        .append("sala", peliActual.getSala()).append("hora", peliActual.getHorario())
+                                        .append("precio_asiento", peliActual.getPrecio()).append("asientos_disponibles", "200")
+                                        .append("asientos_vendidos", "0");
+
+                                //Documento para insertar una nueva sala al cambiar el horario
+                                Document ActualizarSala= new Document("titulo",peliActual.getTitulo())
+                                        .append("hora",peliActual.getHorario()).append("fecha",peliActual.getFecha())
+                                        .append("asientos_disponibles","200")
+                                        .append("asientos_vendidos","0")
+                                        .append("1","libre").append("2","libre").append("3","libre")
+                                        .append("4","libre").append("5","libre").append("6","libre")
+                                        .append("7","libre").append("8","libre").append("9","libre")
+                                        .append("10","libre").append("11","libre").append("12","libre")
+                                        .append("13","libre").append("14","libre").append("15","libre")
+                                        .append("16","libre").append("17","libre").append("18","libre")
+                                        .append("19","libre").append("20","libre").append("21","libre")
+                                        .append("22","libre").append("23","libre").append("24","libre")
+                                        .append("25","libre").append("26","libre").append("27","libre")
+                                        .append("28","libre").append("29","libre").append("30","libre")
+                                        .append("31","libre").append("32","libre").append("33","libre")
+                                        .append("34","libre").append("35","libre").append("36","libre")
+                                        .append("37","libre").append("38","libre").append("39","libre")
+                                        .append("40","libre").append("41","libre").append("42","libre")
+                                        .append("43","libre").append("44","libre").append("45","libre")
+                                        .append("46","libre").append("47","libre").append("48","libre")
+                                        .append("49","libre").append("50","libre").append("51","libre")
+                                        .append("52","libre").append("53","libre").append("54","libre")
+                                        .append("55","libre").append("56","libre").append("57","libre")
+                                        .append("58","libre").append("59","libre").append("60","libre")
+                                        .append("61","libre").append("62","libre").append("63","libre")
+                                        .append("64","libre").append("65","libre").append("66","libre")
+                                        .append("67","libre").append("68","libre").append("69","libre")
+                                        .append("70","libre").append("71","libre").append("72","libre")
+                                        .append("73","libre").append("74","libre").append("75","libre")
+                                        .append("76","libre").append("77","libre").append("78","libre")
+                                        .append("79","libre").append("80","libre").append("81","libre")
+                                        .append("82","libre").append("83","libre").append("84","libre")
+                                        .append("85","libre").append("86","libre").append("87","libre")
+                                        .append("88","libre").append("89","libre").append("90","libre")
+                                        .append("91","libre").append("92","libre").append("93","libre")
+                                        .append("94","libre").append("95","libre").append("96","libre")
+                                        .append("97","libre").append("98","libre").append("99","libre")
+                                        .append("100","libre").append("101","libre").append("102","libre")
+                                        .append("103","libre").append("104","libre").append("105","libre")
+                                        .append("106","libre").append("107","libre").append("108","libre")
+                                        .append("109","libre").append("110","libre").append("111","libre")
+                                        .append("112","libre").append("113","libre").append("114","libre")
+                                        .append("115","libre").append("116","libre").append("117","libre")
+                                        .append("118","libre").append("119","libre").append("120","libre")
+                                        .append("121","libre").append("122","libre").append("123","libre")
+                                        .append("124","libre").append("125","libre").append("126","libre")
+                                        .append("127","libre").append("128","libre").append("129","libre")
+                                        .append("130","libre").append("131","libre").append("132","libre")
+                                        .append("133","libre").append("134","libre").append("135","libre")
+                                        .append("136","libre").append("137","libre").append("138","libre")
+                                        .append("139","libre").append("140","libre").append("141","libre")
+                                        .append("142","libre").append("143","libre").append("144","libre")
+                                        .append("145","libre").append("146","libre").append("147","libre")
+                                        .append("148","libre").append("149","libre").append("150","libre")
+                                        .append("151","libre").append("152","libre").append("153","libre")
+                                        .append("154","libre").append("155","libre").append("156","libre")
+                                        .append("157","libre").append("158","libre").append("159","libre")
+                                        .append("160","libre").append("161","libre").append("162","libre")
+                                        .append("163","libre").append("164","libre").append("165","libre")
+                                        .append("166","libre").append("167","libre").append("168","libre")
+                                        .append("169","libre").append("170","libre").append("171","libre")
+                                        .append("172","libre").append("173","libre").append("174","libre")
+                                        .append("175","libre").append("176","libre").append("177","libre")
+                                        .append("178","libre").append("179","libre").append("180","libre")
+                                        .append("181","libre").append("182","libre").append("183","libre")
+                                        .append("184","libre").append("185","libre").append("186","libre")
+                                        .append("187","libre").append("188","libre").append("189","libre")
+                                        .append("190","libre").append("191","libre").append("192","libre")
+                                        .append("193","libre").append("194","libre").append("195","libre")
+                                        .append("196","libre").append("197","libre").append("198","libre")
+                                        .append("199","libre").append("200","libre");
+
+                                //ejecucion en la cartelera
+                                UpdateResult actualizacion = coleccion.updateOne(buscar, actualizar);
+
+                                //eliminar la pelicula con su antiguo horario del historial
+                                DeleteResult eliminardeHistorial = histColeccion.deleteOne(buscar);
+                                DeleteResult eliminardelAnual = anualColeccion.deleteOne(buscar);
+
+                                //agregar el documento con su nuevo horario en el nuevo historial
+                                MongoDatabase Historialnuevo = cliente.getDatabase(peliActual.getAnio());
+                                MongoCollection<Document> nuevoHist = Historialnuevo.getCollection(peliActual.getMes());
+                                MongoCollection<Document> nuevoEnAnual = Historialnuevo.getCollection("Anual");
+                                nuevoHist.insertOne(insercionCambio);
+                                nuevoEnAnual.insertOne(insercionCambio);
+
+                                //ejecución de la actualización para la coleccion Salas
+                                MongoDatabase baseSalas = cliente.getDatabase("Salas");
+                                MongoCollection<Document> coleccionSalas = baseSalas.getCollection("Sala"+peliCambiar.getSala());
+                                MongoCollection<Document> coleccionSalasActual = baseSalas.getCollection("Sala"+peliActual.getSala());
+                                DeleteResult eliminandoSala = coleccionSalas.deleteOne(buscar2);
+                                coleccionSalasActual.insertOne(ActualizarSala);
+
+
+                                //verificacion
+                                JOptionPane.showMessageDialog(null,"Horario modificado correctamente");
+                            }else{
+                                JOptionPane.showMessageDialog(null, "Esta pelicula ya registra reservas, no se puede modificar");
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(null,"El horario seleccionado se encuntra ocupado");
+                            ident=0;
+                        }
+
                     }
-                    FechaBox.removeAllItems();
-                    fechaModel.addElement("Fecha");
-                    HoraBox.removeAllItems();
-                    horaModel.addElement("Hora");
-                    SalaBox.removeAllItems();
-                    salaModel.addElement("Sala");
+                    //eliiminacion de valores antiguos de los JComboBox
+                    if(FechaBox.getItemCount()>1){
+                        for(int i = 0; i<= FechasPelis.size()-1; i++){
+                            FechaBox.removeItem(FechasPelis.get(i));
+                        }
+                        FechasPelis.clear();
+                    }
+                    if(SalaBox.getItemCount()>1){
+                        for(int i=0; i<=salas.size()-1;i++){
+                            SalaBox.removeItem(salas.get(i));
+                        }salas.clear();
+                    }
+                    if(HoraBox.getItemCount()>1){
+                        HoraBox.removeAllItems();
+                        horaModel.addElement("Hora");
+                    }
                 }
             }
         });

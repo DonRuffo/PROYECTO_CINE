@@ -1,6 +1,7 @@
 package org.example;
 
 import com.mongodb.client.*;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 
@@ -249,7 +250,7 @@ public class AsientosSala {
 
             FindIterable<Document> busqueda = coleccion3.find();
             for(Document documento : busqueda){
-                if((documento.getString("pelicula")).equals(nueva.getTitulo()) && (documento.getString("fecha")).equals(nueva.getFecha())
+                if((documento.getString("titulo")).equals(nueva.getTitulo()) && (documento.getString("fecha")).equals(nueva.getFecha())
                     && (documento.getString("hora").equals(nueva.getHorario()))){
                     if((documento.getString("1")).equals("ocupado")){
                         a1.setBackground(Color.RED);
@@ -6539,13 +6540,15 @@ public class AsientosSala {
                     String [] separador = obtenerAsientos.split(",");
                     int asientosTotales = separador.length-1;
                     SALAS paraAsientos = new SALAS();
+                    String anio= nueva.getFecha().substring(6,10);
+                    String mes= nueva.getFecha().substring(3,5);
                     try(MongoClient cliente3 =MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
                         MongoDatabase baseDeDatos = cliente3.getDatabase("Salas");
                         MongoCollection<Document> coleccion3 = baseDeDatos.getCollection("Sala"+nueva.getSala());
 
                         FindIterable<Document> encontrar = coleccion3.find();
                         for(Document documento1 : encontrar){
-                            if((documento1.getString("pelicula")).equals(nueva.getTitulo()) && (documento1.getString("fecha")).equals(nueva.getFecha())
+                            if((documento1.getString("titulo")).equals(nueva.getTitulo()) && (documento1.getString("fecha")).equals(nueva.getFecha())
                                     && (documento1.getString("hora")).equals(nueva.getHorario())){
                                 int asientos_disponibles = Integer.parseInt(documento1.getString("asientos_disponibles"));
                                 int asientos_vendidos = Integer.parseInt(documento1.getString("asientos_vendidos"));
@@ -6555,20 +6558,42 @@ public class AsientosSala {
                                 paraAsientos.setAsientos_vendidos(String.valueOf(total_vendidos));
                             }
                         }
-
-                        Document buscar = new Document("pelicula", nueva.getTitulo()).append("fecha", nueva.getFecha())
+                        //documento de busqueda para la coleccion Salas
+                        Document buscar = new Document("titulo", nueva.getTitulo()).append("fecha", nueva.getFecha())
                                 .append("hora", nueva.getHorario());
+                        //documento de busqueda para eliminar el caché
+                        Document buscar2 = new Document("titulo", nueva.getTitulo()).append("fecha", nueva.getFecha())
+                                .append("hora", nueva.getHorario()).append("sala", nueva.getSala());
 
+                        //documento para cambiar el estado de los asientos de libre a ocupado
                         Document anidado = new Document();
                         for(int i=1; i<separador.length; i++){
                             anidado.append(separador[i], "ocupado");
                         }
+
+                        //preparar el documento para ejecutarlo, se llamará Actualizar
                         Document actualizar = new Document("$set", anidado);
+                        //ejecución
                         UpdateResult actualizacion = coleccion3.updateOne(buscar, actualizar);
 
+                        //documento para actulizar la cantidad de asientos disponibles y vendidos
                         Document asientos = new Document("$set", new Document("asientos_disponibles",paraAsientos.getAsientos_disponibles())
                                 .append("asientos_vendidos", paraAsientos.getAsientos_vendidos()));
+                        //ejecución
                         UpdateResult actualizarAsientos = coleccion3.updateOne(buscar, asientos);
+
+                        //direccionamiento a la base Cache
+                        MongoDatabase base = cliente3.getDatabase("Caché");
+                        MongoCollection<Document> coleccionCache = base.getCollection("CacheBase");
+                        //eliminar el caché
+                        DeleteResult eliminando = coleccionCache.deleteOne(buscar2);
+
+                        //direccionamiento a la base del año y mes seleccionado desde el Caché
+                        MongoDatabase datosMeses = cliente3.getDatabase(anio);
+                        MongoCollection<Document> coleccionMeses = datosMeses.getCollection(mes);
+                        //actualizacion de la cantidad de los asientos disponbles y vendidos en la coleccion actual
+                        UpdateResult actualizarEnMeses = coleccionMeses.updateOne(buscar2,asientos);
+
                     }
                     JOptionPane.showMessageDialog(null, "Reservación completada, cancelar $"+PrecioLabel.getText()+" en caja el día de la función.");
 

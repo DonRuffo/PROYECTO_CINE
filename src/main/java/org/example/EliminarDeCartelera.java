@@ -72,17 +72,16 @@ public class EliminarDeCartelera {
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(fechaModel.getSelectedItem().toString().equals("Fecha") ||
-                    salaModel.getSelectedItem().toString().equals("Sala") ||
-                    horarioModel.getSelectedItem().toString().equals("Hora")){
-                    JOptionPane.showMessageDialog(null, "Seleccione un horario");
-                }
-                else{
-                    try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
-                        MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
-                        MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
+                try(MongoClient cliente = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")){
+                    MongoDatabase baseDeDatos = cliente.getDatabase("Peliculas");
+                    MongoCollection<Document> coleccion=baseDeDatos.getCollection("Datos_Peliculas");
 
-                        if(SalaBox.isVisible() && HorarioBox.isVisible() && FechaBox.isVisible()){
+                    if(SalaBox.isVisible() && HorarioBox.isVisible() && FechaBox.isVisible()){
+                        if(fechaModel.getSelectedItem().toString().equals("Fecha") ||
+                                salaModel.getSelectedItem().toString().equals("Sala") ||
+                                horarioModel.getSelectedItem().toString().equals("Hora")){
+                            JOptionPane.showMessageDialog(null, "Seleccione un horario");
+                        }else{
                             peliEliminar.setTitulo(seleccionModel.getSelectedItem().toString());
                             peliEliminar.setHorario(horarioModel.getSelectedItem().toString());
                             peliEliminar.setSala(salaModel.getSelectedItem().toString());
@@ -92,6 +91,14 @@ public class EliminarDeCartelera {
                                     .append("hora", peliEliminar.getHorario())
                                     .append("fecha", peliEliminar.getFecha());
                             DeleteResult resultado = coleccion.deleteOne(filtro);
+
+                            MongoDatabase BaseSalas = cliente.getDatabase("Salas");
+                            MongoCollection<Document> datos_salas = BaseSalas.getCollection("Sala"+peliEliminar.getSala());
+                            Document filtro_salas = new Document("titulo", peliEliminar.getTitulo())
+                                    .append("hora", peliEliminar.getHorario())
+                                    .append("fecha", peliEliminar.getFecha());
+                            DeleteResult resultado3 = datos_salas.deleteOne(filtro_salas);
+
                             JOptionPane.showMessageDialog(null, "Pelicula " + peliEliminar.getTitulo() + " elimnada con éxito");
                             if(FechaBox.getItemCount()>1){
                                 for(int i = 0; i<= FechasPelis.size()-1; i++){
@@ -108,15 +115,14 @@ public class EliminarDeCartelera {
                                 HorarioBox.removeAllItems();
                                 horarioModel.addElement("Hora");
                             }
-
-                        }else{
-                            peliEliminar.setTitulo(seleccion2model.getSelectedItem().toString());
-                            Document filtro = new Document("titulo",peliEliminar.getTitulo());
-                            DeleteResult resultado=coleccion.deleteMany(filtro);
-                            JOptionPane.showMessageDialog(null, "Pelicula " +peliEliminar.getTitulo()+" elimnada con éxito");
-                            Seleccion2box.removeItem(peliEliminar.getTitulo());
-                            SeleccionBox.removeItem(peliEliminar.getTitulo());
                         }
+                    }else{
+                        peliEliminar.setTitulo(seleccion2model.getSelectedItem().toString());
+                        Document filtro = new Document("titulo",peliEliminar.getTitulo());
+                        DeleteResult resultado=coleccion.deleteMany(filtro);
+                        JOptionPane.showMessageDialog(null, "Pelicula " +peliEliminar.getTitulo()+" elimnada con éxito");
+                        Seleccion2box.removeItem(peliEliminar.getTitulo());
+                        SeleccionBox.removeItem(peliEliminar.getTitulo());
                     }
                 }
             }
@@ -201,7 +207,6 @@ public class EliminarDeCartelera {
         FechaBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent d) {
-
                 if(SalaBox.getItemCount()>1){
                     for(int i=0; i<=salas.size()-1;i++){
                         SalaBox.removeItem(salas.get(i));

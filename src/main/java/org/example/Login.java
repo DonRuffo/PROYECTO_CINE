@@ -59,7 +59,8 @@ public class Login {
                                     paginaAdministrador.setLocationRelativeTo(null);
                                     paginaAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                                     paginaAdministrador.setVisible(true);
-
+                                    ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                                    paginaAdministrador.setIconImage(imagen.getImage());
                                     ((JFrame) SwingUtilities.getWindowAncestor(iniciarSesiónButton)).dispose();
                                 }
                             }
