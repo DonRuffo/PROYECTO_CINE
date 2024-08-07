@@ -11,7 +11,7 @@ public class Main {
         login.setContentPane(new Login().PanelLoign);
         login.setTitle("PoliCine");
         login.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        login.setSize(500,300);
+        login.setSize(500,350);
         login.setMinimumSize(new Dimension(500,300));
         login.setLocationRelativeTo(null);
         login.setVisible(true);

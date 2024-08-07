@@ -1,10 +1,16 @@
 package org.example;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
+import java.util.Arrays;
+import java.util.Base64;
+
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
@@ -20,11 +26,16 @@ public class Login {
     private JPasswordField ContraField;
     private JButton registrarseButton;
     public JPanel PanelLoign;
+    private JPanel PanelLogo;
 
     DefaultComboBoxModel perfil= new DefaultComboBoxModel();
-
+    String llave="Dennis123";
     public Login() {
-        System.out.println("IMPRIME PTM");
+        PanelLogo.setLayout(new BorderLayout());
+        ImageIcon imagen = new ImageIcon("IMAGENES/POlICINE_LOGO.png");
+        JLabel imagenLabel = new JLabel(imagen);
+        PanelLogo.add(imagenLabel, BorderLayout.CENTER);
+
         PerfilBox.setModel(perfil);
         Border borde = BorderFactory.createLineBorder(Color.black);
         UsuarioField.setBorder(borde);
@@ -35,7 +46,6 @@ public class Login {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String usuario=perfil.getSelectedItem().toString();
-                System.out.println("CONECTADO");
                 if(UsuarioField.getText().isEmpty() || ContraField.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Ingrese sus datos por favor");
                 }else {
@@ -44,6 +54,7 @@ public class Login {
                         try (MongoClient clienteMongo = MongoClients.create("mongodb+srv://dennisdiaz407:YFwh8BtJwwH0kZxa@cluster0.ayc0dwi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")) {
                             MongoDatabase Administradores = clienteMongo.getDatabase("Administradores");
                             MongoCollection<Document> datos = Administradores.getCollection("Datos_administrador");
+
                             FindIterable<Document> documentos = datos.find();
                             ADMINISTRADORES adm1 = new ADMINISTRADORES();
                             adm1.setNombre(UsuarioField.getText());
@@ -76,12 +87,26 @@ public class Login {
                             MongoDatabase clientes = mongoCliente.getDatabase("Clientes");
                             MongoCollection<Document> datos = clientes.getCollection("Datos_clientes");
 
+                            //Base de cache
+                            MongoDatabase cache = mongoCliente.getDatabase("CacheSesion");
+                            MongoCollection<Document> cacheColec = cache.getCollection("ClienteActual");
+
                             FindIterable<Document> documentos = datos.find();
                             CLIENTES cli1 = new CLIENTES();
                             cli1.setNombre(UsuarioField.getText());
                             cli1.setContrasena(ContraField.getText());
+                            String desencriptado = "";
+                            int identificadorCliente = 0;
                             for (Document documento : documentos) {
-                                if (documento.getString("nombre").equals(cli1.getNombre()) && documento.getString("contrasena").equals(cli1.getContrasena())) {
+                                if(documento.getString("nombre").equals(cli1.getNombre())){
+                                    desencriptado=Desencriptar(documento.getString("contrasena"));
+                                }
+                                if (documento.getString("nombre").equals(cli1.getNombre()) && cli1.getContrasena().equals(desencriptado)) {
+                                    identificadorCliente = 1;
+                                    cli1.setCedula(documento.getString("cedula"));
+                                    Document clienteActual = new Document("nombre", cli1.getNombre())
+                                            .append("cedula", cli1.getCedula());
+                                    cacheColec.insertOne(clienteActual);
                                     JFrame paginaClientes = new JFrame();
                                     paginaClientes.setTitle("PoliCine");
                                     paginaClientes.setContentPane(new PaginaClientes().MainPanel);
@@ -94,6 +119,12 @@ public class Login {
                                     ((JFrame) SwingUtilities.getWindowAncestor(iniciarSesiónButton)).dispose();
                                 }
                             }
+                            if (identificadorCliente==0){
+                                JOptionPane.showMessageDialog(null, "Error de credenciales, intente de nuevo");
+                                UsuarioField.setText("");
+                                ContraField.setText("");
+                            }
+                            identificadorCliente = 0;
                         }
                     }
 
@@ -116,6 +147,35 @@ public class Login {
                 ((JFrame) SwingUtilities.getWindowAncestor(registrarseButton)).dispose();
             }
         });
+    }
+    //función de encriptacion / desencriptacion
+    public SecretKeySpec CrearClave(String llave){
+        try{
+            byte [] cadena = llave.getBytes("UTF-8");
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            cadena = md.digest(cadena);
+            cadena = Arrays.copyOf(cadena,16);
+            SecretKeySpec llavesecreta = new SecretKeySpec(cadena, "AES");
+            return llavesecreta;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    //desencriptar
+    public String Desencriptar (String desencriptar){
+        try{
+            SecretKeySpec llavesecreta = CrearClave(llave);
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.DECRYPT_MODE, llavesecreta);
+
+            byte [] cadena = Base64.getDecoder().decode(desencriptar);
+            byte [] desencriptado = cipher.doFinal(cadena);
+            String cadena_desencriptada = new String(desencriptado);
+            return cadena_desencriptada;
+        }catch(Exception e){
+            return "";
+        }
     }
 }
 

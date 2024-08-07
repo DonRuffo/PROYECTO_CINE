@@ -33,5 +33,35 @@ public class Ventas {
                 ((JFrame) SwingUtilities.getWindowAncestor(regresarButton)).dispose();
             }
         });
+        porFechaYFuncionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame ventasFuncion = new JFrame();
+                ventasFuncion.setTitle("PoliCine");
+                ventasFuncion.setContentPane(new VentasPorFuncion().Paneldos);
+                ventasFuncion.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                ventasFuncion.setSize(900,600);
+                ventasFuncion.setLocationRelativeTo(null);
+                ventasFuncion.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                ventasFuncion.setIconImage(imagen.getImage());
+                ((JFrame) SwingUtilities.getWindowAncestor(porFechaYFuncionButton)).dispose();
+            }
+        });
+        porPeliculaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame porPeli = new JFrame();
+                porPeli.setTitle("PoliCine");
+                porPeli.setContentPane(new VentasPorPelicula().MainPanel);
+                porPeli.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                porPeli.setSize(750,500);
+                porPeli.setLocationRelativeTo(null);
+                porPeli.setVisible(true);
+                ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");
+                porPeli.setIconImage(imagen.getImage());
+                ((JFrame) SwingUtilities.getWindowAncestor(porPeliculaButton)).dispose();
+            }
+        });
     }
 }

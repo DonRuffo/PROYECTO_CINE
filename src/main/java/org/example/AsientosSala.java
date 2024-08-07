@@ -6538,6 +6538,10 @@ public class AsientosSala {
                 }else{
                     String obtenerAsientos = AsientosLabel.getText();
                     String [] separador = obtenerAsientos.split(",");
+                    String AsientosParaReserva=""; //identificacion de asientos para la reserva del cliente
+                    for(int i=1; i<separador.length; i++){
+                        AsientosParaReserva+=separador[i]+",";
+                    }
                     int asientosTotales = separador.length-1;
                     SALAS paraAsientos = new SALAS();
                     String anio= nueva.getFecha().substring(6,10);
@@ -6558,6 +6562,7 @@ public class AsientosSala {
                                 paraAsientos.setAsientos_vendidos(String.valueOf(total_vendidos));
                             }
                         }
+                        CLIENTES clienteCache = new CLIENTES();
                         //documento de busqueda para la coleccion Salas
                         Document buscar = new Document("titulo", nueva.getTitulo()).append("fecha", nueva.getFecha())
                                 .append("hora", nueva.getHorario());
@@ -6595,6 +6600,24 @@ public class AsientosSala {
                         //actualizacion de la cantidad de los asientos disponbles y vendidos en la coleccion actual
                         UpdateResult actualizarEnMeses = coleccionMeses.updateOne(buscar2,asientos);
                         UpdateResult actualizarEnAnual = coleccionAnual.updateOne(buscar2,asientos);
+
+                        //obtencion del cliente actual para realizar la reserva
+                        MongoDatabase cacheSesion = cliente3.getDatabase("CacheSesion");
+                        MongoCollection<Document> clienteActual = cacheSesion.getCollection("ClienteActual");
+                        FindIterable<Document> acClient = clienteActual.find();
+
+                        for(Document actual : acClient){
+                            clienteCache.setCedula(actual.getString("cedula"));
+                            clienteCache.setNombre(actual.getString("nombre"));
+                        }
+
+                        //abrir la base de reservas para insertar la nueva reserva del cliente actual
+                        MongoDatabase reservas = cliente3.getDatabase("Reservas");
+                        MongoCollection<Document> datosReservas = reservas.getCollection("Datos_Reservas");
+                        Document insertarReserva = new Document("cedula", clienteCache.getCedula())
+                                .append("nombre", clienteCache.getNombre()).append("titulo",nueva.getTitulo())
+                                .append("fecha", nueva.getFecha()).append("sala", nueva.getSala())
+                                .append("Hora", nueva.getHorario()).append("Asientos", AsientosParaReserva);
                     }
                     JOptionPane.showMessageDialog(null, "Reservación completada, cancelar $"+PrecioLabel.getText()+" en caja el día de la función.");
 

@@ -14,7 +14,7 @@ public class Estadisticas {
 
     public Estadisticas(){
         PanelImagen.setLayout(new BorderLayout());
-        ImageIcon imagen = new ImageIcon("IMAGENES/Palomitas3D.png");
+        ImageIcon imagen = new ImageIcon("IMAGENES/CAMARA.png");
         JLabel imagenLabel = new JLabel(imagen);
         PanelImagen.add(imagenLabel, BorderLayout.CENTER);
         regresarButton.addActionListener(new ActionListener() {
@@ -52,9 +52,9 @@ public class Estadisticas {
             public void actionPerformed(ActionEvent e) {
                 JFrame ocupacion = new JFrame();
                 ocupacion.setTitle("PoliCine");
-                ocupacion.setContentPane(new OcupacionDeSalas().MainPanel);
+                ocupacion.setContentPane(new OcupacionPorFuncion().MainPanel);
                 ocupacion.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                ocupacion.setSize(500, 350);
+                ocupacion.setSize(900, 600);
                 ocupacion.setLocationRelativeTo(null);
                 ocupacion.setVisible(true);
                 ImageIcon imagen = new ImageIcon("IMAGENES/POLICINE_ICON.png");

@@ -3,11 +3,16 @@ package org.example;
 import com.mongodb.client.*;
 import org.bson.Document;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.MessageDigest;
+import java.util.Arrays;
+import java.util.Base64;
 
 public class AgregarCliente {
     public JPanel MainPanel;
@@ -22,8 +27,9 @@ public class AgregarCliente {
     private JButton regresarButton;
     
     DefaultComboBoxModel edadModel = new DefaultComboBoxModel();
-    
+    String llave="Dennis123";
     public AgregarCliente() {
+
         EdadBox.setModel(edadModel);
         for (int i=18; i<=100; i++){
             edadModel.addElement(i);
@@ -63,6 +69,7 @@ public class AgregarCliente {
                                     cli2.setNombre(NombreField.getText());
                                     cli2.setCedula(CedulaField.getText());
                                     cli2.setContrasena(ContraField.getText());
+                                    String encriptar = Encriptar(ContraField.getText());
                                     cli2.setDireccion(DirecField.getText());
                                     cli2.setEdad(edadModel.getSelectedItem().toString());
                                     cli2.setTelefono(TelefonoField.getText());
@@ -86,7 +93,7 @@ public class AgregarCliente {
                                         if (verificacion==0){
                                             Document documento= new Document("cedula",cli2.getCedula()).append("nombre",cli2.getNombre())
                                                     .append("edad",cli2.getEdad()).append("telefono",cli2.getTelefono())
-                                                    .append("direccion",cli2.getDireccion()).append("contrasena",cli2.getContrasena());
+                                                    .append("direccion",cli2.getDireccion()).append("contrasena",encriptar);
                                             RegistroClientes.insertOne(documento);
                                             JOptionPane.showMessageDialog(null,"Registro exitoso");
                                             CedulaField.setText("");
@@ -140,5 +147,35 @@ public class AgregarCliente {
             }
         }
         return true;
+    }
+
+    //función de encriptacion / desencriptacion
+    public SecretKeySpec CrearClave(String llave){
+        try{
+            byte [] cadena = llave.getBytes("UTF-8");
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            cadena = md.digest(cadena);
+            cadena = Arrays.copyOf(cadena,16);
+            SecretKeySpec llavesecreta = new SecretKeySpec(cadena, "AES");
+            return llavesecreta;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    //encriptar
+    public String Encriptar (String encriptar){
+        try{
+            SecretKeySpec llavesecreta = CrearClave(llave);
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.ENCRYPT_MODE, llavesecreta);
+
+            byte [] cadena = encriptar.getBytes("UTF-8");
+            byte []  encriptada = cipher.doFinal(cadena);
+            String cadena_encriptada = Base64.getEncoder().encodeToString(encriptada);
+            return cadena_encriptada;
+        }catch(Exception e){
+            return "";
+        }
     }
 }
