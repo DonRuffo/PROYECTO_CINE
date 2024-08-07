@@ -1,6 +1,7 @@
 Objetivo General
 
 Desarrollar un sistema de reservas para cine que permita a los usuarios reservar y administrar películas de un cine en específico, mejorando la experiencia del cliente y optimizando la gestión operativa del cine.
+
 Objetivos Específicos
 
 1.	Implementar funcionamientos de administrador para el sistema de reservas, como ver estadísticas, gestionar clientes y gestionar películas para facilitar a el administrador de la empresa el manejo correcto de la base de datos.
