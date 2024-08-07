@@ -1,65 +1,3 @@
-PORTADA
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Objetivo General
 Desarrollar un sistema de reservas para cine que permita a los usuarios reservar y administrar películas de un cine en específico, mejorando la experiencia del cliente y optimizando la gestión operativa del cine.
 Objetivos Específicos
@@ -84,17 +22,30 @@ La implementación de un sistema de reservas para cine es fundamental en la era 
 En resumen, la implementación de un sistema de reservas para cine no solo responde a la demanda de los usuarios por mayor comodidad y eficiencia, sino que también optimiza la operación interna del cine, aumentando su competitividad y capacidad de adaptación a un mercado en constante cambio.
 Herramientas Swing Utilizadas
 	JComboBox: Permite tener una barra de valores predeterminados por el sistema y desarrollador.
+
 	JTextField: El ingreso por teclado es factible gracias a este elemento, ayuda a los usuarios a ingresar valores que son necesarios para avanzar dentro del sistema.
+
 	JButton: Permiten realizar acciones dentro de los JFrame como navegar por el sistema, generar información, ejecutar una petición, etc.
+
 	JLabel: Ayuda a predeterminar un texto dentro de la pantalla, mayormente usado como guía para los usuarios en cuanto a que acción deben realizar en cada pantalla.
+
 	Spacers: Son útiles para mover a los elementos dentro del JPanel entre sí, con el objetivo de achicar o aprovechar de mejor manera los espacios visuales.
+
 	JFrame: El componente de mayor nivel, permite crear frames (pantallas) como lienzo para agregar componentes y funcionalidades dentro del sistema.
+
 	JPanel: Permite agregar componentes y elementos dentro de un JFrame, en cada uno de estos hay al menos un JPanel.
+
 	JCheckBox: Herramienta para seleccionar y deseleccionar una función o acción dentro del sistema.
-	JScrollPanel: Peculiar componente que se relaciona con el uso de los JTables para la asignación de datos múltiples. Facilita la navegación en la información independientemente de la cantidad de datos que existan y del tamaño del JFrame.
+
+	JScrollPanel: Peculiar componente que se relaciona con el uso de los JTables para la asignación de datos múltiples. Facilita la navegación en la información 
+independientemente de la cantidad de datos que existan y del tamaño del JFrame.
+
 	JTables: Como su nombre lo indica, son tablas que se pueden generar dentro de los frames, van acompañadas, comúnmente, de un ScrollPanel para su visualización y manipulación de los datos.
+
 	JPasswordField: Similar a un JTextField, con la característica de cifrar el texto que el usuario introduce, ideal para la implementación de contraseñas en el sistema.
+
 	Imágenes: Dentro del proyecto se creó una carpeta como repositorio de imágenes para su uso en los frames a crear.
+
 Desarrollo y pruebas
 1.	Login
 Para la implementación de Login se tomó en consideración los tipos de usuario que utilizará el sistema: Administrador y Cliente, además de cuáles son los valores se deben ingresar por pantalla: Usuario y Contraseña. Posterior a ello, se crea una clase Java Swing en donde se moldea el diseño del login.
