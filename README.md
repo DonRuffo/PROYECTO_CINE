@@ -233,9 +233,13 @@ Validaciones y limitaciones
 
 	Al igual que el frame anterior (AgregarPelicula) el año, mes y día están controlados según la selección.
 
-     ![image](https://github.com/user-attachments/assets/1bf9ea18-414d-4321-8c43-f476d25406e3)
-     ![image](https://github.com/user-attachments/assets/ee15525d-da46-403f-aa81-b7bea72c6734)
-     ![image](https://github.com/user-attachments/assets/b93c6c49-d0e5-461f-b4a4-30c4d23338d6)
+![image](https://github.com/user-attachments/assets/7d8e47ff-e8a9-42ce-b2ca-2580047dbae0)
+![image](https://github.com/user-attachments/assets/7a9916bf-255b-466d-8096-22afca4a2090)
+![image](https://github.com/user-attachments/assets/53a02b81-67b1-4813-b2a2-4c81b18725b7)
+
+
+
+
 
 
 
