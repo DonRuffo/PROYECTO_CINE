@@ -616,7 +616,33 @@ Ya se han visto las estadísticas de ventas, pero si el administrador desea ver 
 
 ![image](https://github.com/user-attachments/assets/b4a4092a-3cd8-4e5b-a5e4-38ea8f52dc97)
 
- 
+
+ Funcionamiento
+
+ ![image](https://github.com/user-attachments/assets/91ec1474-dd16-43e0-973d-9be00fabfae2)
+
+ Validaciones y Limitaciones
+
+ 	-El sistema de fechas es escalable a partir del año, puede solo seleccionar el año y visualizar estadísticas anuales, o aumentar a esa selección un mes para ver la información mensual, y así hasta llegar al más ato nivel que es la Hora; si el administrador irrumpe esta secuencia de cualquier otra manera, le dará un error y solicitará corregir la fecha. Esto sucederá tanto en el apartado de “Por fecha y hora" como en el de  “Por Sala”.
+
+  ![image](https://github.com/user-attachments/assets/6b000a61-5275-47a7-837f-6c43c6332dac)
+  ![image](https://github.com/user-attachments/assets/a8a3956c-2633-4ffe-b1c3-66470b947378)
+
+  	- El sistema valida que el administrador escoja al menos el año
+   
+   ![image](https://github.com/user-attachments/assets/6990082d-c00c-45b5-bfa3-c22aeb0f9c9a)
+   
+
+   	-En el apartado de  “Por Sala” el sistema validará que al menos se ingrese una sala junto a un año, más no solo la sala.
+
+   ![image](https://github.com/user-attachments/assets/c9644ce3-e428-4539-be05-895185ad9f0f)
+
+
+    
+
+
+
+
 
 
 
