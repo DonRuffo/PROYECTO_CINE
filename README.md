@@ -693,6 +693,162 @@ Ya se han visto las estadísticas de ventas, pero si el administrador desea ver 
 
    ![image](https://github.com/user-attachments/assets/fab2e2cf-04e7-4949-8bbc-118080e88d8f)
 
+
+   16. Página Clientes
+
+       Ya terminadas las funcionalidades que tiene un administrador, se dirige a las que tiene un cliente, empezando por la pantalla que será el contenedor de las funciones.
+
+       ![image](https://github.com/user-attachments/assets/c979fee7-e2e1-4da3-b3f3-ae860b35e86d)
+
+
+       Funcionamiento
+
+       ![image](https://github.com/user-attachments/assets/079709fe-775f-417d-9bf0-15ee552fdf33)
+       
+
+   17. Ver Horarios
+
+	El cliente puede ver las películas y su información que en ese momento están disponibles, simulando a una cartelera. 
+
+![image](https://github.com/user-attachments/assets/a78ee607-eb91-4a76-94f4-818efd2655e4)
+
+
+Funcionamiento 
+
+ ![image](https://github.com/user-attachments/assets/2b818bd5-d384-4fdc-87f8-179d92382e6b)
+
+
+
+    18. Reservar película
+
+    El objetivo es que el cliente pueda realizar una reserva de una pelicula en un horario específico y en esta pantalla se encuentra la primera parte para cumplir dicho objetivo. El cliente escogerá el horario preferido de los que ya visualizó en la funcion Ver Horarios.
+    
+![image](https://github.com/user-attachments/assets/829f9d2c-eecc-4df3-b086-212f7d10f98a)
+
+
+	Funcionamiento
+
+ ![image](https://github.com/user-attachments/assets/433271ad-6d72-4817-b8e7-80d4be1e8627)
+
+
+Validaciones y limitaciones
+
+
+	-El sistema controla que el cliente solo escoja un horario existente para la selección de la pelicula.
+ 	-El sistema obliga al cliente a seleccionar correctamente todos los campos.
+
+  ![image](https://github.com/user-attachments/assets/cfc1660a-acf0-4574-8d1e-34d64e9a683d)
+
+
+  	-Posterior a escoger una función, el cliente puede acceder a los asientos que este ofrece
+
+
+   19. Asientos Sala
+
+       Esta pantalla permite seleccionar al cliente los asientos preferidos dentro de la sala en donde miraran la película, con perspectiva de tener la Pantalla del cine en la parte superior y la distribución de los asientos hacia la parte inferior.
+
+       ![image](https://github.com/user-attachments/assets/21916fdb-cf08-4e9e-a736-855bd27368a4)
+
+
+       Funcionamiento
+
+       ![image](https://github.com/user-attachments/assets/b158c5a1-4915-436f-820e-1efe085448e5)
+
+
+       Validaciones y limitaciones
+
+       -	El cliente no puede seleccionar los asientos que están marcados de color rojo, porque esos asientos ya han sido reservados por otros clientes.
+      
+         ![image](https://github.com/user-attachments/assets/a5f19b7d-8b3e-4581-8959-14f86a46c8d7)
+
+
+       -	Los asientos seleccionados se marcarán de color verde y aparecerán en un cuadro de texto situado a la derecha de la pantalla, junto con el valor total a pagar.
+      
+         ![image](https://github.com/user-attachments/assets/0553b10f-b787-45c4-8d66-c5ca1f2e0a7a)
+
+       -	Para volver a elegir los asientos hay un botón en la parte inferior para hacerlo, volverá a la normalidad todos los asientos excepto los que ya están reservados.
+      
+         ![image](https://github.com/user-attachments/assets/eaede5d8-cb4f-493c-8f4f-27f584ca4b32)
+
+
+       Prueba de éxito
+
+       ![image](https://github.com/user-attachments/assets/9f91fb67-2f8d-4579-926e-a8b41d5e038a)
+
+
+       20. Confirmar cierre de sesión
+           Una pantalla emergente fue configurada para que tanto el administrador como el cliente pueda aprobar su cierre de sesión. En caso de denegar la acción, se mantendrá en la página principal del perfil que se encuentra usando en sistema.
+
+![image](https://github.com/user-attachments/assets/27b51502-62d9-46b7-b3c4-99f902ddd267)
+
+
+	21. Registrarse
+
+ 	En el login existe un botón que redirige a un cliente a poder registrarse el sistema para, posteriormente, poder usarlo.
+
+  ![image](https://github.com/user-attachments/assets/2866db48-1515-4161-9abf-407c797c48a0)
+
+
+  Funcionamiento
+
+  ![image](https://github.com/user-attachments/assets/f382db0c-1ca5-4672-9c39-fd660054de83)
+
+
+
+  Validaciones y limitaciones
+
+  - En los campos cedula y telefono no pueden haber caracteres alfabéticos, solo numéricos.
+
+    ![image](https://github.com/user-attachments/assets/1f520516-5ad5-46b3-b2ec-ff0d809bbb6b)
+
+
+    - En los campos cedula y telefono debe haber exactamente 10 dígitos.
+
+      ![image](https://github.com/user-attachments/assets/a8d1d84a-61ec-483c-91ec-1c0a6235e0d1)
+
+
+      - El sistema no permite el ingreso de valores numéricos en el nombre del cliente
+     
+        ![image](https://github.com/user-attachments/assets/11eeeec4-85df-469e-bafa-8334c0c90074)
+
+
+	- El sistema obliga al cliente a llenar todos los campos solicitados
+
+    	![image](https://github.com/user-attachments/assets/26b699df-08de-4682-aa7a-e66ba12ee779)
+
+
+    	- Los valores de los campos Contraseña y Confirmar contraseña deben coincidir, caso contrario el sistema le botará un mensaje de alerta.
+   
+       ![image](https://github.com/user-attachments/assets/c3d6b50f-e7d0-4491-9bad-6ed35bd08130)
+
+
+    Prueba de éxito
+
+    ![image](https://github.com/user-attachments/assets/755449ac-39bc-4d34-b8c8-e04f36314b80)
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
    
 
 
