@@ -839,6 +839,7 @@ Validaciones y limitaciones
 
 
 	Manual de Usuario
+
 Link del video: https://youtu.be/QvQHflQ_5BA
 
 
