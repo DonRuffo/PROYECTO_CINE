@@ -5,26 +5,47 @@ Desarrollar un sistema de reservas para cine que permita a los usuarios reservar
 Objetivos Específicos
 
 1.	Implementar funcionamientos de administrador para el sistema de reservas, como ver estadísticas, gestionar clientes y gestionar películas para facilitar a el administrador de la empresa el manejo correcto de la base de datos.
-2.	Implementar funcionamientos de cliente para el sistema de reservas, como registrarse, acceder a la cartelera del cine y reservar un asiento para una película en específico 
+   
+3.	Implementar funcionamientos de cliente para el sistema de reservas, como registrarse, acceder a la cartelera del cine y reservar un asiento para una película en específico 
 
 Justificación
 
 La implementación de un sistema de reservas para cine es fundamental en la era digital actual, donde la conveniencia y la eficiencia son prioridades para los consumidores. Este sistema ofrecerá múltiples beneficios tanto para los usuarios como para la administración del cine:
+
 1.	Mejora de la Experiencia del Cliente:
+
+
 	Los usuarios podrán consultar la cartelera y reservar sus boletos desde la comodidad de su hogar o desde cualquier dispositivo móvil, evitando largas filas y esperas en taquilla.
+
+
 	La posibilidad de elegir sus asientos preferidos mejora la satisfacción del cliente y su experiencia general.
+
+
 2.	Optimización de la Gestión Operativa:
+   
 	El sistema permitirá una mejor gestión de la capacidad de las salas, facilitando la asignación y control de los asientos disponibles.
+
 	Automatizará el proceso de venta de boletos, reduciendo errores y aumentando la eficiencia del personal de taquilla.
+
 3.	Incremento de las Ventas:
+   
 	Al ofrecer un canal de ventas adicional, se espera un incremento en la venta de boletos, ya que los clientes pueden comprar en cualquier momento y lugar.
+
+
 4.	Seguridad y Comodidad:
+   
 	El sistema proporcionará opciones de pago seguras y variadas, aumentando la confianza del usuario en el proceso de compra.
+
 	La entrega de boletos digitales reduce el riesgo de pérdida o falsificación de boletos físicos.
+
 5.	Análisis y Toma de Decisiones:
+   
 	La recopilación de datos sobre las reservas y ventas permitirá a la administración del cine realizar análisis detallados y tomar decisiones informadas para mejorar su oferta y servicio.
+
 En resumen, la implementación de un sistema de reservas para cine no solo responde a la demanda de los usuarios por mayor comodidad y eficiencia, sino que también optimiza la operación interna del cine, aumentando su competitividad y capacidad de adaptación a un mercado en constante cambio.
+
 Herramientas Swing Utilizadas
+
 	JComboBox: Permite tener una barra de valores predeterminados por el sistema y desarrollador.
 
 	JTextField: El ingreso por teclado es factible gracias a este elemento, ayuda a los usuarios a ingresar valores que son necesarios para avanzar dentro del sistema.
@@ -54,6 +75,7 @@ Desarrollo y pruebas
 1.	Login
 
 Para la implementación de Login se tomó en consideración los tipos de usuario que utilizará el sistema: Administrador y Cliente, además de cuáles son los valores se deben ingresar por pantalla: Usuario y Contraseña. Posterior a ello, se crea una clase Java Swing en donde se moldea el diseño del login.
+
 ![image](https://github.com/user-attachments/assets/13ea5337-8213-4c6b-963d-ef9c2ef377c0)
 
 
