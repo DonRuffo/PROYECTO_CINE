@@ -52,6 +52,7 @@ independientemente de la cantidad de datos que existan y del tamaño del JFrame.
 
 Desarrollo y pruebas
 1.	Login
+
 Para la implementación de Login se tomó en consideración los tipos de usuario que utilizará el sistema: Administrador y Cliente, además de cuáles son los valores se deben ingresar por pantalla: Usuario y Contraseña. Posterior a ello, se crea una clase Java Swing en donde se moldea el diseño del login.
 ![image](https://github.com/user-attachments/assets/13ea5337-8213-4c6b-963d-ef9c2ef377c0)
 
@@ -82,6 +83,7 @@ Validaciones y límites
 
 
 2.	Gestión como Administrador
+   
 Dentro de las funcionalidades para este apartado se encuentran: Gestión de Películas,, Gestión de Clientes,  Estadísticas y el cierre de sesión
 
  ![image](https://github.com/user-attachments/assets/97b94d27-ee37-4990-8c05-9ad2855b0d8b)
@@ -100,6 +102,7 @@ Funcionamiento
 
 
 3.	Gestionar Películas
+   
 Este Jframe cuenta con las funcionalidades necesarias para un manejo completo de las películas que se encuentran actualmente en una cartelera
 
  ![image](https://github.com/user-attachments/assets/e9879de8-bd0e-4d35-9581-f79c7de302ff)
@@ -113,6 +116,7 @@ Funcionamiento
 
 
 4.	Agregar Película
+   
 El administrador puede agregar una nueva película a la cartelera del cine mediante este frame, que incluye inputs para detallar el título, categoría, fecha, hora, sala, restricción de edad y precio por asiento que tendrá el film.
 
  ![image](https://github.com/user-attachments/assets/baf7c432-74f1-4b9b-98f2-2250f2007222)
@@ -186,6 +190,7 @@ NOTA: las cuatro horas, la restricción de edad y la categoría indicada previam
 
 5.	Cambiar horarios
 
+
 Esta función permite a los administradores mover horarios y salas, en dónde el sistema pide seleccionar una película y el horario actual para luego seleccionar el nuevo.
 
  ![image](https://github.com/user-attachments/assets/756c41e3-d6cb-45d5-9932-7d6807ad80f6)
@@ -203,6 +208,7 @@ Funcionamiento
 
 
 Validaciones y limitaciones
+
 
 	El sistema solo mostrará los horarios que cada película tiene actualmente, de esta manera se controla elegir un horario y sala que no tiene ninguna relación con el título
 
@@ -257,12 +263,14 @@ Validaciones y limitaciones
 
 
 	Prueba de éxito
+
  
  ![image](https://github.com/user-attachments/assets/5c95ebe1-d82d-4a78-b518-ef5796585f31)
 
 
 
 6.	Eliminar Película
+   
 Para completar la gestión de las películas, fue implementada la función de eliminar una película de cartelera. Además, el sistema brinda dos maneras de eliminar un titulo: especificando horario y sala de la función o eliminar todas las funciones de una película.
 
  ![image](https://github.com/user-attachments/assets/089927f3-c0ca-4134-8493-274b46562ef0)
@@ -277,6 +285,7 @@ Funcionamiento
 
 
 Validaciones y limitaciones
+
 	Como primera opción, el sistema ofrece eliminar una película del cine definitivamente, pero si el administrador desea eliminar la película de un horario y sala en específico, podrá seleccionar el JCheckBox para desplegar nuevos campos de control.
 
 ![image](https://github.com/user-attachments/assets/e0481244-cb61-4f3c-8e50-1a62524b5b9a)
@@ -317,6 +326,7 @@ Prueba de éxito sin Eliminar por Horario y Sala
 
 
 7.	Gestionar Clientes
+   
 Una vez finalizada la gestión de películas, la concentración obtiene un enfoque sobre los clientes y las acciones que se puede realizar sobre ellos, como agregar un cliente, ver clientes y eliminar un cliente.
 
  ![image](https://github.com/user-attachments/assets/227863fb-26a0-4dc9-b7f0-9b2cdf3e9982)
@@ -336,6 +346,7 @@ Funcionamiento
 
 
 8.	Agregar Cliente
+   
 El administrador puede registrar la información de un cliente detallando: cédula, nombre, edad, teléfono, dirección, contraseña y confirmar contraseña.
 
  ![image](https://github.com/user-attachments/assets/7ec7a7c4-febc-4f4c-9e0f-203b7ad6402e)
@@ -356,6 +367,8 @@ Funcionamiento
 
 
 Validaciones y limitaciones
+
+
 	El sistema no permitirá el registro si existen caracteres alfabéticos en los campos cedula y teléfono.
 
 ![image](https://github.com/user-attachments/assets/29fb3bb4-b6e1-41a0-8a32-88f826246e2b)
@@ -412,6 +425,7 @@ Prueba de éxito
 
 
 9.	Ver Clientes
+    
 Un administrador debe poder ver la información de los clientes que se encuentran registrados en el sistema, incluso para poder eliminarlo después.
 Este frame muestra todos los datos de cada cliente en un JTable, todo menos las contraseñas por supuesto.
 
@@ -429,6 +443,7 @@ Funcionamiento
 
 
 10.	Eliminar Cliente
+    
 Completando la gestión de los clientes, damos paso a la función de eliminar uno, teniendo como llave la cédula del cliente a eliminar.
 
  ![image](https://github.com/user-attachments/assets/5c0eacd1-9902-492d-aeb4-2ae204c3a683)
@@ -448,6 +463,7 @@ Funcionamiento
 
 
 Validaciones y limitaciones
+
 	La cedula ingresada debe contra con al menos 10 dígitos y el sistema validará que no existan caracteres alfabéticos.
 
  ![image](https://github.com/user-attachments/assets/60fcfc55-652e-4ae2-a636-8debabfd65c7)
@@ -486,6 +502,7 @@ Prueba de éxito
 
 
 11.	Estadísticas
+    
 Ahora se procede a implementar la función de estadísticas, donde el administrador podrá visualizar los datos financieros y de ocupación que tiene el cine.
 
  ![image](https://github.com/user-attachments/assets/d439b5fb-c5bd-4b78-87a9-f0ef63a4074d)
@@ -507,6 +524,7 @@ Funcionamiento
 
 
 12.	Ventas
+    
 El administrador podrá ver las ventas del cine de dos maneras: por fecha y función o por película.
 
 ![image](https://github.com/user-attachments/assets/1909d918-e118-4966-a150-4b0dd96c27b1)
@@ -527,6 +545,7 @@ Funcionamiento
 
 
 13.	Por fecha y función
+    
 Con esta modalidad, el administrador puede navegar entre las estadísticas únicamente por fechas (anualmente, mensualmente, diariamente y en función específica.) y por salas.
 
  ![image](https://github.com/user-attachments/assets/05535ac9-3b4d-47c7-899d-aee4332ca492)
@@ -542,6 +561,7 @@ Funcionamiento
 
 
 Validaciones y limitaciones
+
 	El sistema de fechas es escalable a partir del año, puede solo seleccionar el año y visualizar estadísticas anuales, o aumentar a esa selección un mes para ver la información mensual, y así hasta llegar al más ato nivel que es la Hora; si el administrador irrumpe esta secuencia de cualquier otra manera, le dará un error y solicitará corregir la fecha. Esto sucederá tanto en el apartado de “Por fecha y hora" como en el de  “Por Sala”.
 
 ![image](https://github.com/user-attachments/assets/ef0868d0-916d-4ccc-b239-107c7814c7b7)
@@ -575,6 +595,8 @@ Validaciones y limitaciones
 
 
 14.	Por Película
+
+
 Ahora la modalidad por Película, la cual indica el éxito de la misma independientemente de las fechas y salas, la información a desplegarse puede ser anual o mensual.
 
  ![image](https://github.com/user-attachments/assets/2549fcc5-c349-48cf-8fd3-ae25dd9d0ca3)
@@ -593,6 +615,7 @@ Funcionamiento
 
 
 Validaciones y limitaciones
+
 	El sistema obliga al administrador a seleccionar al menos un año.
 
  ![image](https://github.com/user-attachments/assets/ba0e9ab1-cf62-4cd2-b850-f2ea0a2d1c2a)
@@ -612,6 +635,7 @@ Prueba de éxito
 
  
 15.	Ocupación de Salas
+    
 Ya se han visto las estadísticas de ventas, pero si el administrador desea ver la cantidad de asientos que han sido ocupados y las que no tiene esta función como su solución.
 
 ![image](https://github.com/user-attachments/assets/b4a4092a-3cd8-4e5b-a5e4-38ea8f52dc97)
