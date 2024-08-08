@@ -827,6 +827,20 @@ Validaciones y limitaciones
     ![image](https://github.com/user-attachments/assets/755449ac-39bc-4d34-b8c8-e04f36314b80)
 
 
+
+    Conclusiones
+
+    La creacion del sistema no fue sencilla, pero permitió la aplicación y práctica de varios conceptos de la Programación Orientada a Objetos al implementar una idea de desarrollo en este proyecto. El sistema cuenta con varias métricas de seguridad y validación, lo cual permite un correcto manejo de las bases de datos.
+
+
+    Proyección
+
+    El sistema puede tener futuras versiones del mismo, donde se incluyan métodos de pago en línea o la navegación de estadpisticas en campos de mayor nivel.
+
+
+    Fin.
+
+
     
 
 
