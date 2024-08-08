@@ -7,6 +7,7 @@ import com.mongodb.client.*;
 import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
 import java.util.LinkedHashSet;
+import javax.print.Doc;
 import javax.swing.*;
 import java.util.Set;
 
@@ -115,6 +116,17 @@ public class EliminarDeCartelera {
                                 HorarioBox.removeAllItems();
                                 horarioModel.addElement("Hora");
                             }
+                            FindIterable<Document> verificarPelicula = coleccion.find();
+                            int verificacion =0;
+                            for(Document documento : verificarPelicula){
+                                if(peliEliminar.getTitulo().equals(documento.getString("titulo"))){
+                                    verificacion++;
+                                }
+                            }
+                            if(verificacion==0){
+                                seleccionModel.removeElement(peliEliminar.getTitulo());
+                            }
+
                         }
                     }else{
                         peliEliminar.setTitulo(seleccion2model.getSelectedItem().toString());

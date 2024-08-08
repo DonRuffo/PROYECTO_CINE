@@ -106,6 +106,7 @@ public class Login {
                                     cli1.setCedula(documento.getString("cedula"));
                                     Document clienteActual = new Document("nombre", cli1.getNombre())
                                             .append("cedula", cli1.getCedula());
+                                    cacheColec.deleteMany(new Document());
                                     cacheColec.insertOne(clienteActual);
                                     JFrame paginaClientes = new JFrame();
                                     paginaClientes.setTitle("PoliCine");

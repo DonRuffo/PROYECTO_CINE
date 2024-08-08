@@ -6618,6 +6618,7 @@ public class AsientosSala {
                                 .append("nombre", clienteCache.getNombre()).append("titulo",nueva.getTitulo())
                                 .append("fecha", nueva.getFecha()).append("sala", nueva.getSala())
                                 .append("Hora", nueva.getHorario()).append("Asientos", AsientosParaReserva);
+                        datosReservas.insertOne(insertarReserva);
                     }
                     JOptionPane.showMessageDialog(null, "Reservación completada, cancelar $"+PrecioLabel.getText()+" en caja el día de la función.");
 
