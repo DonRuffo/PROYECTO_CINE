@@ -838,6 +838,11 @@ Validaciones y limitaciones
     El sistema puede tener futuras versiones del mismo, donde se incluyan métodos de pago en línea o la navegación de estadpisticas en campos de mayor nivel.
 
 
+	Manual de Usuario
+Link del video: https://youtu.be/QvQHflQ_5BA
+
+
+
     Fin.
 
 
