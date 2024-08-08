@@ -12,6 +12,8 @@ Justificación
 
 La implementación de un sistema de reservas para cine es fundamental en la era digital actual, donde la conveniencia y la eficiencia son prioridades para los consumidores. Este sistema ofrecerá múltiples beneficios tanto para los usuarios como para la administración del cine:
 
+
+
 1.	Mejora de la Experiencia del Cliente:
 
 
@@ -19,6 +21,8 @@ La implementación de un sistema de reservas para cine es fundamental en la era 
 
 
 	La posibilidad de elegir sus asientos preferidos mejora la satisfacción del cliente y su experiencia general.
+
+
 
 
 2.	Optimización de la Gestión Operativa:
