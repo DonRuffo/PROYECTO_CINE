@@ -638,6 +638,15 @@ Ya se han visto las estadísticas de ventas, pero si el administrador desea ver 
    ![image](https://github.com/user-attachments/assets/c9644ce3-e428-4539-be05-895185ad9f0f)
 
 
+
+   Prueba de éxito
+
+   ![image](https://github.com/user-attachments/assets/fab2e2cf-04e7-4949-8bbc-118080e88d8f)
+
+   
+
+
+
     
 
 
